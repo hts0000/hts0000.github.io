@@ -49,8 +49,8 @@ hugo的主题是博客的门面，博客的风格和样式都基于主题。如�
 ](https://themes.gohugo.io/loveit/)主题为例。
 
 点击Download前往LoveIt的github仓库进行下载。
-![下载LoveIt主题](../static/基于Hugo快速搭建个人博客-01.png "下载LoveIt主题")
-![下载LoveIt主题](../static/基于Hugo快速搭建个人博客-02.png "下载LoveIt主题")
+![下载LoveIt主题](../posts/static/基于Hugo快速搭建个人博客-01.png "下载LoveIt主题")
+![下载LoveIt主题](../posts/static/基于Hugo快速搭建个人博客-02.png "下载LoveIt主题")
 
 将下载好的压缩包解压到`D:\MyBlog\themes`目录下，并将目录重命名为LoveIt。
 
@@ -71,7 +71,7 @@ hugo的主题是博客的门面，博客的风格和样式都基于主题。如�
 hugo server -D --config D:\MyBlog\config.toml
 ```
 在浏览器访问URL:`localhost:1313`，可以查看本地博客。
-![下载LoveIt主题](../static/基于Hugo快速搭建个人博客-03.png "下载LoveIt主题")
+![下载LoveIt主题](../posts/static/基于Hugo快速搭建个人博客-03.png "下载LoveIt主题")
 
 ## 4 定制本地博客
 **定制一个充满个人元素的博客大概分为如下三步。**
@@ -86,19 +86,19 @@ hugo server -D --config D:\MyBlog\config.toml
 **第二步，个性化头像和图标。**
 
 点击[Favicon Generator](https://realfavicongenerator.net/)，打开`Select your Favicon image`上传一张你喜欢的图片。
-![Favicon Generator生成图标](../static/基于Hugo快速搭建个人博客-06.png "Favicon Generator生成图标")
+![Favicon Generator生成图标](../posts/static/基于Hugo快速搭建个人博客-06.png "Favicon Generator生成图标")
 
 上传之后成功之后来到页面最下方点击`Generate your Favicons and HTML code`，Favicon Generator会自动分辨率生成符合一系列PC和移动终端的图标。
-![Favicon Generator生成图标](../static/基于Hugo快速搭建个人博客-07.png "Favicon Generator生成图标")
+![Favicon Generator生成图标](../posts/static/基于Hugo快速搭建个人博客-07.png "Favicon Generator生成图标")
 
 点击`Favicon package`下载生成好的图标包。
-![Favicon Generator下载图标](../static/基于Hugo快速搭建个人博客-08.png "Favicon Generator下载图标")
+![Favicon Generator下载图标](../posts/static/基于Hugo快速搭建个人博客-08.png "Favicon Generator下载图标")
 
 将下载好的图标包解压，把里面的文件全部复制到`D:\MyBlog\static\`目录下。
 如果想要替换主页的头像图标，需要替换`D:\MyBlog\static\images\avatar.png`，推荐分辨率为528*560。
 
 最后整体效果如下图所示。
-![博客展示](../static/基于Hugo快速搭建个人博客-09.png "博客展示")
+![博客展示](../posts/static/基于Hugo快速搭建个人博客-09.png "博客展示")
 
 **第三步，个性化的博客内容。**
 
@@ -109,7 +109,7 @@ hugo server -D --config D:\MyBlog\config.toml
 LoveIt主题中作者已经写好了一个文章模板，这里直接套用这个模板进行修改即可。
 
 首先将`D:\MyBlog\themes\LoveIt\archetypesdefault.md`文件复制到`D:\MyBlog\archetypes`目录下，使用VsCode等markdown编辑工具打开。
-![模板文件](../static/基于Hugo快速搭建个人博客-10.png "模板文件")
+![模板文件](../posts/static/基于Hugo快速搭建个人博客-10.png "模板文件")
 
 **生成一篇博客文章**
 
@@ -140,7 +140,7 @@ hugo server -D --config D:\MyBlog\config.toml
 **第二步，创建一个同名仓库**
 
 网上也有很多教程，只枪强调一点，仓库名称为`username.github.io`。如：你的用户名叫`zhangshan000`，则你的仓库名必须为`zhangsan000.github.io`。
-![GitHub仓库](../static/基于Hugo快速搭建个人博客-11.png "GitHub仓库")
+![GitHub仓库](../posts/static/基于Hugo快速搭建个人博客-11.png "GitHub仓库")
 
 **第三步，hugo生成静态页面。**
 
@@ -181,7 +181,7 @@ git commit -m 'init MyBlog'
 git push
 ```
 在GitHub上查看提交。
-![GitHub仓库](../static/基于Hugo快速搭建个人博客-12.png "GitHub仓库")
+![GitHub仓库](../posts/static/基于Hugo快速搭建个人博客-12.png "GitHub仓库")
 
 最后在浏览器上访问URL:`<仓库名称>.github.io`即可通过网络访问到静态页面。
-![GitHub仓库](../static/基于Hugo快速搭建个人博客-13.png "GitHub仓库")
+![GitHub仓库](../posts/static/基于Hugo快速搭建个人博客-13.png "GitHub仓库")
