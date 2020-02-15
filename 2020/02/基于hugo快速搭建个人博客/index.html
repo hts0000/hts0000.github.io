@@ -39,7 +39,7 @@
     
         "keywords": "hugo, 分享",
     
-    "wordcount":  2426 ,
+    "wordcount":  2420 ,
     "url": "https:\/\/hts0000.github.io\/2020\/02\/%E5%9F%BA%E4%BA%8Ehugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2\/",
     
         "datePublished": "2020-02-15T13:02:13\x2b08:00",
@@ -143,7 +143,7 @@
             </div>
             <div class="post-meta-other">
                 <i class="far fa-calendar-alt fa-fw"></i><time datetime=2020-02-15>2020-02-15</time>&nbsp;
-                <i class="fas fa-pencil-alt fa-fw"></i>约 2426 字&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>约 2420 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>预计阅读 5 分钟&nbsp;</div>
         </div>
 
@@ -177,7 +177,8 @@
             
             
             
-            <p>转载请注明出处：<code>https://hts0000.github.io/</code>。</p>
+            <a class="post-dummy-target" id="基于hugo快速搭建个人博客"></a><h1>基于Hugo快速搭建个人博客</h1>
+<p>转载请注明出处：<code>https://hts0000.github.io/</code>。</p>
 <p>欢迎与我联系：<code>hts_0000@sina.com</code>。</p>
 <a class="post-dummy-target" id="1-引言"></a><h1>1 引言</h1>
 <p>本文用于记录基于HUGO搭建个人博客的步骤和注意事项，阅读时长大概30分钟。
@@ -209,8 +210,8 @@
 </ol>
 <p><strong>第一步，安装hugo。</strong></p>
 <p>前往hugo的github仓库获取对应操作系统的<a href="https://github.com/gohugoio/hugo/releases">hugo执行程序</a>。</p>
-<p>完成之后打开cmd终端，输入hugo version，如能正确显示hugo的版本即为安装成功。</p>
-<p><img src="/posts/static/00-build_blog_base_hugo/00.PNG" alt="hugo安装成功" title="hugo安装成功"></p>
+<p>完成之后打开cmd终端，输入hugo version，如能正确显示hugo的版本即为安装成功。
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/00.PNG" alt="hugo安装成功" title="hugo安装成功"></p>
 <p>安装成功后在cmd终端执行如下命令，在D盘生成hugo博客站点MyBlog。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -224,8 +225,8 @@
 <p>hugo的主题是博客的门面，博客的风格和样式都基于主题。如果有前端编程的能力，也可以自行设计属于自己的主题，或者前往<a href="https://themes.gohugo.io/">hugo主题商店</a>下载现成的主题。这里以<a href="https://themes.gohugo.io/loveit/">LoveIt
 </a>主题为例。</p>
 <p>点击Download前往LoveIt的github仓库进行下载。
-<img src="/posts/static/00-build_blog_base_hugo/01.PNG" alt="下载LoveIt主题" title="下载LoveIt主题">
-<img src="/posts/static/00-build_blog_base_hugo/02.png" alt="下载LoveIt主题" title="下载LoveIt主题"></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/01.PNG" alt="下载LoveIt主题" title="下载LoveIt主题">
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/02.png" alt="下载LoveIt主题" title="下载LoveIt主题"></p>
 <p>将下载好的压缩包解压到<code>D:\MyBlog\themes</code>目录下，并将目录重命名为LoveIt。</p>
 <p>将<code>D:\MyBlog\themes\LoveIt\exampleSite\zh</code>目录下的所有文件和<code>D:\MyBlog\themes\LoveIt\exampleSite\static</code>目录复制到<code>D:\MyBlog\</code>目录下。</p>
 <ul>
@@ -248,7 +249,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>在浏览器访问URL:<code>localhost:1313</code>，可以查看本地博客。
-<img src="/posts/static/00-build_blog_base_hugo/03.png" alt="下载LoveIt主题" title="下载LoveIt主题"></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/03.png" alt="下载LoveIt主题" title="下载LoveIt主题"></p>
 <a class="post-dummy-target" id="4-定制本地博客"></a><h1>4 定制本地博客</h1>
 <p><strong>定制一个充满个人元素的博客大概分为如下三步。</strong></p>
 <ol>
@@ -260,21 +261,21 @@
 <p>关于如何修改博客的标题等，<code>D:\MyBlog\config.toml</code>文件内作者有非常完善的注释，大家多修改多尝试（先备份），这里不细讲。</p>
 <p><strong>第二步，个性化头像和图标。</strong></p>
 <p>点击<a href="https://realfavicongenerator.net/">Favicon Generator</a>，打开<code>Select your Favicon image</code>上传一张你喜欢的图片。
-<img src="/posts/static/00-build_blog_base_hugo/06.PNG" alt="Favicon Generator生成图标" title="Favicon Generator生成图标"></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/06.PNG" alt="Favicon Generator生成图标" title="Favicon Generator生成图标"></p>
 <p>上传之后成功之后来到页面最下方点击<code>Generate your Favicons and HTML code</code>，Favicon Generator会自动分辨率生成符合一系列PC和移动终端的图标。
-<img src="/posts/static/00-build_blog_base_hugo/07.PNG" alt="Favicon Generator生成图标" title="Favicon Generator生成图标"></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/07.PNG" alt="Favicon Generator生成图标" title="Favicon Generator生成图标"></p>
 <p>点击<code>Favicon package</code>下载生成好的图标包。
-<img src="/posts/static/00-build_blog_base_hugo/08.PNG" alt="Favicon Generator下载图标" title="Favicon Generator下载图标"></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/08.PNG" alt="Favicon Generator下载图标" title="Favicon Generator下载图标"></p>
 <p>将下载好的图标包解压，把里面的文件全部复制到<code>D:\MyBlog\static\</code>目录下。
 如果想要替换主页的头像图标，需要替换<code>D:\MyBlog\static\images\avatar.png</code>，推荐分辨率为528*560。</p>
 <p>最后整体效果如下图所示。
-<img src="/posts/static/00-build_blog_base_hugo/09.PNG" alt="博客展示" title="博客展示"></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/09.PNG" alt="博客展示" title="博客展示"></p>
 <p><strong>第三步，个性化的博客内容。</strong></p>
 <p>博客的最终目的是展示内容，hugo能非常方便的根据文章的设定生成标签(tags)和分类(categories)。下面教大家如何设置文章的模板。</p>
 <p><strong>设置博客文章的模板</strong></p>
 <p>LoveIt主题中作者已经写好了一个文章模板，这里直接套用这个模板进行修改即可。</p>
 <p>首先将<code>D:\MyBlog\themes\LoveIt\archetypesdefault.md</code>文件复制到<code>D:\MyBlog\archetypes</code>目录下，使用VsCode等markdown编辑工具打开。
-<img src="/posts/static/00-build_blog_base_hugo/10.PNG" alt="模板文件" title="模板文件"></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/10.PNG" alt="模板文件" title="模板文件"></p>
 <p><strong>生成一篇博客文章</strong></p>
 <p>打开cmd终端，执行如下命令，根据文章模板生成第一篇文章。</p>
 <div class="highlight"><div class="chroma">
@@ -312,7 +313,7 @@ hugo server -D --config D:\MyBlog\config.toml
 <p>网上有很多教程，不再赘述。</p>
 <p><strong>第二步，创建一个同名仓库</strong></p>
 <p>网上也有很多教程，只强调一点，仓库名称为<code>username.github.io</code>。如：你的用户名叫<code>zhangsan000</code>，则你的仓库名必须为<code>zhangsan000.github.io</code>。
-<img src="/posts/static/00-build_blog_base_hugo/11.PNG" alt="GitHub仓库" title="GitHub仓库"></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/11.PNG" alt="GitHub仓库" title="GitHub仓库"></p>
 <p><strong>第三步，hugo生成静态页面。</strong></p>
 <p>打开cmd终端，执行如下命令，生成静态页面。</p>
 <div class="highlight"><div class="chroma">
@@ -384,11 +385,9 @@ git push
 </code></pre></td></tr></table>
 </div>
 </div><p>在GitHub上查看提交。
-<img src="/posts/static/00-build_blog_base_hugo/12.PNG" alt="GitHub仓库" title="GitHub仓库"></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/12.PNG" alt="GitHub仓库" title="GitHub仓库"></p>
 <p>最后在浏览器上访问URL:<code>&lt;仓库名称&gt;.github.io</code>即可通过网络访问到静态页面。
-<img src="/posts/static/00-build_blog_base_hugo/13.PNG" alt="GitHub仓库" title="GitHub仓库"></p>
-<a class="post-dummy-target" id="6-让你的博客能被百度和谷歌搜索到"></a><h1>6 让你的博客能被百度和谷歌搜索到</h1>
-<p><strong>敬请期待</strong></p>
+<img src="https://raw.githubusercontent.com/hts0000/hts0000.github.io/master/images/13.PNG" alt="GitHub仓库" title="GitHub仓库"></p>
         </div>
 
         <div class="post-footer" id="post-footer">
