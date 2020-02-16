@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 15 Feb 2020 13:02:13 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Feb 2020 19:01:40 +0800</lastBuildDate>
     
 	<atom:link href="https://hts0000.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo日常使用优化</title>
+      <link>https://hts0000.github.io/2020/02/hugo%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Sun, 16 Feb 2020 19:01:40 +0800</pubDate>
+      
+      <guid>https://hts0000.github.io/2020/02/hugo%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>基于Hugo快速搭建个人博客</title>
