@@ -1,44 +1,24 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Hts0000 | 个人博客 on Hts0000 | 个人博客</title>
-        <link>https://hts0000.github.io/</link>
-        <description>Recent content in Hts0000 | 个人博客 on Hts0000 | 个人博客</description>
-        <generator>Hugo -- gohugo.io</generator>
-        
-            <language>zh</language>
-        
-        
-        
-            <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-        
-        
-            <lastBuildDate>Sun, 16 Feb 2020 19:01:40 +0800</lastBuildDate>
-        
-        <atom:link href="https://hts0000.github.io/" rel="self" type="application/rss+xml" />
-        
-            <item>
-                <title>Posts</title>
-                <link>https://hts0000.github.io/posts/</link>
-                <pubDate>Sun, 16 Feb 2020 19:01:40 +0800</pubDate>
-                
-                <guid>https://hts0000.github.io/posts/</guid>
-                <description></description>
-            </item>
-        
-            <item>
-                <title>About LoveIt</title>
-                <link>https://hts0000.github.io/about/</link>
-                <pubDate>Fri, 02 Aug 2019 11:04:49 +0800</pubDate>
-                
-                <guid>https://hts0000.github.io/about/</guid>
-                <description>&lt;h1 id=&#34;hts0000的个人博客&#34;&gt;Hts0000的个人博客&lt;/h1&gt;
-&lt;p&gt;主要分享如下内容&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Linux运维&lt;/li&gt;
-&lt;li&gt;网络基础&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-            </item>
-        
-    </channel>
+        <title>Hts0000 | 个人博客</title>
+        <link>http://example.org/</link>
+        <description>Hts0000 | 个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Sun, 16 Feb 2020 19:01:40 &#43;0800</lastBuildDate>
+            <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>Hugo日常使用优化</title>
+    <link>http://example.org/hugo%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96/</link>
+    <pubDate>Sun, 16 Feb 2020 19:01:40 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/hugo%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>基于Hugo快速搭建个人博客</title>
+    <link>http://example.org/%E5%9F%BA%E4%BA%8Ehugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+    <pubDate>Sat, 15 Feb 2020 13:02:13 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/%E5%9F%BA%E4%BA%8Ehugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
 </rss>
