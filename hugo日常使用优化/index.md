@@ -35,34 +35,34 @@ VsCode用于书写博客文章，PicGo插件用于快速生成网络图片链接
 
 ### 2.下载PicGo插件
 打开VsCode，在左侧的扩展管理中输入PicGo下载插件。
-![下载PicGo插件](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216161051.png "下载PicGo插件")
+![下载PicGo插件](https://cdn.jsdelivr.net/gh/hts0000/images/20200216161051.png "下载PicGo插件")
 
 ### 3.创建GitHub图床仓库
 创建一个名字为`<你github账户名>.github.io`的仓库，我这里的是博客使用的仓库，并使用images目录作为图片存放的目录。
-![创建GitHub图床仓库](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216172535.png "创建GitHub图床仓库")
+![创建GitHub图床仓库](https://cdn.jsdelivr.net/gh/hts0000/images/20200216172535.png "创建GitHub图床仓库")
 
 ### 4.生成令牌(Token)
 接下来需要生成令牌，让PicGo插件能通过令牌免密上传图片到图床目录。
 
-![生成令牌](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216172707.png "生成令牌")
-![生成令牌](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216172915.png "生成令牌")
-![生成令牌](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216173149.png "生成令牌")
-![生成令牌](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216173547.png "生成令牌")
+![生成令牌](https://cdn.jsdelivr.net/gh/hts0000/images/20200216172707.png "生成令牌")
+![生成令牌](https://cdn.jsdelivr.net/gh/hts0000/images/20200216172915.png "生成令牌")
+![生成令牌](https://cdn.jsdelivr.net/gh/hts0000/images/20200216173149.png "生成令牌")
+![生成令牌](https://cdn.jsdelivr.net/gh/hts0000/images/20200216173547.png "生成令牌")
 
 Token生成之后要及时复制，之后就无法复制了。
-![20200216173745.png](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216173745.png)
+![20200216173745.png](https://cdn.jsdelivr.net/gh/hts0000/images/20200216173745.png)
 
 ### 5.配置PicGo插件
 打开VsCode上的PicGo插件，点击小齿轮进行配置。
-![20200216174042.png](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216174042.png)
+![20200216174042.png](https://cdn.jsdelivr.net/gh/hts0000/images/20200216174042.png)
 
 在配置中找到GitHub的相关配置项，从上到下分别配置：图床目录(必须加上/)，github仓库，Token令牌。
-![配置PicGo插件](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216174243.png "配置PicGo插件")
+![配置PicGo插件](https://cdn.jsdelivr.net/gh/hts0000/images/20200216174243.png "配置PicGo插件")
 
 ### 6.测试图床
 VsCode上的PicGo插件配置好之后，使用`Ctrl+Alt+u`可以把剪切版中的图片上传到图床中，并且会在当前VsCode打开的文件中生产一个图片的网络链接。同时我们看GitHub上的images目录时，会发现图片被自动上传了。
 
-![测试图床](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216185606.png "测试图床")
+![测试图床](https://cdn.jsdelivr.net/gh/hts0000/images/20200216185606.png "测试图床")
 
 # 2 在百度和谷歌上添加网站
 
@@ -80,19 +80,19 @@ VsCode上的PicGo插件配置好之后，使用`Ctrl+Alt+u`可以把剪切版中
 测试网址是否被收录：site:hts0000.github.io。
 
 ### 百度
-![检查收录](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216175931.png "检查收录")
+![检查收录](https://cdn.jsdelivr.net/gh/hts0000/images/20200216175931.png "检查收录")
 
 添加之后百度大概需要一星期的时间进行收录。
-![检查收录](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216180208.png "检查收录")
+![检查收录](https://cdn.jsdelivr.net/gh/hts0000/images/20200216180208.png "检查收录")
 
 ### 谷歌
-![检查收录](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216175823.png "检查收录")
+![检查收录](https://cdn.jsdelivr.net/gh/hts0000/images/20200216175823.png "检查收录")
 
 添加之后谷歌大概需要1~2天的时间来收录网站。
-![检查收录](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216182402.png "检查收录")
+![检查收录](https://cdn.jsdelivr.net/gh/hts0000/images/20200216182402.png "检查收录")
 
 收录成功后在谷歌中搜索：site:hts0000.github.io，就可以发现我们的网站可以通过浏览器搜索到了。
-![检查收录](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216185252.png "检查收录")
+![检查收录](https://cdn.jsdelivr.net/gh/hts0000/images/20200216185252.png "检查收录")
 
 ## 站点管理
 通过百度账号和谷歌账号，可以绑定网站，通过百度和谷歌的统计功能，可以看到网站的访问次数和访问情况。
@@ -102,25 +102,25 @@ VsCode上的PicGo插件配置好之后，使用`Ctrl+Alt+u`可以把剪切版中
 ### 百度
 
 首先在账号中添加网站
-![站点管理](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216182844.png "站点管理")
+![站点管理](https://cdn.jsdelivr.net/gh/hts0000/images/20200216182844.png "站点管理")
 
-![站点管理](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216183344.png "站点管理")
+![站点管理](https://cdn.jsdelivr.net/gh/hts0000/images/20200216183344.png "站点管理")
 
 把下载好的校验页面放到网页目录下，向百度证明你是网站的管理员。
-![站点管理](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216183517.png "站点管理")
+![站点管理](https://cdn.jsdelivr.net/gh/hts0000/images/20200216183517.png "站点管理")
 
 校验成功后可以在站点管理中看到刚刚添加的站点。
-![站点管理](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216184212.png "站点管理")
+![站点管理](https://cdn.jsdelivr.net/gh/hts0000/images/20200216184212.png "站点管理")
 
 点击站点可以看到百度为我们统计的站点信息，如点击率搜索量等等。
 
-![站点管理](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216184322.png "站点管理")
+![站点管理](https://cdn.jsdelivr.net/gh/hts0000/images/20200216184322.png "站点管理")
 
 ### 谷歌
 谷歌的操作与百度类似，也是在网页的目录下添加校验页面，向谷歌证明你是网站的管理员。
 
-![站点管理](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216184606.png "站点管理")
+![站点管理](https://cdn.jsdelivr.net/gh/hts0000/images/20200216184606.png "站点管理")
 
 添加完成之后也可以通过谷歌统计的站点信息查看网站的点击量等等。
 
-![站点管理](https://cdn.jsdelivr.net/gh/hts0000/hts0000.github.io/images/20200216185052.png "站点管理")
+![站点管理](https://cdn.jsdelivr.net/gh/hts0000/images/20200216185052.png "站点管理")
