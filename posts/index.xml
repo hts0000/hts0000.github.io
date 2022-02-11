@@ -4,7 +4,14 @@
         <link>http://example.org/posts/</link>
         <description>所有文章 | Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Sun, 16 Feb 2020 19:01:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Fri, 11 Feb 2022 16:57:43 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>基于Hugo快速搭建个人博客</title>
+    <link>http://example.org/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/</link>
+    <pubDate>Fri, 11 Feb 2022 16:57:43 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Hugo日常使用优化</title>
     <link>http://example.org/hugo%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96/</link>
     <pubDate>Sun, 16 Feb 2020 19:01:40 &#43;0800</pubDate>
