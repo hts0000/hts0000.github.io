@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>算法 - 分类 - Hts0000 | 个人博客</title>
-        <link>http://example.org/categories/%E7%AE%97%E6%B3%95/</link>
-        <description>算法 - 分类 - Hts0000 | 个人博客</description>
+        <title>kmp - 分类 - Hts0000 | 个人博客</title>
+        <link>http://example.org/categories/kmp/</link>
+        <description>kmp - 分类 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Fri, 11 Feb 2022 16:57:43 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Fri, 11 Feb 2022 16:57:43 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/kmp/" rel="self" type="application/rss+xml" /><item>
     <title>如何实现kmp算法</title>
     <link>http://example.org/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/</link>
     <pubDate>Fri, 11 Feb 2022 16:57:43 &#43;0800</pubDate>
