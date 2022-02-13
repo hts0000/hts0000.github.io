@@ -20,7 +20,7 @@
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/" /><link rel="prev" href="http://example.org/hugo%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/" /><link rel="prev" href="http://example.org/hugo%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96/" /><link rel="next" href="http://example.org/golang%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8Drk%E7%AE%97%E6%B3%95/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95\/"
-        },"genre": "posts","keywords": "算法, kmp","wordcount":  973 ,
+        },"genre": "posts","keywords": "算法, kmp, 字符串匹配算法","wordcount":  973 ,
         "url": "http:\/\/example.org\/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95\/","datePublished": "2022-02-11T16:57:43+08:00","dateModified": "2022-02-11T16:57:43+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -102,14 +102,14 @@
 </div>
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">如何实现kmp算法</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>算法</a>&nbsp;<a href="/categories/kmp/"><i class="far fa-folder fa-fw"></i>kmp</a></span></div>
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>算法</a>&nbsp;<a href="/categories/kmp/"><i class="far fa-folder fa-fw"></i>kmp</a>&nbsp;<a href="/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>字符串匹配算法</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-11">2022-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 973 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
 <p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
-<h1 id="什么是kmp算法">什么是kmp算法？</h1>
+<h1 id="什么是kmp算法">什么是KMP算法？</h1>
 <p><code>kmp</code>算法是一种用于高效匹配字符串子串是否存在的算法，比如想知道<code>文本串s</code>中是否存在<code>模式串p</code>，就可以使用kmp算法。</p>
-<h1 id="如何实现kmp算法">如何实现kmp算法？</h1>
+<h1 id="如何实现kmp算法">如何实现KMP算法？</h1>
 <p>实现kmp算法分两步</p>
 <ol>
 <li>基于模式串初始化next数组</li>
@@ -347,13 +347,14 @@ bccbcbccc
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>,&nbsp;<a href="/tags/kmp/">kmp</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>,&nbsp;<a href="/tags/kmp/">kmp</a>,&nbsp;<a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/">字符串匹配算法</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/hugo%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96/" class="prev" rel="prev" title="Hugo日常使用优化"><i class="fas fa-angle-left fa-fw"></i>Hugo日常使用优化</a></div>
+    <div class="post-nav"><a href="/hugo%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E4%BC%98%E5%8C%96/" class="prev" rel="prev" title="Hugo日常使用优化"><i class="fas fa-angle-left fa-fw"></i>Hugo日常使用优化</a>
+            <a href="/golang%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8Drk%E7%AE%97%E6%B3%95/" class="next" rel="next" title="Golang中的字符串匹配——RK算法">Golang中的字符串匹配——RK算法<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

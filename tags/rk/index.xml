@@ -1,22 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>算法 - 标签 - Hts0000 | 个人博客</title>
-        <link>http://example.org/tags/%E7%AE%97%E6%B3%95/</link>
-        <description>算法 - 标签 - Hts0000 | 个人博客</description>
+        <title>RK - 标签 - Hts0000 | 个人博客</title>
+        <link>http://example.org/tags/rk/</link>
+        <description>RK - 标签 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Fri, 11 Feb 2022 20:22:14 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Fri, 11 Feb 2022 20:22:14 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/rk/" rel="self" type="application/rss+xml" /><item>
     <title>Golang中的字符串匹配——RK算法</title>
     <link>http://example.org/golang%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8Drk%E7%AE%97%E6%B3%95/</link>
     <pubDate>Fri, 11 Feb 2022 20:22:14 &#43;0800</pubDate>
     <author>作者</author>
     <guid>http://example.org/golang%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8Drk%E7%AE%97%E6%B3%95/</guid>
     <description><![CDATA[什么是RK算法？ RK算法是一种字符串匹配算法。核心思想是将字符串映射为其字符集长度的数值(hash值)，将字符串比较变为数值比较，从而可以获]]></description>
-</item><item>
-    <title>如何实现kmp算法</title>
-    <link>http://example.org/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/</link>
-    <pubDate>Fri, 11 Feb 2022 16:57:43 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/</guid>
-    <description><![CDATA[]]></description>
 </item></channel>
 </rss>

@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>算法 - 标签 - Hts0000 | 个人博客</title>
-        <link>http://example.org/tags/%E7%AE%97%E6%B3%95/</link>
-        <description>算法 - 标签 - Hts0000 | 个人博客</description>
+        <title>字符串匹配算法 - 分类 - Hts0000 | 个人博客</title>
+        <link>http://example.org/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</link>
+        <description>字符串匹配算法 - 分类 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Fri, 11 Feb 2022 20:22:14 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Fri, 11 Feb 2022 20:22:14 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
     <title>Golang中的字符串匹配——RK算法</title>
     <link>http://example.org/golang%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8Drk%E7%AE%97%E6%B3%95/</link>
     <pubDate>Fri, 11 Feb 2022 20:22:14 &#43;0800</pubDate>
