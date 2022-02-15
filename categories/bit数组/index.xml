@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>bit数组 - 分类 - Hts0000 | 个人博客</title>
+        <link>http://example.org/categories/bit%E6%95%B0%E7%BB%84/</link>
+        <description>bit数组 - 分类 - Hts0000 | 个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Tue, 15 Feb 2022 14:05:38 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/bit%E6%95%B0%E7%BB%84/" rel="self" type="application/rss+xml" /><item>
+    <title>Bit数组/bitmap</title>
+    <link>http://example.org/bit%E6%95%B0%E7%BB%84/</link>
+    <pubDate>Tue, 15 Feb 2022 14:05:38 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/bit%E6%95%B0%E7%BB%84/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>
