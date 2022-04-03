@@ -15,7 +15,7 @@
 二分查找的实现难点在于边界条件的判断，要注意集合的闭合区间。实现时闭合区间分为两种：`[left,right]`和`[left,right)`，两种不同的闭合区间的代码实现也不同。
 
 ### 二分查找的边界条件
-left <= right
+[left,right]
 
 ```golang
 // BinarySearch 查找nums中是否存在target，并返回其下标，如果不存在返回-1
