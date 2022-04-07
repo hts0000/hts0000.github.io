@@ -38,7 +38,7 @@ BKDRHash
 字符串hash难免出现hash值相同的情况，当相同时我们需要额外遍历一遍以确保相同。
 
 # Golang中的RK算法应用
-```golang
+```go
 // PrimeRK相当于我们上面提到的进制
 const PrimeRK = 16777619
 

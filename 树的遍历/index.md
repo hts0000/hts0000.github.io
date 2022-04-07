@@ -25,7 +25,7 @@
 栈适合模拟前中后序遍历，队列适合模拟层序遍历
 
 ### 前序遍历求深度
-```golang
+```go
 func maxDepth(root *TreeNode) int {
 	if root == nil {
 		return 0

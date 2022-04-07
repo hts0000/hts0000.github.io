@@ -35,7 +35,7 @@ bit数组可以使用很小的存储空间，存储更多的数据。对于uint6
 bit数组在很多地方都有应用，比如redis中的bitmap就是使用了bit数组的方式实现的。
 
 # bit数组实现
-```golang
+```go
 package bitmap
 
 import (

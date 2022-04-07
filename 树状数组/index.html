@@ -143,7 +143,7 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="c1">// [left,right]
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// [left,right]
 </span><span class="c1"></span><span class="kd">func</span> <span class="nf">rangeSum</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
 	<span class="c1">// 时间复杂度O(n)，与for left&lt;= right 没有数量级上的差距
 </span><span class="c1"></span>	<span class="k">return</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">right</span><span class="p">)</span> <span class="o">-</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">left</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -279,7 +279,7 @@
 </span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">type</span> <span class="nx">BinaryIndTree</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">BinaryIndTree</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Nums</span> <span class="p">[]</span><span class="kt">int</span>
 	<span class="nx">Tree</span> <span class="p">[]</span><span class="kt">int</span>
 <span class="p">}</span>
@@ -363,7 +363,7 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
 	<span class="c1">// return i &amp; ((~i)+1) 两者等价
 </span><span class="c1"></span>	<span class="k">return</span> <span class="nx">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">-</span><span class="nx">i</span><span class="p">)</span>
 <span class="p">}</span>
@@ -453,7 +453,7 @@
 </span><span class="lnt">46
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">type</span> <span class="nx">BinaryIndTree</span> <span class="kd">struct</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">BinaryIndTree</span> <span class="kd">struct</span> <span class="p">{</span>
 	<span class="nx">Nums</span> <span class="p">[]</span><span class="kt">int</span>
 	<span class="nx">Tree</span> <span class="p">[]</span><span class="kt">int</span>
 <span class="p">}</span>

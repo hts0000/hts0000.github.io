@@ -21,7 +21,7 @@ n层递归的循环，就像是一颗树，循环的次数是树的宽度，递�
 ![](https://cdn.jsdelivr.net/gh/hts0000/images/202203092026827.png)
 
 ### 回溯模板
-```golang
+```go
 func demo() {
     // 存放结果
     res := make([]int, 0)
@@ -55,7 +55,7 @@ func demo() {
 
 ![](https://cdn.jsdelivr.net/gh/hts0000/images/202203102208044.png)
 
-```golang
+```go
 used := make([]bool, length)
 
 backTracking = func() {

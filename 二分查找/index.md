@@ -17,7 +17,7 @@
 ### 二分查找的边界条件
 [left,right]
 
-```golang
+```go
 // BinarySearch 查找nums中是否存在target，并返回其下标，如果不存在返回-1
 func BinarySearch(nums []int, target int) int {
 	length := len(nums)
@@ -39,7 +39,7 @@ func BinarySearch(nums []int, target int) int {
 
 [left,right)
 
-```golang
+```go
 // BinarySearch 查找nums中是否存在target，并返回其下标，如果不存在返回-1
 func BinarySearch(nums []int, target int) int {
 	length := len(nums)

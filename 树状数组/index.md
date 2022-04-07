@@ -18,7 +18,7 @@
 - rangeSum(from_idx, to_idx)：求从数组第from_idx个位置到第to_idx个位置的所有数字的和
 
 如果用暴力求解数组区间和，时间复杂度为`O(n)`，更新数组值为`O(1)`。
-```golang
+```go
 // [left,right]
 func rangeSum(left, right int) int {
 	// 时间复杂度O(n)，与for left<= right 没有数量级上的差距
@@ -74,7 +74,7 @@ func (p *Presum) SumRange(left, right int) int {
 ```
 
 树状数组求解区间和的时间复杂度为`O(logn)`，更新数组值为`O(logn)`。因为修改值之后需要重新维护树状数组。
-```golang
+```go
 type BinaryIndTree struct {
 	Nums []int
 	Tree []int
@@ -145,7 +145,7 @@ func (b *BinaryIndTree) SumRange(left, right int) int {
 比如：i=6=b(110)，截断最低位1前面的数得到b(10)=2
 
 lowbit实现很简单
-```golang
+```go
 func lowbit(i int) int {
 	// return i & ((~i)+1) 两者等价
 	return i & (-i)
@@ -181,7 +181,7 @@ func lowbit(i int) int {
 ## 二维树状数组
 
 ## 完整代码
-```golang
+```go
 type BinaryIndTree struct {
 	Nums []int
 	Tree []int

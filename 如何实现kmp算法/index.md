@@ -45,7 +45,7 @@ bccbcbccc
 
 ## next数组具体实现
 求next数组的代码如下
-```golang
+```go
 func getNext(s string) []int {
     sLen := len(s)
     next := make([]int, sLen)
@@ -77,7 +77,7 @@ func getNext(s string) []int {
 当`i==j==5`时，`文本串s[5] != 模式串p[5]`，这时我们在next数组中往前找一位，next数组中记录了**p[0:5]这个子串最长相等前后缀长度为2**，意味着我们j指针只需要回退到下标为2的位置就可以继续匹配了，跳过了前面相同的部分
 
 # kmp具体实现
-```golang
+```go
 func kmp(haystack string, needle string) int {
 	if len(needle) == 0 {
 		return 0
