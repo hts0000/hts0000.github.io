@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>树状数组 - Hts0000 | 个人博客</title><meta name="Description" content="Hts0000 | 个人博客"><meta property="og:title" content="树状数组" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" /><meta property="og:image" content="http://example.org/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-04T09:59:53+08:00" />
+<meta property="article:modified_time" content="2022-04-04T09:59:53+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.png"/>
+
+<meta name="twitter:title" content="树状数组"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" /><link rel="prev" href="http://example.org/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "树状数组",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84\/"
+        },"genre": "posts","keywords": "树状数组","wordcount":  1875 ,
+        "url": "http:\/\/example.org\/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84\/","datePublished": "2022-04-04T09:59:53+08:00","dateModified": "2022-04-04T09:59:53+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "hts0000"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 文章 </a><a class="menu-item" href="/tags"> 标签 </a><a class="menu-item" href="/categories"> 分类 </a><a class="menu-item" href="/about"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">文章</a><a class="menu-item" href="/tags" title="">标签</a><a class="menu-item" href="/categories" title="">分类</a><a class="menu-item" href="/about" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">树状数组</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"><i class="far fa-folder fa-fw"></i>树状数组</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-04">2022-04-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1875 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+        </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
+<p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
+<p><a href="https://halfrost.com/binary_indexed_tree/" target="_blank" rel="noopener noreffer">参考</a></p>
+<h2 id="树状数组是什么">树状数组是什么？</h2>
+<p>树状数组，或称Binary Indexed Tree, Fenwick Tree，<strong>是一种用于高效处理对一个存储数字的列表进行更新及求前缀和的数据结构</strong>。</p>
+<p><strong>树状数组所能解决的典型问题就是存在一个长度为n的数组，我们如何高效进行如下操作：</strong></p>
+<ul>
+<li>update(idx, delta)：将num加到位置idx的数字上。</li>
+<li>prefixSum(idx)：求从数组第一个位置到第idx（含idx）个位置所有数字的和。</li>
+<li>rangeSum(from_idx, to_idx)：求从数组第from_idx个位置到第to_idx个位置的所有数字的和</li>
+</ul>
+<p>如果用暴力求解数组区间和，时间复杂度为<code>O(n)</code>，更新数组值为<code>O(1)</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="c1">// [left,right]
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">rangeSum</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="c1">// 时间复杂度O(n)，与for left&lt;= right 没有数量级上的差距
+</span><span class="c1"></span>	<span class="k">return</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">right</span><span class="p">)</span> <span class="o">-</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">left</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// [0,index]
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">index</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">index</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="mi">0</span>
+	<span class="p">}</span>
+	<span class="nx">sum</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">index</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span> <span class="p">{</span>
+		<span class="nx">sum</span> <span class="o">+=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">sum</span>
+<span class="p">}</span>
+
+<span class="c1">// O(1)
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">delta</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">nums</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">delta</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>用前缀和求解区间和的时间复杂度为<code>O(1)</code>，更新数组值为<code>O(n)</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">Presum</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">NewPreSum</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="nx">Presum</span> <span class="p">{</span>
+	<span class="nx">pre</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">))</span>
+	<span class="nx">pre</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">pre</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">pre</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">Presum</span><span class="p">{</span>
+		<span class="nx">nums</span><span class="p">:</span> <span class="nx">pre</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Presum</span><span class="p">)</span> <span class="nf">Update</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">val</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// O(n)
+</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">index</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">nums</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">p</span><span class="p">.</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">val</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">Presum</span><span class="p">)</span> <span class="nf">SumRange</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="c1">// O(1)
+</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">p</span><span class="p">.</span><span class="nx">nums</span><span class="p">[</span><span class="nx">right</span><span class="p">]</span> <span class="o">-</span> <span class="nx">p</span><span class="p">.</span><span class="nx">nums</span><span class="p">[</span><span class="nx">left</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>树状数组求解区间和的时间复杂度为<code>O(logn)</code>，更新数组值为<code>O(logn)</code>。因为修改值之后需要重新维护树状数组。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">type</span> <span class="nx">BinaryIndTree</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Nums</span> <span class="p">[]</span><span class="kt">int</span>
+	<span class="nx">Tree</span> <span class="p">[]</span><span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">NewBinaryIndTree</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="nx">BinaryIndTree</span> <span class="p">{</span>
+	<span class="c1">// 用前缀和快速构造树状数组
+</span><span class="c1"></span>	<span class="nx">length</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span>
+	<span class="nx">tree</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">length</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="nx">preSum</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">length</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">preSum</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">preSum</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+		<span class="nx">tree</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">preSum</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">preSum</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span><span class="p">)]</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">BinaryIndTree</span><span class="p">{</span>
+		<span class="nx">Nums</span><span class="p">:</span> <span class="nx">nums</span><span class="p">,</span>
+		<span class="nx">Tree</span><span class="p">:</span> <span class="nx">tree</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">-</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">BinaryIndTree</span><span class="p">)</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">delta</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// O(logn)
+</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">index</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">Tree</span><span class="p">);</span> <span class="nx">i</span> <span class="o">+=</span> <span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">b</span><span class="p">.</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">delta</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">BinaryIndTree</span><span class="p">)</span> <span class="nf">Update</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">val</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">b</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nx">val</span><span class="o">-</span><span class="nx">b</span><span class="p">.</span><span class="nx">Nums</span><span class="p">[</span><span class="nx">index</span><span class="p">])</span>
+	<span class="nx">b</span><span class="p">.</span><span class="nx">Nums</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="p">=</span> <span class="nx">val</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">BinaryIndTree</span><span class="p">)</span> <span class="nf">Sum</span><span class="p">(</span><span class="nx">index</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">sum</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="c1">// O(logn)
+</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">index</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">-=</span> <span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">sum</span> <span class="o">+=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">sum</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">BinaryIndTree</span><span class="p">)</span> <span class="nf">SumRange</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nf">Sum</span><span class="p">(</span><span class="nx">right</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="nx">b</span><span class="p">.</span><span class="nf">Sum</span><span class="p">(</span><span class="nx">left</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>树状数组适用于对数组查询和修改都有性能要求的场景。</p>
+<h2 id="树状数组如何高效">树状数组如何高效？</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png, https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png" />
+看上面这张图，可以把树状数组想象成一棵树。所有奇数下标的都是独立子节点。<strong>子节点通过<code>i+lowbit(i)</code>来找到其父节点，父节点存储的就是它和它所有子节点的和</strong>。通过这样一棵树，我们可以用<code>O(logn)</code>的时间复杂度来获得一个区间的和。</p>
+<p>为了方便表示，tree被画成了不连续的样子，实际上tree在内存中仍是连续的数组。</p>
+<p>下面这样图可以比较容易理解树状数组在更新节点值时，如何知道那些节点值是应该更新的。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202204062204495.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202204062204495.png, https://cdn.jsdelivr.net/gh/hts0000/images/202204062204495.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202204062204495.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202204062204495.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202204062204495.png" /></p>
+<p>比如我们要对下标<code>i</code>的值进行更新，除了对<code>i</code>本身，还有其上面覆盖了<code>i</code>(或者说管辖<code>i</code>)的所有节点进行更新。比如<code>i=1</code>，则需要更新的节点为<code>1、2、4、8</code></p>
+<h3 id="lowbit原理">lowbit原理</h3>
+<p><code>lowbit(i)</code>用一句话来解释就是——<strong>截断<code>i</code>在二进制表示中最低位1前面的数</strong>。</p>
+<p>比如：i=6=b(110)，截断最低位1前面的数得到b(10)=2</p>
+<p>lowbit实现很简单</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">func</span> <span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="c1">// return i &amp; ((~i)+1) 两者等价
+</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">-</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>为什么<code>&amp;</code>上自己的负数可以截断最低位1前面的数呢？因为负数在计算机中是用补码来表示的，所以我们需要对补码、原码有一些了解。</p>
+<ul>
+<li>原码：用最高位表示符号位，如<code>int8(-8) = 原(10001000)</code></li>
+<li>补码：对原码除符号位之外的所有位取反并加1，如<code>int8(-8) = 补(11111000)</code></li>
+<li>反码：对原码除符号位之外的所有位取反，如<code>int8(-8) = 反(11110111)</code>
+这里我们以6和-6为例，假设他们都是有符号的8位数。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png, https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png" /></li>
+</ul>
+<p>可以发现一个数的正数与负数，它们除了最低位的1及后面的数之外，每一位的数都不相同，因此它们相<code>&amp;</code>可以得到我们想要的结果——<strong>截断<code>i</code>在二进制表示中最低位1前面的数</strong>。</p>
+<h2 id="树状数组功能一览">树状数组功能一览</h2>
+<p>根据节点维护的数据含义不同，树状数组可以提供不同的功能来满足各种区间场景。</p>
+<h3 id="1-单点增减区间求和">1. 单点增减+区间求和</h3>
+<p><a href="https://leetcode-cn.com/problems/range-sum-query-mutable/submissions/" target="_blank" rel="noopener noreffer">LeetCode-307. 区域和检索 - 数组可修改</a></p>
+<h3 id="2-区间增减单点查询">2. 区间增减+单点查询</h3>
+<h3 id="3-区间增减区间求和">3. 区间增减+区间求和</h3>
+<h3 id="4-单点增减区间最值">4. 单点增减+区间最值</h3>
+<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1754" target="_blank" rel="noopener noreffer">HDU-1754 I Hate It</a></p>
+<h3 id="5-区间叠加单点最值">5. 区间叠加+单点最值</h3>
+<p><a href="https://leetcode-cn.com/problems/the-skyline-problem/" target="_blank" rel="noopener noreffer">LeetCode-218. 天际线问题</a></p>
+<h2 id="树状数组常见应用">树状数组常见应用</h2>
+<ol>
+<li>求逆序对</li>
+<li>求区间逆序对</li>
+<li>求树上逆序对</li>
+</ol>
+<h2 id="二维树状数组">二维树状数组</h2>
+<h2 id="完整代码">完整代码</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-golang" data-lang="golang"><span class="kd">type</span> <span class="nx">BinaryIndTree</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Nums</span> <span class="p">[]</span><span class="kt">int</span>
+	<span class="nx">Tree</span> <span class="p">[]</span><span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">NewBinaryIndTree</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="nx">BinaryIndTree</span> <span class="p">{</span>
+	<span class="c1">// 用前缀和快速构造树状数组
+</span><span class="c1"></span>	<span class="nx">length</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span>
+	<span class="nx">tree</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">length</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="nx">preSum</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">length</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">preSum</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">preSum</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+		<span class="nx">tree</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">preSum</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">preSum</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span><span class="p">)]</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">BinaryIndTree</span><span class="p">{</span>
+		<span class="nx">Nums</span><span class="p">:</span> <span class="nx">nums</span><span class="p">,</span>
+		<span class="nx">Tree</span><span class="p">:</span> <span class="nx">tree</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">BinaryIndTree</span><span class="p">)</span> <span class="nf">update</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">delta</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">index</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">Tree</span><span class="p">);</span> <span class="nx">i</span> <span class="o">+=</span> <span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">b</span><span class="p">.</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+=</span> <span class="nx">delta</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">BinaryIndTree</span><span class="p">)</span> <span class="nf">Update</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">val</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">b</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="nx">index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nx">val</span><span class="o">-</span><span class="nx">b</span><span class="p">.</span><span class="nx">Nums</span><span class="p">[</span><span class="nx">index</span><span class="p">])</span>
+	<span class="nx">b</span><span class="p">.</span><span class="nx">Nums</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="p">=</span> <span class="nx">val</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">BinaryIndTree</span><span class="p">)</span> <span class="nf">Sum</span><span class="p">(</span><span class="nx">index</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="nx">sum</span> <span class="o">:=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">index</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">-=</span> <span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">sum</span> <span class="o">+=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">Tree</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">sum</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">BinaryIndTree</span><span class="p">)</span> <span class="nf">SumRange</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">b</span><span class="p">.</span><span class="nf">Sum</span><span class="p">(</span><span class="nx">right</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="nx">b</span><span class="p">.</span><span class="nf">Sum</span><span class="p">(</span><span class="nx">left</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">lowbit</span><span class="p">(</span><span class="nx">i</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">i</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">-</span><span class="nx">i</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-04-04</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" data-title="树状数组"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" data-title="树状数组"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" data-title="树状数组" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" data-title="树状数组" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" data-title="树状数组"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">树状数组</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" class="prev" rel="prev" title="二分查找"><i class="fas fa-angle-left fa-fw"></i>二分查找</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
