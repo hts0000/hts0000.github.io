@@ -338,8 +338,8 @@
         data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png, https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png 2x"
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png"
-        title="https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png" />
-看上面这张图，可以把树状数组想象成一棵树。所有奇数下标的都是独立子节点。<strong>子节点通过<code>i+lowbit(i)</code>来找到其父节点，父节点存储的就是它和它所有子节点的和</strong>。通过这样一棵树，我们可以用<code>O(logn)</code>的时间复杂度来获得一个区间的和。</p>
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202204062253873.png" /></p>
+<p>看上面这张图，可以把树状数组想象成一棵树。所有奇数下标的都是独立子节点。<strong>子节点通过<code>i+lowbit(i)</code>来找到其父节点，父节点存储的就是它和它所有子节点的和</strong>。通过这样一棵树，我们可以用<code>O(logn)</code>的时间复杂度来获得一个区间的和。</p>
 <p>为了方便表示，tree被画成了不连续的样子，实际上tree在内存中仍是连续的数组。</p>
 <p>下面这样图可以比较容易理解树状数组在更新节点值时，如何知道那些节点值是应该更新的。</p>
 <p><img
@@ -374,16 +374,16 @@
 <li>原码：用最高位表示符号位，如<code>int8(-8) = 原(10001000)</code></li>
 <li>补码：对原码除符号位之外的所有位取反并加1，如<code>int8(-8) = 补(11111000)</code></li>
 <li>反码：对原码除符号位之外的所有位取反，如<code>int8(-8) = 反(11110111)</code>
-这里我们以6和-6为例，假设他们都是有符号的8位数。
-<img
+这里我们以6和-6为例，假设他们都是有符号的8位数。</li>
+</ul>
+<p><img
         class="lazyload"
         src="/svg/loading.min.svg"
         data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png"
         data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png, https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png 2x"
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png"
-        title="https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png" /></li>
-</ul>
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202204071821893.png" /></p>
 <p>可以发现一个数的正数与负数，它们除了最低位的1及后面的数之外，每一位的数都不相同，因此它们相<code>&amp;</code>可以得到我们想要的结果——<strong>截断<code>i</code>在二进制表示中最低位1前面的数</strong>。</p>
 <h2 id="树状数组功能一览">树状数组功能一览</h2>
 <p>根据节点维护的数据含义不同，树状数组可以提供不同的功能来满足各种区间场景。</p>
