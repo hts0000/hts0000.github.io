@@ -148,29 +148,29 @@
 </span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">demo</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// 存放结果
-</span><span class="c1"></span>    <span class="nx">res</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="c1">// 存放临时结果
-</span><span class="c1"></span>    <span class="nx">path</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-    <span class="c1">// 回溯函数的参数很难提前确定
-</span><span class="c1"></span>    <span class="c1">// 一般在写具体实现是根据需要补上
-</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">backTracking</span> <span class="kd">func</span><span class="p">(</span><span class="nx">所需参数</span><span class="p">)</span>
-    <span class="nx">backTracking</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">所需参数</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="nx">满足要求</span> <span class="p">{</span>
-            <span class="c1">// 新申请内存空间，避免底层数组一致
-</span><span class="c1"></span>            <span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nb">append</span><span class="p">([]</span><span class="kt">int</span><span class="p">{},</span> <span class="nx">path</span><span class="o">...</span><span class="p">)</span><span class="o">...</span><span class="p">)</span>
-            <span class="k">return</span>
-        <span class="p">}</span>
-        <span class="k">for</span> <span class="nx">遍历序列</span> <span class="p">{</span>
-            <span class="nx">path</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">添加临时结果</span><span class="p">)</span>
-            <span class="nf">backTracking</span><span class="p">(</span><span class="nx">所需参数</span><span class="p">)</span>
-            <span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">demo</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 存放结果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">res</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 存放临时结果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">path</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 回溯函数的参数很难提前确定
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 一般在写具体实现是根据需要补上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">backTracking</span> <span class="kd">func</span><span class="p">(</span><span class="nx">所需参数</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">backTracking</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">所需参数</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">满足要求</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 新申请内存空间，避免底层数组一致
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">res</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span> <span class="nb">append</span><span class="p">([]</span><span class="kt">int</span><span class="p">{},</span> <span class="nx">path</span><span class="o">...</span><span class="p">)</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="nx">遍历序列</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">path</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">添加临时结果</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">backTracking</span><span class="p">(</span><span class="nx">所需参数</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">path</span> <span class="p">=</span> <span class="nx">path</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="回溯的去重">回溯的去重</h3>
 <p>去重首先需要序列有序，然后在for循环内部判断当前元素与前一元素是否相同，如果相同就continue</p>
@@ -209,21 +209,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">used</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">bool</span><span class="p">,</span> <span class="nx">length</span><span class="p">)</span>
-
-<span class="nx">backTracking</span> <span class="p">=</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="nx">used</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
-            <span class="k">continue</span>
-        <span class="p">}</span>
-        <span class="nx">used</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="kc">true</span>
-        <span class="o">...</span>
-        <span class="nf">backTracking</span><span class="p">()</span>
-        <span class="nx">used</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="kc">false</span>
-        <span class="o">...</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">used</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">bool</span><span class="p">,</span> <span class="nx">length</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">backTracking</span> <span class="p">=</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">used</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">used</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">        <span class="o">...</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">backTracking</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">used</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">        <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -255,7 +255,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.102.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
         </div>

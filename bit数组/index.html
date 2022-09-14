@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/bit%E6%95%B0%E7%BB%84\/"
-        },"genre": "posts","keywords": "bit数组, bitmap","wordcount":  2135 ,
+        },"genre": "posts","keywords": "bit数组, bitmap","wordcount":  2088 ,
         "url": "http:\/\/example.org\/bit%E6%95%B0%E7%BB%84\/","datePublished": "2022-02-15T14:05:38+08:00","dateModified": "2022-02-15T14:05:38+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Bit数组/bitmap</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/bit%E6%95%B0%E7%BB%84/"><i class="far fa-folder fa-fw"></i>bit数组</a>&nbsp;<a href="/categories/bitmap/"><i class="far fa-folder fa-fw"></i>bitmap</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2135 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-15">2022-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2088 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
         </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
 <p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
@@ -353,205 +353,205 @@
 </span><span class="lnt">198
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">bitmap</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;bytes&#34;</span>
-	<span class="s">&#34;fmt&#34;</span>
-<span class="p">)</span>
-
-<span class="c1">// 参考go语言圣经6.5章节
-</span><span class="c1"></span>
-<span class="c1">// UINTSIZE 判断当前机器是32位还是64位
-</span><span class="c1">// 64位机器^uint(0) = 64位全1，&gt;&gt; 63之后变成只有第一位为1，32 &lt;&lt; 1 = 64
-</span><span class="c1">// 32位机器&gt;&gt; 63之后全部位变为0，32 &lt;&lt; 0 = 32
-</span><span class="c1"></span><span class="kd">const</span> <span class="nx">UINTSIZE</span> <span class="p">=</span> <span class="mi">32</span> <span class="o">&lt;&lt;</span> <span class="p">(^</span><span class="nb">uint</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">63</span><span class="p">)</span>
-
-<span class="c1">// An IntSet is a set of small non-negative integers.
-</span><span class="c1">// Its zero value represents the empty set.
-</span><span class="c1"></span><span class="kd">type</span> <span class="nx">IntSet</span> <span class="kd">struct</span> <span class="p">{</span>
-	<span class="nx">words</span> <span class="p">[]</span><span class="kt">uint</span>
-<span class="p">}</span>
-
-<span class="c1">// Has reports whether the set contains the non-negative value x.
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Has</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-	<span class="nx">word</span><span class="p">,</span> <span class="nx">bit</span> <span class="o">:=</span> <span class="nx">x</span><span class="o">/</span><span class="nx">UINTSIZE</span><span class="p">,</span> <span class="nb">uint</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">UINTSIZE</span><span class="p">)</span>
-	<span class="c1">// words长度大于数据所在元素下标，且所在bit位不为0
-</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">word</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">word</span><span class="p">]</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="nx">bit</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span>
-<span class="p">}</span>
-
-<span class="c1">// Add adds the non-negative value x to the set.
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// 对要存储的数取商和模
-</span><span class="c1"></span>	<span class="nx">word</span><span class="p">,</span> <span class="nx">bit</span> <span class="o">:=</span> <span class="nx">x</span><span class="o">/</span><span class="nx">UINTSIZE</span><span class="p">,</span> <span class="nb">uint</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">UINTSIZE</span><span class="p">)</span>
-	<span class="c1">// 如果words数组长度小于商，则扩容至能存下为止
-</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">word</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-	<span class="p">}</span>
-	<span class="c1">// 将数存储到指定bit位
-</span><span class="c1"></span>	<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">word</span><span class="p">]</span> <span class="o">|=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="nx">bit</span>
-<span class="p">}</span>
-
-<span class="c1">// UnionWith sets s to the union of s and t.
-</span><span class="c1">// 设置s为s和t的并集
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">UnionWith</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tword</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
-			<span class="c1">// 取并集
-</span><span class="c1"></span>			<span class="c1">// 101 | 010 = 111
-</span><span class="c1"></span>			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">|=</span> <span class="nx">tword</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">,</span> <span class="nx">tword</span><span class="p">)</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// IntersectWith sets s to the intersect of s and t
-</span><span class="c1">// 设置s为s和t的交集
-</span><span class="c1">// 元素在s集合t集合均出现
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">IntersectWith</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="p">{</span>
-	<span class="c1">// 如果s比t长，把s截取到t的长度
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">words</span><span class="p">)]</span>
-	<span class="p">}</span>
-	<span class="c1">// 如果t比s长，也只会比较s中有的部分
-</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tword</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="nx">tword</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// DifferenceWith sets s to the difference of s and t
-</span><span class="c1">// 设置s为s和t的差集
-</span><span class="c1">// 元素出现在s集合，未出现在t集合
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">DifferenceWith</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tword</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
-			<span class="c1">// ^: 异或运算，值不同则为1，相同为0
-</span><span class="c1"></span>			<span class="c1">// B           A
-</span><span class="c1"></span>			<span class="c1">// 100011010 ^ 110101001 = 010110011
-</span><span class="c1"></span>			<span class="c1">// 010110011 &amp; 110101001 = 010100001
-</span><span class="c1"></span>			<span class="c1">// 正好是A中有而B中没有的
-</span><span class="c1"></span>			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">^</span> <span class="nx">tword</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// SymmetricDifference sets s to the symmetric difference of s and t
-</span><span class="c1">// 设置s为s和t的并查集
-</span><span class="c1">// 元素出现在s但没有出现在t，或者出现在t没有出现在s
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">SymmetricDifference</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tword</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">^=</span> <span class="nx">tword</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="c1">// 如果s元素个数小于t，则s要把t中多的部分补上
-</span><span class="c1"></span>			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">,</span> <span class="nx">tword</span><span class="p">)</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// String returns the set as a string of the form &#34;{1 2 3}&#34;.
-</span><span class="c1">// String方法，fmt.Printf()函数对实现了String方法的类型会直接调用其String()方法进行输出
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
-	<span class="kd">var</span> <span class="nx">buf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
-	<span class="nx">buf</span><span class="p">.</span><span class="nf">WriteByte</span><span class="p">(</span><span class="sc">&#39;{&#39;</span><span class="p">)</span>
-	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">word</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">word</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-			<span class="k">continue</span>
-		<span class="p">}</span>
-		<span class="c1">// 逐位遍历，如果为1，则将其写入缓冲区
-</span><span class="c1"></span>		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">UINTSIZE</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="nx">word</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="nb">uint</span><span class="p">(</span><span class="nx">j</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
-				<span class="k">if</span> <span class="nx">buf</span><span class="p">.</span><span class="nf">Len</span><span class="p">()</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s">&#34;{&#34;</span><span class="p">)</span> <span class="p">{</span>
-					<span class="nx">buf</span><span class="p">.</span><span class="nf">WriteByte</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">)</span>
-				<span class="p">}</span>
-				<span class="c1">// UINTSIZE*i+j还原数实际大小
-</span><span class="c1"></span>				<span class="c1">// 比如2存储在[0]的第2个比特位
-</span><span class="c1"></span>				<span class="c1">// UINTSIZE*0+2=2
-</span><span class="c1"></span>				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintf</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">buf</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="nx">UINTSIZE</span><span class="o">*</span><span class="nx">i</span><span class="o">+</span><span class="nx">j</span><span class="p">)</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="nx">buf</span><span class="p">.</span><span class="nf">WriteByte</span><span class="p">(</span><span class="sc">&#39;}&#39;</span><span class="p">)</span>
-	<span class="k">return</span> <span class="nx">buf</span><span class="p">.</span><span class="nf">String</span><span class="p">()</span>
-<span class="p">}</span>
-
-<span class="c1">// Len return the number of elements
-</span><span class="c1">// 返回当前存储了多少个数
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
-	<span class="nx">l</span> <span class="o">:=</span> <span class="mi">0</span>
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">word</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">word</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-			<span class="k">continue</span>
-		<span class="p">}</span>
-		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">UINTSIZE</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="nx">word</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="nb">uint</span><span class="p">(</span><span class="nx">j</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
-				<span class="nx">l</span><span class="o">++</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">l</span>
-<span class="p">}</span>
-
-<span class="c1">// Elems returns a slice containing the elements of the set
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Elems</span><span class="p">()</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
-	<span class="nx">res</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
-	<span class="nx">k</span> <span class="o">:=</span> <span class="mi">0</span>
-	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">word</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">word</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-			<span class="k">continue</span>
-		<span class="p">}</span>
-		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">UINTSIZE</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="nx">word</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="nx">j</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
-				<span class="nx">res</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="p">=</span> <span class="nx">UINTSIZE</span><span class="o">*</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">j</span>
-				<span class="nx">k</span><span class="o">++</span>
-			<span class="p">}</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">res</span>
-<span class="p">}</span>
-
-<span class="c1">// Remove remove x from the set
-</span><span class="c1">// 删除指定数
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Remove</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">word</span><span class="p">,</span> <span class="nx">bit</span> <span class="o">:=</span> <span class="nx">x</span><span class="o">/</span><span class="nx">UINTSIZE</span><span class="p">,</span> <span class="nb">uint</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">UINTSIZE</span><span class="p">)</span>
-	<span class="c1">// 如果要删除的数超出长度或words为空
-</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">word</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="o">||</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-		<span class="k">return</span>
-	<span class="p">}</span>
-
-	<span class="c1">// 将指定bit位置0，^为取反符号
-</span><span class="c1"></span>	<span class="c1">// ^(1&lt;&lt;2)
-</span><span class="c1"></span>	<span class="c1">// = ^(001 &lt;&lt; 2)
-</span><span class="c1"></span>	<span class="c1">// = ^100
-</span><span class="c1"></span>	<span class="c1">// = 011
-</span><span class="c1"></span>	<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">word</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="p">^(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="nx">bit</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="c1">// Clear remove all elements from the set
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Clear</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
-		<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="mi">0</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// Copy return a copy of the set
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Copy</span><span class="p">()</span> <span class="o">*</span><span class="nx">IntSet</span> <span class="p">{</span>
-	<span class="nx">c</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">IntSet</span><span class="p">)</span>
-	<span class="nx">c</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">uint</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">))</span>
-	<span class="nb">copy</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">words</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span>
-	<span class="k">return</span> <span class="nx">c</span>
-<span class="p">}</span>
-
-<span class="c1">// AddAll adds all the non-negative value num from nums to the set.
-</span><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">AddAll</span><span class="p">(</span><span class="nx">nums</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">num</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nums</span> <span class="p">{</span>
-		<span class="nx">s</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
-	<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">bitmap</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;bytes&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 参考go语言圣经6.5章节
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// UINTSIZE 判断当前机器是32位还是64位
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 64位机器^uint(0) = 64位全1，&gt;&gt; 63之后变成只有第一位为1，32 &lt;&lt; 1 = 64
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 32位机器&gt;&gt; 63之后全部位变为0，32 &lt;&lt; 0 = 32
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">const</span> <span class="nx">UINTSIZE</span> <span class="p">=</span> <span class="mi">32</span> <span class="o">&lt;&lt;</span> <span class="p">(^</span><span class="nb">uint</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">63</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// An IntSet is a set of small non-negative integers.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Its zero value represents the empty set.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">IntSet</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">words</span> <span class="p">[]</span><span class="kt">uint</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Has reports whether the set contains the non-negative value x.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Has</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">word</span><span class="p">,</span> <span class="nx">bit</span> <span class="o">:=</span> <span class="nx">x</span><span class="o">/</span><span class="nx">UINTSIZE</span><span class="p">,</span> <span class="nb">uint</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">UINTSIZE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// words长度大于数据所在元素下标，且所在bit位不为0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="nx">word</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">word</span><span class="p">]</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="nx">bit</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Add adds the non-negative value x to the set.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Add</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 对要存储的数取商和模
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">word</span><span class="p">,</span> <span class="nx">bit</span> <span class="o">:=</span> <span class="nx">x</span><span class="o">/</span><span class="nx">UINTSIZE</span><span class="p">,</span> <span class="nb">uint</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">UINTSIZE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 如果words数组长度小于商，则扩容至能存下为止
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">word</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 将数存储到指定bit位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">word</span><span class="p">]</span> <span class="o">|=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="nx">bit</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// UnionWith sets s to the union of s and t.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 设置s为s和t的并集
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">UnionWith</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tword</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 取并集
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 101 | 010 = 111
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">|=</span> <span class="nx">tword</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">,</span> <span class="nx">tword</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// IntersectWith sets s to the intersect of s and t
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 设置s为s和t的交集
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 元素在s集合t集合均出现
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">IntersectWith</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 如果s比t长，把s截取到t的长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">words</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 如果t比s长，也只会比较s中有的部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tword</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="nx">tword</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// DifferenceWith sets s to the difference of s and t
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 设置s为s和t的差集
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 元素出现在s集合，未出现在t集合
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">DifferenceWith</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tword</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// ^: 异或运算，值不同则为1，相同为0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// B           A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 100011010 ^ 110101001 = 010110011
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 010110011 &amp; 110101001 = 010100001
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="c1">// 正好是A中有而B中没有的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">^</span> <span class="nx">tword</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// SymmetricDifference sets s to the symmetric difference of s and t
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 设置s为s和t的并查集
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 元素出现在s但没有出现在t，或者出现在t没有出现在s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">SymmetricDifference</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">tword</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">t</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">^=</span> <span class="nx">tword</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="c1">// 如果s元素个数小于t，则s要把t中多的部分补上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>			<span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">,</span> <span class="nx">tword</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// String returns the set as a string of the form &#34;{1 2 3}&#34;.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// String方法，fmt.Printf()函数对实现了String方法的类型会直接调用其String()方法进行输出
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">String</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">buf</span> <span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">buf</span><span class="p">.</span><span class="nf">WriteByte</span><span class="p">(</span><span class="sc">&#39;{&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">word</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">word</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 逐位遍历，如果为1，则将其写入缓冲区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">UINTSIZE</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">word</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="nb">uint</span><span class="p">(</span><span class="nx">j</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">buf</span><span class="p">.</span><span class="nf">Len</span><span class="p">()</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="s">&#34;{&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">buf</span><span class="p">.</span><span class="nf">WriteByte</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="c1">// UINTSIZE*i+j还原数实际大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">// 比如2存储在[0]的第2个比特位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="c1">// UINTSIZE*0+2=2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintf</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">buf</span><span class="p">,</span> <span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="nx">UINTSIZE</span><span class="o">*</span><span class="nx">i</span><span class="o">+</span><span class="nx">j</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">buf</span><span class="p">.</span><span class="nf">WriteByte</span><span class="p">(</span><span class="sc">&#39;}&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">buf</span><span class="p">.</span><span class="nf">String</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Len return the number of elements
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 返回当前存储了多少个数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">l</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">word</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">word</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">UINTSIZE</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">word</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="nb">uint</span><span class="p">(</span><span class="nx">j</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">l</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">l</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Elems returns a slice containing the elements of the set
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Elems</span><span class="p">()</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">res</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nf">Len</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">k</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">word</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">word</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">continue</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">UINTSIZE</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">word</span><span class="o">&amp;</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="nx">j</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">res</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="p">=</span> <span class="nx">UINTSIZE</span><span class="o">*</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">j</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">k</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">res</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Remove remove x from the set
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 删除指定数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Remove</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">word</span><span class="p">,</span> <span class="nx">bit</span> <span class="o">:=</span> <span class="nx">x</span><span class="o">/</span><span class="nx">UINTSIZE</span><span class="p">,</span> <span class="nb">uint</span><span class="p">(</span><span class="nx">x</span><span class="o">%</span><span class="nx">UINTSIZE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 如果要删除的数超出长度或words为空
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">if</span> <span class="nx">word</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="o">||</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// 将指定bit位置0，^为取反符号
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// ^(1&lt;&lt;2)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// = ^(001 &lt;&lt; 2)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// = ^100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// = 011
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">word</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="p">^(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="nx">bit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Clear remove all elements from the set
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Clear</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Copy return a copy of the set
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">Copy</span><span class="p">()</span> <span class="o">*</span><span class="nx">IntSet</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">IntSet</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">c</span><span class="p">.</span><span class="nx">words</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">uint</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nb">copy</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">words</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">words</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">c</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// AddAll adds all the non-negative value num from nums to the set.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">IntSet</span><span class="p">)</span> <span class="nf">AddAll</span><span class="p">(</span><span class="nx">nums</span> <span class="o">...</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">num</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nums</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">s</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -583,7 +583,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.102.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
         </div>

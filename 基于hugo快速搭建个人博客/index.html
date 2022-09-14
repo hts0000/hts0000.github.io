@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/%E5%9F%BA%E4%BA%8Ehugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2\/"
-        },"genre": "posts","keywords": "hugo, 分享","wordcount":  2770 ,
+        },"genre": "posts","keywords": "hugo, 分享","wordcount":  2516 ,
         "url": "http:\/\/example.org\/%E5%9F%BA%E4%BA%8Ehugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2\/","datePublished": "2020-02-15T13:02:13+08:00","dateModified": "2020-02-15T13:02:13+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">基于Hugo快速搭建个人博客</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%88%86%E4%BA%AB/"><i class="far fa-folder fa-fw"></i>分享</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-02-15">2020-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2770 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-02-15">2020-02-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2516 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
         </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
 <p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
@@ -154,8 +154,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">hugo new site D:\MyBlog
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo new site D:\MyBlog
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>第二步，获取HUGO主题。</strong></p>
 <p>hugo的主题是博客的门面，博客的风格和样式都基于主题。如果有前端编程的能力，也可以自行设计属于自己的主题，或者前往<a href="https://themes.gohugo.io/" target="_blank" rel="noopener noreffer">hugo主题商店</a>下载现成的主题。这里以<a href="https://themes.gohugo.io/loveit/" target="_blank" rel="noopener noreffer">LoveIt
@@ -199,8 +199,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">hugo server -D --config D:\MyBlog\config.toml
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo server -D --config D:\MyBlog\config.toml
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在浏览器访问URL:<code>localhost:1313</code>，可以查看本地博客。
 <figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/hts0000/images/03.png" title="下载LoveIt主题" data-thumbnail="https://cdn.jsdelivr.net/gh/hts0000/images/03.png" data-sub-html="<h2>下载LoveIt主题</h2><p>下载LoveIt主题</p>">
@@ -298,15 +298,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># 进入D盘
-D:
-# 进入MyBlog目录
-cd MyBlog
-# 生成博客文章，文章会生成在content/posts目录下
-hugo new posts/我的第一篇博客.md
-# 启动hugo，开启监听
-hugo server -D --config D:\MyBlog\config.toml
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 进入D盘
+</span></span><span class="line"><span class="cl">D:
+</span></span><span class="line"><span class="cl"># 进入MyBlog目录
+</span></span><span class="line"><span class="cl">cd MyBlog
+</span></span><span class="line"><span class="cl"># 生成博客文章，文章会生成在content/posts目录下
+</span></span><span class="line"><span class="cl">hugo new posts/我的第一篇博客.md
+</span></span><span class="line"><span class="cl"># 启动hugo，开启监听
+</span></span><span class="line"><span class="cl">hugo server -D --config D:\MyBlog\config.toml
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>再次访问URL:<code>localhost:1313</code>即可看到刚刚添加的文章。</p>
 <h1 id="5-用github展示博客文章">5 用GitHub展示博客文章</h1>
@@ -343,13 +343,13 @@ hugo server -D --config D:\MyBlog\config.toml
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># 进入D盘
-D:
-# 进入MyBlog目录
-cd MyBlog
-# 生成静态页面
-hugo
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 进入D盘
+</span></span><span class="line"><span class="cl">D:
+</span></span><span class="line"><span class="cl"># 进入MyBlog目录
+</span></span><span class="line"><span class="cl">cd MyBlog
+</span></span><span class="line"><span class="cl"># 生成静态页面
+</span></span><span class="line"><span class="cl">hugo
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>hugo生成静态页面之后在MyBlog目录下会生成public目录存放静态页面。</p>
 <p><strong>将静态页面推送到GitHub</strong></p>
@@ -366,15 +366,15 @@ hugo
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># 查看git是否正常安装，能正常显示git版本即为安装正确
-git version
-
-D:
-cd MyBlog/pubilc
-
-# 将你的仓库clone下来
-git clone repoURL
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 查看git是否正常安装，能正常显示git版本即为安装正确
+</span></span><span class="line"><span class="cl">git version
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">D:
+</span></span><span class="line"><span class="cl">cd MyBlog/pubilc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 将你的仓库clone下来
+</span></span><span class="line"><span class="cl">git clone repoURL
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后将所有文件移动到clone下来的仓库目录下，再次打开cmd终端，输入如下命令，将静态页面推送到远程仓库。</p>
 <div class="highlight"><div class="chroma">
@@ -390,16 +390,16 @@ git clone repoURL
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">D:
-# 进入git本地仓库
-cd MyBlog\public\&lt;你的仓库目录&gt;
-# 将所有的文件添加到本地暂存区
-git add .
-# 提交暂存区的内容
-git commit -m &#39;init MyBlog&#39;
-# 将本地提交推送到远程
-git push
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">D:
+</span></span><span class="line"><span class="cl"># 进入git本地仓库
+</span></span><span class="line"><span class="cl">cd MyBlog\public\&lt;你的仓库目录&gt;
+</span></span><span class="line"><span class="cl"># 将所有的文件添加到本地暂存区
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl"># 提交暂存区的内容
+</span></span><span class="line"><span class="cl">git commit -m &#39;init MyBlog&#39;
+</span></span><span class="line"><span class="cl"># 将本地提交推送到远程
+</span></span><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在GitHub上查看提交。
 <figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/hts0000/images/12.PNG" title="GitHub仓库" data-thumbnail="https://cdn.jsdelivr.net/gh/hts0000/images/12.PNG" data-sub-html="<h2>GitHub仓库</h2><p>GitHub仓库</p>">
@@ -452,7 +452,7 @@ git push
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.102.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
         </div>

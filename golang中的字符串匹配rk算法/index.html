@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/golang%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8Drk%E7%AE%97%E6%B3%95\/"
-        },"genre": "posts","keywords": "算法, RK, 字符串匹配算法","wordcount":  1607 ,
+        },"genre": "posts","keywords": "算法, RK, 字符串匹配算法","wordcount":  1619 ,
         "url": "http:\/\/example.org\/golang%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8Drk%E7%AE%97%E6%B3%95\/","datePublished": "2022-02-11T20:22:14+08:00","dateModified": "2022-02-11T20:22:14+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,7 +103,7 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Golang中的字符串匹配——RK算法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>算法</a>&nbsp;<a href="/categories/rk/"><i class="far fa-folder fa-fw"></i>RK</a>&nbsp;<a href="/categories/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>字符串匹配算法</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-11">2022-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1607 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-11">2022-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1619 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
 <p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
@@ -114,8 +114,8 @@
 <p>通过一个hash函数，将输入内容转化为数字，这个数字就是hash值。对于输入的内容相同，hash函数输出的值必须相同且应该尽量唯一。</p>
 <h2 id="如何计算字符串的hash值">如何计算字符串的hash值？</h2>
 <p>对于一串数字字符串&quot;1234&quot;，我们可以把它看做是10进制数，通过计算:<code>'1'*10^(4-1) + '2'*10^(4-2) + '3'*10^(4-3)+'4'*10^(4-4)</code>将它hash为1234(10^2表示10的2次方,4为字符串长度)。</p>
-<p>对于小写字母字符串&quot;abcd&quot;，我们可以把它看做是26进制数，通过计算:<code>'a'*26^(4-1) + 'b'*26^(4-2) + 'c'*26^(4-3) + 'd'*26^(4-4)</code>将它hash为19010(&lsquo;a&rsquo;=1,&lsquo;b&rsquo;=2,&lsquo;c&rsquo;=3,&rsquo;d'=4)。</p>
-<p>对于大小写字符混合字符串&quot;AbCd&quot;，我们可以把它看做是128进制(ASCII码128个字符)，通过计算:<code>'A'*128^(4-1) + 'b'*128^(4-2) + 'C'*128^(4-3) + 'd'*128^(4-4)</code>，将它们hash为137,929,188(&lsquo;A&rsquo;=65,&lsquo;b&rsquo;=98,&lsquo;C&rsquo;=67,&rsquo;d'=100)。</p>
+<p>对于小写字母字符串&quot;abcd&quot;，我们可以把它看做是26进制数，通过计算:<code>'a'*26^(4-1) + 'b'*26^(4-2) + 'c'*26^(4-3) + 'd'*26^(4-4)</code>将它hash为19010(&lsquo;a&rsquo;=1,&lsquo;b&rsquo;=2,&lsquo;c&rsquo;=3,&rsquo;d&rsquo;=4)。</p>
+<p>对于大小写字符混合字符串&quot;AbCd&quot;，我们可以把它看做是128进制(ASCII码128个字符)，通过计算:<code>'A'*128^(4-1) + 'b'*128^(4-2) + 'C'*128^(4-3) + 'd'*128^(4-4)</code>，将它们hash为137,929,188(&lsquo;A&rsquo;=65,&lsquo;b&rsquo;=98,&lsquo;C&rsquo;=67,&rsquo;d&rsquo;=100)。</p>
 <p>通过上述例子可以发现，我们可以把一串字符hash为它们字符集进制的数，那么我们是否可以用Unicode字符集作为进制数？不就可以表示所有字符了？答案是可以的。Unicode字符集所有字符个数为1114112个。</p>
 <h2 id="如何使用hash进行字符串匹配">如何使用hash进行字符串匹配？</h2>
 <p>对于<code>文本串s&quot;12345&quot;</code>，我们希望知道<code>模式串p&quot;45&quot;</code>是否被<code>s</code>包含要如何做？</p>
@@ -179,56 +179,56 @@
 </span><span class="lnt">49
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="c1">// PrimeRK相当于我们上面提到的进制
-</span><span class="c1"></span><span class="kd">const</span> <span class="nx">PrimeRK</span> <span class="p">=</span> <span class="mi">16777619</span>
-
-<span class="c1">// HashStr returns the hash and the appropriate multiplicative
-</span><span class="c1">// factor for use in Rabin-Karp algorithm.
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">HashStr</span><span class="p">(</span><span class="nx">sep</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">uint32</span><span class="p">,</span> <span class="kt">uint32</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">hash</span> <span class="o">:=</span> <span class="nb">uint32</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">sep</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-		<span class="c1">// 将模式串hash为PrimeRK进制的数
-</span><span class="c1"></span>		<span class="nx">hash</span> <span class="p">=</span> <span class="nx">hash</span><span class="o">*</span><span class="nx">PrimeRK</span> <span class="o">+</span> <span class="nb">uint32</span><span class="p">(</span><span class="nx">sep</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-	<span class="p">}</span>
-	<span class="c1">// 
-</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">pow</span><span class="p">,</span> <span class="nx">sq</span> <span class="kt">uint32</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">PrimeRK</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">sep</span><span class="p">);</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span> <span class="p">{</span>
-		<span class="k">if</span> <span class="nx">i</span><span class="o">&amp;</span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
-			<span class="nx">pow</span> <span class="o">*=</span> <span class="nx">sq</span>
-		<span class="p">}</span>
-		<span class="nx">sq</span> <span class="o">*=</span> <span class="nx">sq</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="nx">hash</span><span class="p">,</span> <span class="nx">pow</span>
-<span class="p">}</span>
-
-<span class="c1">// IndexRabinKarp uses the Rabin-Karp search algorithm to return the index of the
-</span><span class="c1">// first occurrence of substr in s, or -1 if not present.
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">IndexRabinKarp</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">substr</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">substr</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="p">}</span>
-	<span class="c1">// Rabin-Karp search
-</span><span class="c1"></span>	<span class="nx">hashss</span><span class="p">,</span> <span class="nx">pow</span> <span class="o">:=</span> <span class="nf">HashStr</span><span class="p">(</span><span class="nx">substr</span><span class="p">)</span>
-	<span class="nx">n</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">substr</span><span class="p">)</span>
-	<span class="kd">var</span> <span class="nx">h</span> <span class="kt">uint32</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-		<span class="nx">h</span> <span class="p">=</span> <span class="nx">h</span><span class="o">*</span><span class="nx">PrimeRK</span> <span class="o">+</span> <span class="nb">uint32</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-	<span class="p">}</span>
-	<span class="k">if</span> <span class="nx">h</span> <span class="o">==</span> <span class="nx">hashss</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[:</span><span class="nx">n</span><span class="p">]</span> <span class="o">==</span> <span class="nx">substr</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="mi">0</span>
-	<span class="p">}</span>
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="p">{</span>
-		<span class="nx">h</span> <span class="o">*=</span> <span class="nx">PrimeRK</span>
-		<span class="nx">h</span> <span class="o">+=</span> <span class="nb">uint32</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
-		<span class="nx">h</span> <span class="o">-=</span> <span class="nx">pow</span> <span class="o">*</span> <span class="nb">uint32</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">n</span><span class="p">])</span>
-		<span class="nx">i</span><span class="o">++</span>
-		<span class="k">if</span> <span class="nx">h</span> <span class="o">==</span> <span class="nx">hashss</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">n</span><span class="p">:</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">substr</span> <span class="p">{</span>
-			<span class="k">return</span> <span class="nx">i</span> <span class="o">-</span> <span class="nx">n</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-	<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// PrimeRK相当于我们上面提到的进制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">const</span> <span class="nx">PrimeRK</span> <span class="p">=</span> <span class="mi">16777619</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// HashStr returns the hash and the appropriate multiplicative
+</span></span></span><span class="line"><span class="cl"><span class="c1">// factor for use in Rabin-Karp algorithm.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">HashStr</span><span class="p">(</span><span class="nx">sep</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">uint32</span><span class="p">,</span> <span class="kt">uint32</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hash</span> <span class="o">:=</span> <span class="nb">uint32</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">sep</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="c1">// 将模式串hash为PrimeRK进制的数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="nx">hash</span> <span class="p">=</span> <span class="nx">hash</span><span class="o">*</span><span class="nx">PrimeRK</span> <span class="o">+</span> <span class="nb">uint32</span><span class="p">(</span><span class="nx">sep</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">var</span> <span class="nx">pow</span><span class="p">,</span> <span class="nx">sq</span> <span class="kt">uint32</span> <span class="p">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">PrimeRK</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">sep</span><span class="p">);</span> <span class="nx">i</span> <span class="p">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">i</span><span class="o">&amp;</span><span class="mi">1</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">pow</span> <span class="o">*=</span> <span class="nx">sq</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">sq</span> <span class="o">*=</span> <span class="nx">sq</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">hash</span><span class="p">,</span> <span class="nx">pow</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// IndexRabinKarp uses the Rabin-Karp search algorithm to return the index of the
+</span></span></span><span class="line"><span class="cl"><span class="c1">// first occurrence of substr in s, or -1 if not present.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">IndexRabinKarp</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">substr</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">substr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Rabin-Karp search
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">hashss</span><span class="p">,</span> <span class="nx">pow</span> <span class="o">:=</span> <span class="nf">HashStr</span><span class="p">(</span><span class="nx">substr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">n</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">substr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">h</span> <span class="kt">uint32</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">h</span> <span class="p">=</span> <span class="nx">h</span><span class="o">*</span><span class="nx">PrimeRK</span> <span class="o">+</span> <span class="nb">uint32</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">h</span> <span class="o">==</span> <span class="nx">hashss</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[:</span><span class="nx">n</span><span class="p">]</span> <span class="o">==</span> <span class="nx">substr</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">h</span> <span class="o">*=</span> <span class="nx">PrimeRK</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">h</span> <span class="o">+=</span> <span class="nb">uint32</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">h</span> <span class="o">-=</span> <span class="nx">pow</span> <span class="o">*</span> <span class="nb">uint32</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">n</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">i</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">h</span> <span class="o">==</span> <span class="nx">hashss</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="nx">n</span><span class="p">:</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">substr</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">i</span> <span class="o">-</span> <span class="nx">n</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>参考：<a href="" rel="">https://www.cnblogs.com/golove/p/3234673.html</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -260,7 +260,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.102.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
         </div>
