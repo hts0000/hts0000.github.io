@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>双指针 - 分类 - Hts0000 | 个人博客</title>
+        <link>http://example.org/categories/%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+        <description>双指针 - 分类 - Hts0000 | 个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Mon, 19 Sep 2022 15:52:45 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="self" type="application/rss+xml" /><item>
+    <title>基础算法整理(三)</title>
+    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%B8%89/</link>
+    <pubDate>Mon, 19 Sep 2022 15:52:45 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%B8%89/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>
