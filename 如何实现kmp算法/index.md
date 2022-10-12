@@ -78,47 +78,26 @@ func getNext(s string) []int {
 
 # kmp具体实现
 ```go
-func kmp(haystack string, needle string) int {
-	if len(needle) == 0 {
-		return 0
+func kmp(s string, p string) int {
+	m, n := len(s), len(p)
+	next := make([]int, n)
+	
+	// 构建next数组
+	for i, j := 1, 0; i < n; i++ {
+		for j > 0 && p[i] != p[j] { j = next[j-1] }
+		if p[i] == p[j] { j++ }
+		next[i] = j
 	}
-	next := getNext(needle)
-    // 模式串的起始位置 next为0 因此也为0
-	j := 0
-	for i := 0; i < len(haystack); i++ {
-		for j > 0 && haystack[i] != needle[j] {
-            // 寻找下一个匹配点
-			j = next[j-1]
-		}
-		if haystack[i] == needle[j] {
-			j++
-		}
-        // j指向了模式串的末尾
-		if j == len(needle) {
-			return i - len(needle) + 1
-		}
+
+	// 根据next数组加速字符串匹配
+	for i, j := 0, 0; i < m; i++ {
+		for j > 0 && s[i] != p[j] { j = next[j-1] }
+		if s[i] == p[j] { j++ }
+		if j == n { return i - n + 1 }
 	}
+	
+	// 全部匹配失败，返回-1
 	return -1
-}
-
-func getNext(s string) []int {
-    sLen := len(s)
-    next := make([]int, sLen)
-    next[0] = 0
-    j := 0
-
-    for i := 1; i < sLen; i++ {
-        // j要保证大于0，因为下面有取j-1作为数组下标的操作
-        for j > 0 && s[i] != s[j] {
-            // 回退前一位
-            j = next[j - 1]
-        }
-        if s[i] == s[j] {
-            j++
-        }
-        next[i] = j
-    }
-    return next
 }
 ```
 
