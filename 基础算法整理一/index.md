@@ -6,13 +6,9 @@
 转载请注明出处：`https://hts0000.github.io/`
 
 欢迎与我联系：`hts_0000@sina.com`
-
 # 1. 排序
-
 ## 1.1 快速排序
-
 ### 代码模板
-
 ```go
 func sortArray(nums []int) []int {
     qucikSort(nums, 0, len(nums) - 1)
@@ -34,15 +30,11 @@ func qucikSort(nums []int, l, r int) {
 ```
 
 ### 经典模板题
-
-[912. 排序数组](https://leetcode.cn/problems/sort-an-array/)
+[912. 排序数组](https://leetcode.cn/problems/sort-an-array/)  
 
 ## 1.2 归并排序
-
 ### 代码模板
-
 递归版
-
 ```go
 func sortArray(nums []int) []int {
     mergeSort(nums, 0, len(nums) - 1)
@@ -83,7 +75,6 @@ func merge(left, right []int) []int {
 ```
 
 迭代版
-
 ```go
 func sortArray(nums []int) []int {
     mergeSort(nums)
@@ -129,93 +120,82 @@ func min(a, b int) int {
 ```
 
 ### 经典模板题
-
 [912. 排序数组](https://leetcode.cn/problems/sort-an-array/)  
 [剑指 Offer 51. 数组中的逆序对](https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)
 
 # 2. 二分
-
 ## 2.1 整数二分
-
 二分的本质是将一个区间分为两块，一块满足要求，另一块不满足要求，然后就可以寻找这两块区间的边界。  
 每次缩小的时候，都要确保剩余区间内有答案。
-
 ### 代码模板
-
 寻找左边界
-
 ```go
 func bsearch(nums []int, target int) int {
- if len(nums) == 0 {
-  return -1
- }
- l, r := 0, len(nums) - 1
- for l < r {
-  mid := (l + r) >> 1
-  if nums[mid] >= target {
-   r = mid
-  } else {
-   l = mid + 1
-  }
- }
- if nums[l] != target {
-  return -1
- }
- return l
+	if len(nums) == 0 {
+		return -1
+	}
+	l, r := 0, len(nums) - 1
+	for l < r {
+		mid := (l + r) >> 1
+		if nums[mid] >= target {
+			r = mid
+		} else {
+			l = mid + 1
+		}
+	}
+	if nums[l] != target {
+		return -1
+	}
+	return l
 }
 ```
 
 寻找右边界
-
 ```go
 func bsearch(nums []int, target int) int {
- if len(nums) == 0 {
-  return -1
- }
- l, r := 0, len(nums) - 1
- for l < r {
-  mid := (l + r + 1) >> 1
-  if nums[mid] <= target {
-   l = mid
-  } else {
-   r = mid - 1
-  }
- }
- if nums[r] != target {
-  return -1
- }
- return r
+	if len(nums) == 0 {
+		return -1
+	}
+	l, r := 0, len(nums) - 1
+	for l < r {
+		mid := (l + r + 1) >> 1
+		if nums[mid] <= target {
+			l = mid
+		} else {
+			r = mid - 1
+		}
+	}
+	if nums[r] != target {
+		return -1
+	}
+	return r
 }
 ```
 
 ### 经典模板题
-
 [704. 二分查找](https://leetcode.cn/problems/binary-search/)  
 [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 ## 2.2 浮点数二分
-
 ### 代码模板
-
 ```go
 func mySqrt() {
     var x float64
- fmt.Scanf("%f", &x)
- var l, r float64 = 0, x
- for r - l > 1e-8 {
-  mid := (l + r) / 2
-  if mid * mid >= x {
-   r = mid
-  } else {
-   l = mid
-  }
- }
- fmt.Printf("%f", l)
+	fmt.Scanf("%f", &x)
+	var l, r float64 = 0, x
+	for r - l > 1e-8 {
+		mid := (l + r) / 2
+		if mid * mid >= x {
+			r = mid
+		} else {
+			l = mid
+		}
+	}
+	fmt.Printf("%f", l)
 }
 ```
 
 ### 经典模板题
-
 [69. x 的平方根](https://leetcode.cn/problems/sqrtx/)  
 [790. 数的三次方根](https://www.acwing.com/problem/content/792/)
 

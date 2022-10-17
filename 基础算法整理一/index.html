@@ -354,22 +354,22 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">bsearch</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">target</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="nx">l</span><span class="p">,</span> <span class="nx">r</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"> <span class="k">for</span> <span class="nx">l</span> <span class="p">&lt;</span> <span class="nx">r</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">mid</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">l</span> <span class="o">+</span> <span class="nx">r</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">target</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nx">r</span> <span class="p">=</span> <span class="nx">mid</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nx">l</span> <span class="p">=</span> <span class="nx">mid</span> <span class="o">+</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">target</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="nx">l</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">l</span><span class="p">,</span> <span class="nx">r</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">l</span> <span class="p">&lt;</span> <span class="nx">r</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">mid</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">l</span> <span class="o">+</span> <span class="nx">r</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">target</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">r</span> <span class="p">=</span> <span class="nx">mid</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">l</span> <span class="p">=</span> <span class="nx">mid</span> <span class="o">+</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">target</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">l</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -397,22 +397,22 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">bsearch</span><span class="p">(</span><span class="nx">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">target</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="nx">l</span><span class="p">,</span> <span class="nx">r</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"> <span class="k">for</span> <span class="nx">l</span> <span class="p">&lt;</span> <span class="nx">r</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">mid</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">l</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">target</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nx">l</span> <span class="p">=</span> <span class="nx">mid</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nx">r</span> <span class="p">=</span> <span class="nx">mid</span> <span class="o">-</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">target</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="k">return</span> <span class="nx">r</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">l</span><span class="p">,</span> <span class="nx">r</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">l</span> <span class="p">&lt;</span> <span class="nx">r</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">mid</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">l</span> <span class="o">+</span> <span class="nx">r</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">target</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">l</span> <span class="p">=</span> <span class="nx">mid</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">r</span> <span class="p">=</span> <span class="nx">mid</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">target</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">r</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
@@ -441,17 +441,17 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">mySqrt</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">x</span> <span class="kt">float64</span>
-</span></span><span class="line"><span class="cl"> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">x</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"> <span class="kd">var</span> <span class="nx">l</span><span class="p">,</span> <span class="nx">r</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">x</span>
-</span></span><span class="line"><span class="cl"> <span class="k">for</span> <span class="nx">r</span> <span class="o">-</span> <span class="nx">l</span> <span class="p">&gt;</span> <span class="mf">1e-8</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">mid</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">l</span> <span class="o">+</span> <span class="nx">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="nx">mid</span> <span class="o">*</span> <span class="nx">mid</span> <span class="o">&gt;=</span> <span class="nx">x</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nx">r</span> <span class="p">=</span> <span class="nx">mid</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="nx">l</span> <span class="p">=</span> <span class="nx">mid</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Scanf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">l</span><span class="p">,</span> <span class="nx">r</span> <span class="kt">float64</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">x</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">r</span> <span class="o">-</span> <span class="nx">l</span> <span class="p">&gt;</span> <span class="mf">1e-8</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">mid</span> <span class="o">:=</span> <span class="p">(</span><span class="nx">l</span> <span class="o">+</span> <span class="nx">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">mid</span> <span class="o">*</span> <span class="nx">mid</span> <span class="o">&gt;=</span> <span class="nx">x</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">r</span> <span class="p">=</span> <span class="nx">mid</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">l</span> <span class="p">=</span> <span class="nx">mid</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%f&#34;</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>

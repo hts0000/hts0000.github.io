@@ -120,7 +120,7 @@ func lowbit(x int) int {
 
 ### 经典模板题
 [801. 二进制中1的个数](https://www.acwing.com/problem/content/803/)  
-[191. 位1的个数](https://leetcode.cn/problems/number-of-1-bits/)  
+[191. 位1的个数](https://leetcode.cn/problems/number-of-1-bits/)
 
 # 离散化
 这里单独指整数离散化。离散化是指将一个稀疏的区间离散到一个紧凑的区间中。比如有一个区间范围为`[-10^9 ~ 10^9]`，但是里面只有的数只有`10^5`范围，那么显然这个区间是稀疏的，有很多重复或空的值。离散化就是把这个稀疏空间映射到紧凑空间上，降低操作的时空间复杂度。

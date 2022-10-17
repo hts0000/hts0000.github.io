@@ -4,7 +4,14 @@
         <link>http://example.org/tags/%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86/</link>
         <description>算法整理 - 标签 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Thu, 22 Sep 2022 08:50:39 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Wed, 12 Oct 2022 10:25:37 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86/" rel="self" type="application/rss+xml" /><item>
+    <title>基础算法整理(五)</title>
+    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%94/</link>
+    <pubDate>Wed, 12 Oct 2022 10:25:37 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%94/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>基础算法整理(四)</title>
     <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%9B%9B/</link>
     <pubDate>Thu, 22 Sep 2022 08:50:39 &#43;0800</pubDate>

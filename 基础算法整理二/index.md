@@ -231,7 +231,7 @@ func main() {
 ```
 
 ### 经典模板题
-[795. 前缀和](https://www.acwing.com/problem/content/797/)
+[795. 前缀和](https://www.acwing.com/problem/content/797/)  
 [303. 区域和检索 - 数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/)
 
 ## 二维前缀和
@@ -274,7 +274,7 @@ func main() {
 ```
 
 ### 经典模板题
-[796. 子矩阵的和](https://www.acwing.com/problem/content/798/)
+[796. 子矩阵的和](https://www.acwing.com/problem/content/798/)  
 [304. 二维区域和检索 - 矩阵不可变](https://leetcode.cn/problems/range-sum-query-2d-immutable/)
 
 ## 一维差分
@@ -290,6 +290,7 @@ func main() {
 
 图例——为`[4:7]`这个区间加上`3`。
 ![](https://raw.githubusercontent.com/hts0000/images/main/202209162051303.png)
+
 ### 代码模板
 ```go
 package main
@@ -332,6 +333,7 @@ func insert(l, r, c int) {
 ```
 ### 经典模板题
 [797. 差分](https://www.acwing.com/problem/content/799/)
+
 ## 二维差分
 ### 代码模板
 ```go

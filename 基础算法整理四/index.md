@@ -108,7 +108,7 @@ func remove(k int) {
 ```
 
 ### 经典模板题
-[826. 单链表](https://www.acwing.com/problem/content/828/)
+[826. 单链表](https://www.acwing.com/problem/content/828/)  
 [707. 设计链表](https://leetcode.cn/problems/design-linked-list/)
 
 ## 双链表
@@ -195,7 +195,7 @@ func remove(k int) {
 ```
 
 ### 经典模板题
-[827. 双链表](https://www.acwing.com/problem/content/829/)
+[827. 双链表](https://www.acwing.com/problem/content/829/)  
 [707. 设计链表](https://leetcode.cn/problems/design-linked-list/)
 
 ## 邻接表
@@ -267,8 +267,8 @@ func query() int {
 }
 ```
 ### 经典模板题
-[828. 模拟栈](https://www.acwing.com/problem/content/830/)
-[3302. 表达式求值](https://www.acwing.com/problem/content/3305/)
+[828. 模拟栈](https://www.acwing.com/problem/content/830/)  
+[3302. 表达式求值](https://www.acwing.com/problem/content/3305/)  
 [剑指 Offer II 036. 后缀表达式](https://leetcode.cn/problems/8Zf90G/)
 
 ## 单调栈
@@ -422,7 +422,7 @@ func main() {
 ```
 
 ### 经典模板题
-[154. 滑动窗口](https://www.acwing.com/problem/content/156/)
+[154. 滑动窗口](https://www.acwing.com/problem/content/156/)  
 [239. 滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/)
 
 # kmp算法
