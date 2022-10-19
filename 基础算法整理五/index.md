@@ -177,6 +177,19 @@ func merge(a, b int) {
 
 ## 记录偏移量
 ### 代码模板
+```go
+const N int = 50010
+var p, d [N]int
+
+func find(x int) int {
+    if x != p[x] {
+        t := find(p[x])
+        d[x] += d[p[x]]
+        p[x] = t
+    }
+    return p[x]
+}
+```
 ### 经典模板题
 [240. 食物链](https://www.acwing.com/problem/content/242/)  
 
