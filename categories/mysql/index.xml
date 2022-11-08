@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>MySQL - 分类 - Hts0000 | 个人博客</title>
+        <link>http://example.org/categories/mysql/</link>
+        <description>MySQL - 分类 - Hts0000 | 个人博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Tue, 01 Mar 2022 15:12:08 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/mysql/" rel="self" type="application/rss+xml" /><item>
+    <title>MySQL必知必会</title>
+    <link>http://example.org/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
+    <pubDate>Tue, 01 Mar 2022 15:12:08 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://example.org/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>
