@@ -128,6 +128,11 @@ func min(a, b int) int {
 二分的本质是将一个区间分为两块，一块满足要求，另一块不满足要求，然后就可以寻找这两块区间的边界。  
 每次缩小的时候，都要确保剩余区间内有答案。
 ### 代码模板
+寻找`>=x`的: `i := sort.SearchInts(nums, x)`  
+寻找`>x`的: `sort.SearchInts(nums, x + 1)`  
+寻找`<=x`的: `sort.SearchInts(nums, x) - 1`  
+寻找`<x`的: `sort.SearchInts(nums, x + 1) - 1`
+
 寻找左边界
 ```go
 func bsearch(nums []int, target int) int {
