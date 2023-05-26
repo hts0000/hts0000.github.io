@@ -126,6 +126,16 @@
             <loc>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%B8%80/</loc><lastmod>2022-09-12T14:29:42&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/tags/%E6%8E%92%E5%BA%8F/</loc><lastmod>2022-09-12T14:29:42&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/categories/%E6%8E%92%E5%BA%8F/</loc><lastmod>2022-09-12T14:29:42&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/tags/redis/</loc><lastmod>2022-05-22T15:09:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/categories/redis/</loc><lastmod>2022-05-22T15:09:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/redis/</loc><lastmod>2022-05-22T15:09:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/tags/%E8%BF%90%E7%BB%B4/</loc><lastmod>2022-05-22T15:09:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/categories/%E8%BF%90%E7%BB%B4/</loc><lastmod>2022-05-22T15:09:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/tags/mysql/</loc><lastmod>2022-05-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/categories/mysql/</loc><lastmod>2022-05-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A-sql%E7%AF%87/</loc><lastmod>2022-05-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/tags/sql/</loc><lastmod>2022-05-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://example.org/categories/sql/</loc><lastmod>2022-05-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</loc><lastmod>2022-04-04T09:59:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/categories/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</loc><lastmod>2022-04-04T09:59:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</loc><lastmod>2022-04-04T09:59:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -135,12 +145,6 @@
             <loc>http://example.org/tags/%E5%9B%9E%E6%BA%AF/</loc><lastmod>2022-03-02T15:59:13&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/categories/%E5%9B%9E%E6%BA%AF/</loc><lastmod>2022-03-02T15:59:13&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/</loc><lastmod>2022-03-02T15:59:13&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://example.org/tags/mysql/</loc><lastmod>2022-03-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://example.org/categories/mysql/</loc><lastmod>2022-03-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://example.org/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</loc><lastmod>2022-03-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://example.org/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A-sql%E7%AF%87/</loc><lastmod>2022-03-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://example.org/tags/sql/</loc><lastmod>2022-03-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://example.org/categories/sql/</loc><lastmod>2022-03-01T15:12:08&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/tags/%E6%A0%91/</loc><lastmod>2022-02-21T16:30:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/categories/%E6%A0%91/</loc><lastmod>2022-02-21T16:30:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://example.org/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</loc><lastmod>2022-02-21T16:30:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
