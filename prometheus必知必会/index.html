@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A\/"
-        },"genre": "posts","keywords": "Prometheus, 监控, 运维","wordcount":  9739 ,
+        },"genre": "posts","keywords": "Prometheus, 监控, 运维","wordcount":  10442 ,
         "url": "http:\/\/example.org\/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A\/","datePublished": "2023-06-05T09:58:33+08:00","dateModified": "2023-06-05T09:58:33+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -102,8 +102,8 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Prometheus必知必会</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/prometheus/"><i class="far fa-folder fa-fw"></i>Prometheus</a>&nbsp;<a href="/categories/%E7%9B%91%E6%8E%A7/"><i class="far fa-folder fa-fw"></i>监控</a>&nbsp;<a href="/categories/%E8%BF%90%E7%BB%B4/"><i class="far fa-folder fa-fw"></i>运维</a>&nbsp;<a href="/categories/%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/"><i class="far fa-folder fa-fw"></i>必知必会</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-06-05">2023-06-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 9739 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 20 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-06-05">2023-06-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10442 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;</div>
         </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
 <p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
 <h1 id="prometheus介绍">Prometheus介绍</h1>
@@ -1259,8 +1259,8 @@ Prometheus收集和存储称为<code>Metrics(指标)</code>的时序数据，<co
         alt="https://raw.githubusercontent.com/hts0000/images/main/202306081504082.png"
         title="https://raw.githubusercontent.com/hts0000/images/main/202306081504082.png" /></p>
 <h3 id="钉钉机器人告警">钉钉机器人告警</h3>
-<p>使用<code>webhook</code>功能，可以将告警信息发送到顶顶机器人，顶顶机器人再通知到具体人或群。
-SECb40c229b6d4220c640aac8052d0f900e7585e4a4882d87a398abc6739f41db71
+<p>使用<code>webhook</code>功能，可以将告警信息发送到顶顶机器人，顶顶机器人再通知到具体人或群。</p>
+<p>创建机器人。创建时安全设置选择<code>加签</code>选项，记录生成的密钥和生成的url，还需要把url中带上的token取出来。
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -1268,8 +1268,110 @@ SECb40c229b6d4220c640aac8052d0f900e7585e4a4882d87a398abc6739f41db71
         data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306081512910.png, https://raw.githubusercontent.com/hts0000/images/main/202306081512910.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306081512910.png 2x"
         data-sizes="auto"
         alt="https://raw.githubusercontent.com/hts0000/images/main/202306081512910.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306081512910.png" />
-<a href="https://oapi.dingtalk.com/robot/send?access_token=0d45e829fb1a90f9ec4123bed7f542627dc967b98898a314d08f37b7ae6a7ee0" target="_blank" rel="noopener noreffer">https://oapi.dingtalk.com/robot/send?access_token=0d45e829fb1a90f9ec4123bed7f542627dc967b98898a314d08f37b7ae6a7ee0</a></p></div><div class="post-footer" id="post-footer">
+        title="https://raw.githubusercontent.com/hts0000/images/main/202306081512910.png" /></p>
+<p>下载钉钉和企微<code>webhook</code>插件：https://github.com/cnych/promoter<br>
+这种插件没有官方的，该插件的文档：https://p8s.io/docs/alertmanager/receiver/<br>
+插件的文档：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">global</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">prometheus_url</span><span class="p">:</span><span class="w"> </span><span class="l">http://localhost:9090</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">wechat_api_secret</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;secret&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">wechat_api_corp_id</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;secret&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 配置这两块，token从url中提取一下，secret就是密钥</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dingtalk_api_token</span><span class="p">:</span><span class="w"> </span><span class="l">0d45e829fb1a90f9ec4123bed7f542627dc967b98898a314d08f37b7ae6a7ee1 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dingtalk_api_secret</span><span class="p">:</span><span class="w"> </span><span class="l">SECb40c229b6d4220c640aac8052d0f900e7585e4a4882d87a398abc6739f41db72</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 云存储的配置信息，用来存储生成的图片，s3是亚马逊云，但是也支持阿里云</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">s3</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">access_key</span><span class="p">:</span><span class="w"> </span><span class="l">LTAI5t9qFmk1LPxxNU6KrAiy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secret_key</span><span class="p">:</span><span class="w"> </span><span class="l">NdRxYjVpSW1LbscdW68J4FbkH0PcHz</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="l">oss-cn-guangzhou.aliyuncs.com</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="l">cn-guangzhou</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">bucket</span><span class="p">:</span><span class="w"> </span><span class="l">sdlifudfh</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">receivers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 此处的名字要记住，在Prometheus中要用到</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rcv1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># wechat_configs:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#   - agent_id: &lt;agent_id&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#     to_user: &#34;@all&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#     message_type: markdown</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#     message: &#39;{{ template &#34;wechat.default.message&#34; . }}&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dingtalk_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">message_type</span><span class="p">:</span><span class="w"> </span><span class="l">markdown</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">markdown</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{ template &#34;dingtalk.default.title&#34; . }}&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{ template &#34;dingtalk.default.content&#34; . }}&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">at</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">atMobiles</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;123456&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">isAtAll</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>在<code>Prometheus</code>中加上<code>webhook</code>的配置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">receivers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;web.hook&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">webhook_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># 这里的rcv1就是上面配置的名字</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;http://localhost:8080/rcv1/send&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">send_resolved</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面为啥要这样配置，是根据插件来的，也可以自己写一个插件。功能简单来说就是监听等待<code>Prometheus</code>的消息推送，然后再根据配置的钉钉密钥/token等信息，将告警信息转发给钉钉。自己处理的好处在于可以定制告警的内容。</p>
+<p>关掉<code>Mysql Exporter</code>触发告警看看钉钉上能否收到。<br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306081844826.png"
+        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306081844826.png, https://raw.githubusercontent.com/hts0000/images/main/202306081844826.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306081844826.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/hts0000/images/main/202306081844826.png"
+        title="https://raw.githubusercontent.com/hts0000/images/main/202306081844826.png" /></p>
+<p>能显示图片，一个原因是用了云的对象存储，可以实时预览图片。插件定制了转发的内容为<code>markdown</code>格式，钉钉也支持<code>markdown</code>格式的内容。插件调用<code>Prometheus</code>的接口生成告警时的监控图，再将图片上传到对象存储，然后将对象存储生成的文件填入模板中，发送给钉钉，最终呈现的效果就是这样。</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

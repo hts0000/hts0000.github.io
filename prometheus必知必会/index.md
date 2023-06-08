@@ -646,6 +646,59 @@ groups:
 
 ### 钉钉机器人告警
 使用`webhook`功能，可以将告警信息发送到顶顶机器人，顶顶机器人再通知到具体人或群。
-SECb40c229b6d4220c640aac8052d0f900e7585e4a4882d87a398abc6739f41db71
+
+创建机器人。创建时安全设置选择`加签`选项，记录生成的密钥和生成的url，还需要把url中带上的token取出来。
 ![](https://raw.githubusercontent.com/hts0000/images/main/202306081512910.png)
-https://oapi.dingtalk.com/robot/send?access_token=0d45e829fb1a90f9ec4123bed7f542627dc967b98898a314d08f37b7ae6a7ee0
+
+下载钉钉和企微`webhook`插件：https://github.com/cnych/promoter  
+这种插件没有官方的，该插件的文档：https://p8s.io/docs/alertmanager/receiver/  
+插件的文档：
+```yml
+global:
+  prometheus_url: http://localhost:9090
+  wechat_api_secret: <secret>
+  wechat_api_corp_id: <secret>
+  # 配置这两块，token从url中提取一下，secret就是密钥
+  dingtalk_api_token: 0d45e829fb1a90f9ec4123bed7f542627dc967b98898a314d08f37b7ae6a7ee1 
+  dingtalk_api_secret: SECb40c229b6d4220c640aac8052d0f900e7585e4a4882d87a398abc6739f41db72
+
+# 云存储的配置信息，用来存储生成的图片，s3是亚马逊云，但是也支持阿里云
+s3:
+  access_key: LTAI5t9qFmk1LPxxNU6KrAiy
+  secret_key: NdRxYjVpSW1LbscdW68J4FbkH0PcHz
+  endpoint: oss-cn-guangzhou.aliyuncs.com
+  region: cn-guangzhou
+  bucket: sdlifudfh
+
+receivers:
+    # 此处的名字要记住，在Prometheus中要用到
+  - name: rcv1
+    # wechat_configs:
+    #   - agent_id: <agent_id>
+    #     to_user: "@all"
+    #     message_type: markdown
+    #     message: '{{ template "wechat.default.message" . }}'
+    dingtalk_configs:
+      - message_type: markdown
+        markdown:
+          title: '{{ template "dingtalk.default.title" . }}'
+          text: '{{ template "dingtalk.default.content" . }}'
+        at:
+          atMobiles: [ "123456" ]
+          isAtAll: false
+```
+在`Prometheus`中加上`webhook`的配置。
+```yml
+receivers:
+    - name: 'web.hook'
+        webhook_configs:
+        # 这里的rcv1就是上面配置的名字
+        - url: 'http://localhost:8080/rcv1/send'
+            send_resolved: true
+```
+上面为啥要这样配置，是根据插件来的，也可以自己写一个插件。功能简单来说就是监听等待`Prometheus`的消息推送，然后再根据配置的钉钉密钥/token等信息，将告警信息转发给钉钉。自己处理的好处在于可以定制告警的内容。
+
+关掉`Mysql Exporter`触发告警看看钉钉上能否收到。  
+![](https://raw.githubusercontent.com/hts0000/images/main/202306081844826.png)
+
+能显示图片，一个原因是用了云的对象存储，可以实时预览图片。插件定制了转发的内容为`markdown`格式，钉钉也支持`markdown`格式的内容。插件调用`Prometheus`的接口生成告警时的监控图，再将图片上传到对象存储，然后将对象存储生成的文件填入模板中，发送给钉钉，最终呈现的效果就是这样。
