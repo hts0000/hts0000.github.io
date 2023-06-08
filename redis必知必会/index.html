@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Redis必知必会 - Hts0000 | 个人博客</title><meta name="Description" content="Hts0000 | 个人博客"><meta property="og:title" content="Redis必知必会" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" /><meta property="og:image" content="http://example.org/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-22T15:09:50+08:00" />
+<meta property="article:modified_time" content="2022-05-22T15:09:50+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/logo.png"/>
+
+<meta name="twitter:title" content="Redis必知必会"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" /><link rel="prev" href="http://example.org/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A-sql%E7%AF%87/" /><link rel="next" href="http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%B8%80/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Redis必知必会",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A\/"
+        },"genre": "posts","keywords": "Redis","wordcount":  12362 ,
+        "url": "http:\/\/example.org\/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A\/","datePublished": "2022-05-22T15:09:50+08:00","dateModified": "2022-05-22T15:09:50+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "hts0000"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 文章 </a><a class="menu-item" href="/tags"> 标签 </a><a class="menu-item" href="/categories"> 分类 </a><a class="menu-item" href="/about"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">文章</a><a class="menu-item" href="/tags" title="">标签</a><a class="menu-item" href="/categories" title="">分类</a><a class="menu-item" href="/about" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Redis必知必会</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/redis/"><i class="far fa-folder fa-fw"></i>Redis</a>&nbsp;<a href="/categories/%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/"><i class="far fa-folder fa-fw"></i>必知必会</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-22">2022-05-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 12362 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 25 分钟&nbsp;</div>
+        </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
+<p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
+<h1 id="redis">Redis</h1>
+<h2 id="redis如何通过key找到对应的value">Redis如何通过Key找到对应的Value</h2>
+<h2 id="key的设计原则">Key的设计原则</h2>
+<ul>
+<li>Key不宜太长，大于1024字节会显著影响Key的查找和匹配性能</li>
+<li>Key不宜太短，短Key能减少内存消耗和提升查找性能，需要在可读性和性能直接寻找平衡点</li>
+<li>Key采用<code>:</code>区分层级，如<code>user:1:info</code>，表示用户编号为1的信息，用<code>-</code>或<code>.</code>来连接多词，如<code>comment:4321:reply-to</code>或<code>comment:4321:reply.to</code>表示评论编号4321回复的对象</li>
+<li>Key最大允许的size为512MB</li>
+</ul>
+<h2 id="redis支持的数据结构">Redis支持的数据结构</h2>
+<ul>
+<li>字符串(String)</li>
+<li>列表(List)</li>
+<li>集合(Set)</li>
+<li>有序集合(Sorted Set)</li>
+<li>哈希表(Hash)</li>
+<li>数据流(Stream)</li>
+<li>地理空间(Geospatial)</li>
+<li>基数统计(HyperLogLog)</li>
+<li>位图(Bitmaps)</li>
+<li>位域(Bitfields)</li>
+</ul>
+<h2 id="redis命令执行的结果">Redis命令执行的结果</h2>
+<p>执行结果的几种可能</p>
+<ul>
+<li>成功，返回值1</li>
+<li>失败，返回值0</li>
+<li>错误，报错并打印错误信息</li>
+</ul>
+<h2 id="字符串操作">字符串操作</h2>
+<p>document: <a href="https://redis.io/commands/?group=string" target="_blank" rel="noopener noreffer">https://redis.io/commands/?group=string</a></p>
+<p>字符串是<code>Redis</code>中绝大多数数据结构的底层类型</p>
+<p>查看使用说明</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">help</span> @string
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>增/改</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">SET user:1:info <span class="s1">&#39;{&#34;username&#34;: &#34;joy&#34;, &#34;age&#34;: 12}&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 后面加上EX选项，可以设置Key的过期时间，单位秒</span>
+</span></span><span class="line"><span class="cl">SET user:1:info <span class="s1">&#39;{&#34;username&#34;: &#34;joy&#34;, &#34;age&#34;: 12}&#39;</span> EX <span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 后面加上PX选项，可以设置Key的过期时间，单位毫秒</span>
+</span></span><span class="line"><span class="cl">SET user:1:info <span class="s1">&#39;{&#34;username&#34;: &#34;joy&#34;, &#34;age&#34;: 12}&#39;</span> PX <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 后面加上EXAT选项，可以设置Key的在指定的时间戳过期，单位秒</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 下面设置Key在2023-5-23 11:52:10过期</span>
+</span></span><span class="line"><span class="cl">SET user:1:info <span class="s1">&#39;{&#34;username&#34;: &#34;joy&#34;, &#34;age&#34;: 12}&#39;</span> EXAT <span class="m">1684813930</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 后面加上PXAT选项，可以设置Key的在指定的时间戳过期，单位毫秒</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 下面设置Key在2023-05-23 11:53:53.364过期</span>
+</span></span><span class="line"><span class="cl">SET user:1:info <span class="s1">&#39;{&#34;username&#34;: &#34;joy&#34;, &#34;age&#34;: 12}&#39;</span> PXAT <span class="m">1684814033364</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 后面加上NX选项，当Key不存在时创建</span>
+</span></span><span class="line"><span class="cl">SET user:1:info <span class="s1">&#39;{&#34;username&#34;: &#34;joy&#34;, &#34;age&#34;: 12}&#39;</span> NX EX <span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 后面加上XX选项，当Key存在时覆盖</span>
+</span></span><span class="line"><span class="cl">SET user:1:info <span class="s1">&#39;{&#34;username&#34;: &#34;joy&#34;, &#34;age&#34;: 12}&#39;</span> XX EX <span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 加上GET选项，当key存在时，返回旧值，不存在时返回nil</span>
+</span></span><span class="line"><span class="cl">SET user:1:info <span class="s1">&#39;{&#34;username&#34;: &#34;joy&#34;, &#34;age&#34;: 18}&#39;</span> GET XX EX <span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># KEEPTTL选项，在修改value时，保持其原有的过期时间</span>
+</span></span><span class="line"><span class="cl">SET user:1:info <span class="s1">&#39;{&#34;username&#34;: &#34;bob&#34;, &#34;age&#34;: 18}&#39;</span> GET XX KEEPTTL
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置多个KeyValue对</span>
+</span></span><span class="line"><span class="cl">MSET user:1:age <span class="m">18</span> user:2:age <span class="m">19</span> user:3:age <span class="m">20</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">GET user:1:info
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取多个Key的value</span>
+</span></span><span class="line"><span class="cl">MGET user:1:info user:2:info user:3:info
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查Key是否存在，1-存在 0-不存在</span>
+</span></span><span class="line"><span class="cl">EXISTS user:1:info
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查Key对应的类型</span>
+</span></span><span class="line"><span class="cl">TYPE user:1:age
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 返回value的长度</span>
+</span></span><span class="line"><span class="cl">STRLEN user:1:info
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>删</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 支持删除多个</span>
+</span></span><span class="line"><span class="cl">DEL user:1:info user:2:info user:3:info
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>自增/增加任意大小</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 如果不存在这个key，先创建并设置value为0，然后自增1</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果value不为整数或者超过int64的范围，则报错</span>
+</span></span><span class="line"><span class="cl">INCR views:page:2
+</span></span><span class="line"><span class="cl">INCRBY views:page:2 <span class="m">10</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>自减/减少任意大小</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 如果不存在这个key，先创建并设置value为0，然后自减1</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果value不为整数或者超过int64的范围，则报错</span>
+</span></span><span class="line"><span class="cl">DECR views:page:2
+</span></span><span class="line"><span class="cl">DECRBY views:page:2 <span class="m">10</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="使用redis实现分布式锁">使用Redis实现分布式锁</h3>
+<p>Redis的SET命令有个选项是<code>NX</code>，表示当Key不存在时才创建，又因为Redis是单线程模型，同一时间点只有一条语句在执行，天然具有原子性，因此可以用来实现分布式锁。</p>
+<p>我们用<code>SET lock-key lock-value NX</code>命令来创建一个<code>lock-key</code>表示一个锁，拿到锁的用户才能继续执行逻辑，拿不到锁的用户自旋等待获取锁。然而这种设计下，拿到锁的程序突然宕机，会形成死锁。</p>
+<p>要解决这个问题我们可以加上一个过期时间，<code>SET lock-key lock-value NX EX 10</code>命令表示<code>lock-key</code>这个锁10秒后会自动释放，这样就避免了因获取到锁的程序宕机无法释放锁形成的死锁问题。</p>
+<p>然而又有新的问题。如果过期时间到了，程序1仍然没有执行完主动释放锁，而程序2获取到锁执行的时候，程序1执行完了，然后去释放锁，程序3又获取到了锁，程序2执行完了释放锁。。。如此反复下去，锁根本无法保证数据安全。</p>
+<p>要解决这个问题，我们可以给锁加上唯一标识，释放锁时判断锁还是不是自己的，如果不是就不执行释放。<code>SET lock-key unique-id NX EX 10</code>命令，表示<code>lock-key</code>这个锁由<code>unique-id</code>这个用户持有，释放锁时可以根据<code>unique-id</code>来判断锁是不是自己的。</p>
+<p>然而判断锁是否是自己的，和释放锁是两条指令，不是原子操作。极端情况下，程序1判断锁是自己的，发送释放锁请求，如果释放锁请求到的比较晚，这个期间内锁到期被自动释放了，程序2获取到了锁，此时程序1释放锁的请求才到达，就会造成释放的锁是程序2的。</p>
+<p>要解决这个问题，我们必须让判断锁和是否锁这两个操作是原子的。Redis中有事务和Lua脚本来保证多条指令的原子性。下面以Lua脚本为例。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Lua" data-lang="Lua"><span class="line"><span class="cl"><span class="o">//</span> <span class="err">释放锁时，先比较</span> <span class="n">unique_id</span> <span class="err">是否相等，避免锁的误释放</span>
+</span></span><span class="line"><span class="cl"><span class="kr">if</span> <span class="n">redis.call</span><span class="p">(</span><span class="s2">&#34;get&#34;</span><span class="p">,</span><span class="n">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="kr">then</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span> <span class="n">redis.call</span><span class="p">(</span><span class="s2">&#34;del&#34;</span><span class="p">,</span><span class="n">KEYS</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="kr">else</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="kr">end</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然而还有问题。如果程序1没运行完，锁被自动释放了，程序2拿到锁开始运行，这不就变成两个程序并行执行了吗？并行情况下保证不了数据竞争啊。这种情况下，光靠Redis解决不了了，需要引入监控机制，如果持有锁的程序还在正常执行，那就不断更新过期时间，直到该程序执行完成或者宕机。<code>Redisson</code>框架就是Redis官方推荐的分布式锁方案。</p>
+<p>上面谈论的还只限于单机情况，如果是Redis集群，涉及到集群间数据同步问题复杂度又上一个数量级。好在<code>Redisson</code>框架仍然支持集群，是一个非常成熟的分布式锁框架。</p>
+<h2 id="列表操作">列表操作</h2>
+<p>document: <a href="https://redis.io/commands/?group=list" target="_blank" rel="noopener noreffer">https://redis.io/commands/?group=list</a></p>
+<p>Redis的列表通过链表实现，插入时间O(1)</p>
+<p>增加元素</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 从右边追加元素</span>
+</span></span><span class="line"><span class="cl">rpush user:1:follower <span class="m">4</span> <span class="m">5</span> <span class="m">6</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 从左边追加元素</span>
+</span></span><span class="line"><span class="cl">lpush my-list <span class="m">1</span> <span class="m">2</span> <span class="s2">&#34;hello&#34;</span> <span class="s2">&#34;done&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>获取元素</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 获取列表长度</span>
+</span></span><span class="line"><span class="cl">LLEN user:1:follower
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取全部元素，-1表示最后一个元素，闭区间</span>
+</span></span><span class="line"><span class="cl">LRANGE user:1:follower <span class="m">0</span> -1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取指定范围的元素</span>
+</span></span><span class="line"><span class="cl">LRANGE user:1:follower <span class="m">0</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl">LRANGE user:1:follower -5 -1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pop操作，如果没有则元素返回nil</span>
+</span></span><span class="line"><span class="cl">LPOP user:1:follower
+</span></span><span class="line"><span class="cl">RPOP user:1:follower
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 阻塞式的pop操作，没有元素时阻塞</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果给定多个列表，那么会顺序的从第一个非空列表中获取值</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># timeout 表示阻塞时间，接受双精度的值，单位为秒，0表示无限</span>
+</span></span><span class="line"><span class="cl">BLPOP list1 list2 ... timeout
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># POPPUSH操作，Redis计划使用LMOVE指令代替RPOPLPUSH指令</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 把源列表——user:1:follower左边的元素POP，添加到目标列表——user:1:follower的右边</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 实现了一个循环队列的功能</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># LMOVE指令还会返回POP出来的值</span>
+</span></span><span class="line"><span class="cl">LMOVE user:1:follower user:1:follower LEFT RIGHT
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 阻塞式的LMOVE，当源列表没有元素时，阻塞</span>
+</span></span><span class="line"><span class="cl">BLMOVE user:1:follower user:1:follower LEFT RIGHT timeout
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>删除元素</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 移除[0~3]这个闭区间之外的元素</span>
+</span></span><span class="line"><span class="cl">LTRIM user:1:follower <span class="m">0</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 移除等于value的元素</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># count支持3种值</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># count=0 表示查找整个列表，移除所有等于value的元素</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># count&gt;0 表示从列表头开始查找，移除count个等于value的元素</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># count&lt;0 表示从列表尾开始查找，移除count个等于value的元素</span>
+</span></span><span class="line"><span class="cl">LREM user:1:follower count value
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="集合">集合</h2>
+<p>集合是无序集合，Redis集合支持进行集合运算，比如：交集、并集和差集</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 新增元素</span>
+</span></span><span class="line"><span class="cl">SADD user:1:follow <span class="m">10</span> <span class="m">11</span> <span class="m">12</span>
+</span></span><span class="line"><span class="cl">SADD user:2:follow <span class="m">11</span> <span class="m">13</span> <span class="m">15</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查 user1 是否关注 11 号用户，返回1表示关注</span>
+</span></span><span class="line"><span class="cl">SISMEMBER user:1:follow <span class="m">11</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取 user1 和 user2 的共同关注</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 集合运算非常耗时，大集合进行操作时会阻塞Redis很长时间</span>
+</span></span><span class="line"><span class="cl">SINTER user:1:follow user:2:follow
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 多个集合的交集存放到新集合dist中</span>
+</span></span><span class="line"><span class="cl">SINTERSTORE dist user:1:follow user:2:follow user:3:follow
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取集合元素个数</span>
+</span></span><span class="line"><span class="cl">SCARD user:1:follow
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取集合所有元素，一次性返回所有元素，结果集庞大</span>
+</span></span><span class="line"><span class="cl">SMEMBERS user:1:follow
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 集合迭代器</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># cursor 表示游标开始的位置，pattern 表示匹配值得表达式，支持Linux中的匹配，count 表示匹配几个值，默认10个</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 每次调用 SSCAN 命令会返回两个值</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 第一个值是游标下次开始的位置，第二个值是扫描到的值得列表</span>
+</span></span><span class="line"><span class="cl">SSCAN user:1:follow cursor MATCH pattern COUNT count
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除集合内元素，成功删除至少一个元素返回1，无元素删除返回0</span>
+</span></span><span class="line"><span class="cl">SREM user:1:follow <span class="m">10</span> <span class="m">20</span> <span class="m">30</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 随机弹出count个元素</span>
+</span></span><span class="line"><span class="cl">SPOP user:1:follow count
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 随机返回count个元素</span>
+</span></span><span class="line"><span class="cl">SRANDMEMBER user:1:follow count
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="哈希">哈希</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 添加元素</span>
+</span></span><span class="line"><span class="cl">HSET user:1:info username joy age <span class="m">18</span> city LA email xxx@xx.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取元素</span>
+</span></span><span class="line"><span class="cl">HGET user:1:info username
+</span></span><span class="line"><span class="cl">HMGET user:1:info username age
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取所有键值对</span>
+</span></span><span class="line"><span class="cl">HGETALL user:1:info
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取所有键</span>
+</span></span><span class="line"><span class="cl">HKEYS user:1:info
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取所有值</span>
+</span></span><span class="line"><span class="cl">HVALS user:1:info
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取键值对个数</span>
+</span></span><span class="line"><span class="cl">HLEN user:1:info
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 增加数值value的计数</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 给年龄增加10</span>
+</span></span><span class="line"><span class="cl">HINCRBY user:1:info age <span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除键值对</span>
+</span></span><span class="line"><span class="cl">HDEL user:1:info email city
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="有序集合">有序集合</h2>
+<p>有序集合类似于集合，但是支持给每个元素设置分数，根据分数来排序，如果分数一致，则根据元素的字典序排序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 添加元素</span>
+</span></span><span class="line"><span class="cl">ZADD players:rank <span class="m">100</span> play1 <span class="m">97</span> play2 <span class="m">88</span> play3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># NX子选项，要添加的元素不存在才添加</span>
+</span></span><span class="line"><span class="cl">ZADD players:rank NX <span class="m">200</span> play4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># XX子选项，要添加的元素存在才更新</span>
+</span></span><span class="line"><span class="cl">ZADD players:rank XX <span class="m">150</span> play1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># LT子选项，要添加的元素存在且score小于200才更新</span>
+</span></span><span class="line"><span class="cl">ZADD players:rank XX LT <span class="m">200</span> play1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># GT子选项，要添加的元素存在且score大于100才更新</span>
+</span></span><span class="line"><span class="cl">ZADD players:rank XX GT <span class="m">100</span> play1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取元素，基于排名</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取前三名的元素和其分数</span>
+</span></span><span class="line"><span class="cl">ZRANGE players:rank <span class="m">0</span> <span class="m">2</span> WITHSCORES
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取元素，基于排名</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取所有名次的元素和其分数</span>
+</span></span><span class="line"><span class="cl">ZRANGE players:rank <span class="m">0</span> -1 WITHSCORES
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取元素，基于分数</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取分数在 [100 ~ 200] 之间的元素及其分数</span>
+</span></span><span class="line"><span class="cl">ZRANGE players:rank <span class="m">100</span> <span class="m">200</span> BYSCORE WITHSCORES
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取元素，基于分数</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取分数在 [-inf ~ +inf] 之间的元素及其分数</span>
+</span></span><span class="line"><span class="cl">ZRANGE players:rank -inf +inf BYSCORE WITHSCORES
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># REV 子选项，可以反转排序</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 默认从小到大，反转为从大到小</span>
+</span></span><span class="line"><span class="cl">ZRANGE players:rank <span class="m">0</span> -1 REV WITHSCORES
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除元素</span>
+</span></span><span class="line"><span class="cl">ZREM players:rank play1 play2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 返回集合元素个数</span>
+</span></span><span class="line"><span class="cl">ZCARD players:rank
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 并集计算(相同元素分值相加)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># numberkeys一共多少个key，WEIGHTS每个key对应的分值乘积</span>
+</span></span><span class="line"><span class="cl">ZUNIONSTORE destkey numberkeys key <span class="o">[</span>key...<span class="o">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 交集计算(相同元素分值相加)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># numberkeys一共多少个key，WEIGHTS每个key对应的分值乘积</span>
+</span></span><span class="line"><span class="cl">ZINTERSTORE destkey numberkeys key <span class="o">[</span>key...<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="流">流</h2>
+<p>专门用于消息队列的数据结构，支持消息持久化，消息唯一id，消费确认，消费组，重复消费等功能。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 往流中添加消息，*表示使用自动生成的id，也可以自己指定</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加成功返回消息id，自动生成的消息id已 &#39;-&#39; 分割可以分为两部分</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 前半部分为以毫秒为单位的当前服务器时间戳</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 后半部分为在当前毫秒的第几条数据，0表示当前毫秒的第0条数据</span>
+</span></span><span class="line"><span class="cl">XADD user:1:messages * chat-username user2 chat-user-id <span class="m">2</span> chat-user-icon http://chat-user-icon/user/2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用NOMKSTREAM子选项，阻止流不存在时的自动创建</span>
+</span></span><span class="line"><span class="cl">XADD user:2:messages NOMKSTREAM * chat-username user2 chat-user-id <span class="m">2</span> chat-user-icon http://chat-user-icon/user/2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用MAXLEN子选项，可以对流进行裁剪</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果使用 = 运算符，那么流的长度为min(流原始长度, 指定长度)</span>
+</span></span><span class="line"><span class="cl">XADD user:2:messages <span class="nv">MAXLEN</span> <span class="o">=</span> <span class="m">10</span> * chat-username user2 chat-user-id <span class="m">2</span> chat-user-icon http://chat-user-icon/user/2
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果使用 ~ 运算符，那么流的长度，会在保证性能的情况下尽可能&gt;=指定长度</span>
+</span></span><span class="line"><span class="cl">XADD user:2:messages MAXLEN ~ <span class="m">10</span> * chat-username user2 chat-user-id <span class="m">2</span> chat-user-icon http://chat-user-icon/user/2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用MINID子选项，可以对流进行裁剪，MINID的裁剪基于消息ID进行裁剪</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果使用 = 运算符，那么流的最老id为min(流原始最老id, 指定id)</span>
+</span></span><span class="line"><span class="cl">XADD user:2:messages <span class="nv">MINID</span> <span class="o">=</span> 1684924529514-0 * chat-username user2 chat-user-id <span class="m">2</span> chat-user-icon http://chat-user-icon/user/2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取流中的数据</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 从指定id开始读取后面的所有数据，0表示从头开始</span>
+</span></span><span class="line"><span class="cl">XREAD STREAMS user:2:messages <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用COUNT子选项，可以指定读取条数</span>
+</span></span><span class="line"><span class="cl">XREAD COUNT <span class="m">2</span> STREAMS user:2:messages <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用BLOCK子选择，可以阻塞指定毫秒时长，等待读取指定消息id之后的数据</span>
+</span></span><span class="line"><span class="cl">XREAD BLOCK <span class="m">100000</span> STREAMS user:2:messages 1684925552237-0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取多个流的消息</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 阻塞100000ms，最多读取100条消息，从user:1:messages和user:2:messages两个流的最新消息开始读，&#39;$&#39; 表示最新消息</span>
+</span></span><span class="line"><span class="cl">XREAD BLOCK <span class="m">100000</span> COUNT <span class="m">100</span> STREAMS user:1:messages user:2:messages $ $
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 读取流中的所有数据</span>
+</span></span><span class="line"><span class="cl">XRANGE user:2:messages - +
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用COUNT子选项，实现迭代器的功能</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 第一次迭代，范围为[- ~ +]，取出第一条数据</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 第二次迭代，范围为(第一条数据id ~ +]，取出第二条数据</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Redis中用&#39;(&#39;表示开区间</span>
+</span></span><span class="line"><span class="cl">XRANGE user:2:messages <span class="o">(</span>第一条数据id + COUNT <span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 支持从某个时间点开始</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 因为数据id是：毫秒时间戳-序号 的格式，因此可以给定时间，来获取时间段内的数据</span>
+</span></span><span class="line"><span class="cl">XRANGE user:2:messages <span class="m">1684924529514</span> <span class="m">1684925302364</span> COUNT <span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取单条数据，两个参数指定一样的数据id即可</span>
+</span></span><span class="line"><span class="cl">XRANGE user:2:messages 1684925552237-0 1684925552237-0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 流的长度</span>
+</span></span><span class="line"><span class="cl">XLEN user:2:messages
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除数据</span>
+</span></span><span class="line"><span class="cl">XDEL user:2:messages 1684925552237-0 1684925552237-1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>消费组，创建一个从流指定id开始读取的组，组内可以有多个消费者，消费方式为<code>扇出(fan-out)</code>，也就是轮流消费。可以创建多个消费组，不同消费组内的消费者可以重复消费同一条数据。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建一个从user:2:messages流的1684925552237-0数据id之后开始消费的消费组user:2:consumer-group:1</span>
+</span></span><span class="line"><span class="cl">XGROYP CREATE user:2:messages user:2:consumer-group:1 1684925552237-0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个从头开始消费的消费组</span>
+</span></span><span class="line"><span class="cl">XGROYP CREATE user:2:messages user:2:consumer-group:1 <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个从最后一条数据id之后开始消费的消费组</span>
+</span></span><span class="line"><span class="cl">XGROUP CREATE user:2:messages user:2:consumer-group:1 $
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 消费者consumer:1从消费组中第一条未被消费的数据开始读取</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#39;&gt;&#39; 表示第一条未被消费的数据，也可以指定数据id</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># COUNT子选项指定读取的条数，不指定则一直读取到最后</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 一个消费者消费完数据之后，这个消费组内的数据会被打上&#34;已读取&#34;的标志</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 其他消费这就无法再消费这些数据</span>
+</span></span><span class="line"><span class="cl">XREADGROUP GROUP user:2:consumer-group:1 consumer:1 COUNT <span class="m">10</span> STREAMS user:2:messages &gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># BLOCK子选项，可以指定阻塞时长，单位ms</span>
+</span></span><span class="line"><span class="cl">XREADGROUP GROUP user:2:consumer-group:1 consumer:1 COUNT <span class="m">10</span> BLOCK <span class="m">10000</span> STREAMS user:2:messages &gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># NOACK子选项</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 消费组中的数据，被读取后会打上已读取的标志。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 被标记为已读取的消息会被记录在该消费组的PENDING List中，并没有真正的删除。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 要等到消费者显式的ACK，才会将PENDING List中该数据id删除。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 这种设计是为了防止消费者读取了数据，但是在进行数据处理时程序崩溃了，数据并没有被真正的消费掉</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 程序恢复后还能够继续消费PENDING List中未ACK的数据</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># NOACK子选项的作用是，消费者读取到数据，就立马ACK。使用于允许消息丢失的场景</span>
+</span></span><span class="line"><span class="cl">XREADGROUP GROUP user:2:consumer-group:1 consumer:1 COUNT <span class="m">10</span> NOACK STREAMS user:2:messages &gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ACK消息已消费</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># user:2:messages流的user:2:consumer-group:1组中给定的数据id已消费</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 这些数据将会从PENDING List中被删除</span>
+</span></span><span class="line"><span class="cl">XACK user:2:messages user:2:consumer-group:1 1684925552237-0 1684925552237-1 1684925552237-2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看PENDING List中未ACK的数据，还能看到是哪个消费者读取了这条数据</span>
+</span></span><span class="line"><span class="cl">XPENDING user:2:messages user:2:consumer-group:1 - + <span class="m">10</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="地理空间">地理空间</h2>
+<p>专门用于存储和计算地理坐标的数据结构。存储经纬度坐标，计算并给出指定范围内的坐标有哪些</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 存储坐标</span>
+</span></span><span class="line"><span class="cl">GEOADD locations:ca NX -122.27652 37.805186 station:1 -122.2674626 37.8062344 station:2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算给定经纬度坐标5km半径内的所有坐标，还支持m为单位</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># WITHDIST指示返回坐标距离中心点的距离</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># WITHCOORD指示返回搜索到的坐标的经纬度</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ASC|DESC指示按照离给定坐标为中心的距离进行排序，ASC从近到远，DESC反之</span>
+</span></span><span class="line"><span class="cl">GEOSEARCH locations:ca FROMLONLAT -122.2612767 37.7936847 BYRADIUS <span class="m">5</span> km ASC WITHDIST WITHCOORD
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算给定已存储坐标500m半径内的所有坐标</span>
+</span></span><span class="line"><span class="cl">GEOSEARCH locations:ca FROMMEMBER station:2 BYRADIUS <span class="m">500</span> m WITHDIST
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># BYBOX子选项，支持在给定长宽的矩形内进行搜索</span>
+</span></span><span class="line"><span class="cl">GEOSEARCH locations:ca FROMMEMBER station:2 BYBOX <span class="m">400</span> <span class="m">400</span> km WITHDIST
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查询指定坐标的经纬度</span>
+</span></span><span class="line"><span class="cl">GEOPOS locations:ca station:1 station:2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查询两个坐标之间的km距离，支持m</span>
+</span></span><span class="line"><span class="cl">GEODIST locations:ca station:1 station:2 KM
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="位图">位图</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 设置值</span>
+</span></span><span class="line"><span class="cl">SETBIT users:login-status <span class="m">10002</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取值</span>
+</span></span><span class="line"><span class="cl">GETBIT users:login-status <span class="m">10002</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 统计值为1的个数，[0 ~ -1]表示全区间</span>
+</span></span><span class="line"><span class="cl">BITCOUNT users:login-status <span class="m">0</span> -1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 统计第一个0/1出现的位置，支持指定区间[0 ~ -1]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 返回的定位总是从0开始算的绝对定位</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># BIT子选项表示以BIT位来计数，100 200 BIT 表示[100 ~ 200]这个区间内第一个0/1出现的位置</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 还支持BYTE以字节来计数，BYTE为默认选项</span>
+</span></span><span class="line"><span class="cl">BITPOS users:login-status <span class="m">1</span> <span class="m">100</span> <span class="m">200</span> BIT
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="设置key的过期时间">设置Key的过期时间</h2>
+<p><code>EXPIRE</code>指令可以给存在的Key设置过期时间，如果Key不存在或者为空，那么直接返回0</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 给列表设置10.10秒过期时间</span>
+</span></span><span class="line"><span class="cl">LPUSH users <span class="s2">&#34;bob&#34;</span> <span class="s2">&#34;joy&#34;</span> <span class="s2">&#34;may&#34;</span>
+</span></span><span class="line"><span class="cl">EXPIRE users 10.10
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># [NX | XX | GT | LT] 子选项</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># NX 子选项表示当Key没有过期时间时，设置才生效</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># XX 子选项表示当Key没有过期时，设置才生效</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># GT 子选项新过期时间大于Key过期时间时，设置才生效</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># LT 子选项新过期时间小于Key过期时间时，设置才生效</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="位图布隆过滤器和布谷鸟过滤器">位图、布隆过滤器和布谷鸟过滤器</h2>
+<p>位图只能存储数值，布隆过滤器则可以存储字符串</p>
+<p>布隆过滤器是把要存储的值进行多次Hash取模，映射到位图的某个bit位。下次检查该值是否存在时，同样进行多次Hash取模，如果每一个bit位都存在，则该值可能存在，反之则一定不存在。</p>
+<p>布隆过滤器可以用较少的空间来过滤值是否存在，缺点是存在误判率，而且值不能删除，使用时间长了之后，过滤器中大多数位置都被填充上了值，误判率上升。</p>
+<p>布隆过滤器在Redis中以Module的形式存在，需要单独安装，下载地址: <a href="https://redis.io/resources/modules/" target="_blank" rel="noopener noreffer">https://redis.io/resources/modules/</a></p>
+<h2 id="redis用途">Redis用途</h2>
+<ul>
+<li>缓存：单纯作为缓存使用，减少DB的压力</li>
+<li>消息中间件：使用Pub/Sub功能作为消息中间件使用</li>
+<li>内存数据库：把Redis当作数据库使用，需要配合AOF和RDB的数据持久化，以及哨兵或集群来实现</li>
+</ul>
+<h2 id="key删除策略">Key删除策略</h2>
+<h3 id="过期删除策略">过期删除策略</h3>
+<p>过期删除策略是当Key达到过期时间后，如何对过期的Key进行删除的策略。</p>
+<h4 id="定时删除">定时删除</h4>
+<p>Key过期时间一到就删除。</p>
+<ul>
+<li>优点：对内存友好，存活的Key都是有用的</li>
+<li>缺点：对CPU不友好，频繁的执行删除任务，特别是内存还很空闲而CPU繁忙时，有大批量的删除任务</li>
+</ul>
+<h4 id="惰性删除">惰性删除</h4>
+<p>不主动删除，当访问该Key过期时，将其删除。</p>
+<ul>
+<li>优点：对CPU友好，只会占用很少的CPU资源</li>
+<li>缺点：对内存不友好，很多过期Key无法及时删除，如果一个Key过期后永远不访问了，会造成内存泄漏</li>
+</ul>
+<h4 id="定期删除">定期删除</h4>
+<p>每隔一段时间删除过期Key，配置文件中默认配置为<code>hz 10</code>，表示每隔10s取出一批量的Key，删除其中过期的。Redis保证了删除这一批量的过期Key不超过25ms，防止线程卡顿</p>
+<ul>
+<li>优点：平均了内存负载和CPU负载</li>
+<li>缺点：两头都不占优</li>
+</ul>
+<h4 id="redis过期删除策略">Redis过期删除策略</h4>
+<p>Redis选择「惰性删除+定期删除」这两种策略配和使用，以求在合理使用 CPU 时间和避免内存浪费之间取得平衡</p>
+<h3 id="内存淘汰策略">内存淘汰策略</h3>
+<p>内存淘汰策略是当Redis使用的内存超过配置文件设置的最大内存时，如何选择淘汰哪些Key的策略。</p>
+<p>Redis默认内存淘汰策略为不淘汰，最大允许使用内存为：</p>
+<ul>
+<li>32位系统——&gt;3G</li>
+<li>64位系统——&gt;无限制</li>
+</ul>
+<p><strong>设置Redis最大允许使用内存</strong>：配置文件中配置<code>maxmemory 4GB/4096MB</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看已使用的内存</span>
+</span></span><span class="line"><span class="cl">INFO MEMORY
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看最大允许使用内存</span>
+</span></span><span class="line"><span class="cl">CONFIG GET MAXMEMORY
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看内存淘汰策略</span>
+</span></span><span class="line"><span class="cl">CONFIG GET MAXMEMORY-POLICY
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Redis支持的所有内存淘汰策略</p>
+<ul>
+<li>noeviction：不淘汰，默认的淘汰策略</li>
+<li>volatile-random：在设置了过期时间的键值中，随机淘汰任意键值</li>
+<li>volatile-ttl：在设置了过期时间的键值中，优先淘汰更早过期的键值</li>
+<li>volatile-lru：在设置了过期时间的键值中，淘汰最久未使用的键值</li>
+<li>volatile-lfu：在设置了过期时间的键值中，淘汰最少使用的键值</li>
+<li>allkeys-random：不关心是否设置过期时间，随机淘汰任意键值</li>
+<li>allkeys-lru：不关心是否设置过期时间，淘汰最久未使用的键值</li>
+<li>allkeys-lfu：不关心是否设置过期时间，淘汰最少使用的键值</li>
+</ul>
+<p><strong>设置Redis内存淘汰策略</strong>：配置文件中配置<code>maxmemory-policy allkeys-lfu</code></p>
+<h2 id="阿里云redis产品选型">阿里云Redis产品选型</h2>
+<p>分为社区版和企业版。社区版完全兼容开源Redis，企业版增强了很多能力和性能。</p>
+<p>产品可选：</p>
+<ul>
+<li>标准架构：主从架构</li>
+<li>集群架构：Redis的集群模式，数据分片，高可用，主从自动切换，使用于读写高QPS场景</li>
+<li>读写分离架构：写节点1个，读节点多个，只读节点采用链式复制，使用于读多写少场景</li>
+</ul>
+<h2 id="redis事务">Redis事务</h2>
+<h2 id="数据持久化恢复及迁移">数据持久化、恢复及迁移</h2>
+<h3 id="数据持久化">数据持久化</h3>
+<h4 id="aof">AOF</h4>
+<p>只追加(Append Only File)，在Redis执行每一条写操作后，将该操作的命令追加到文件中，恢复时就读取并执行该文件的命令，这样就能够完全恢复Redis的数据。</p>
+<p><strong>启用AOF</strong></p>
+<p>AOF持久化默认不开启，在配置文件中添加如下配置，开启AOF</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dir /var/lib/redis
+</span></span><span class="line"><span class="cl">appendonly yes
+</span></span><span class="line"><span class="cl">appenddirname appendonlydir
+</span></span><span class="line"><span class="cl">appendfilename appendonly.aof
+</span></span><span class="line"><span class="cl"><span class="c1"># always|everysec|no</span>
+</span></span><span class="line"><span class="cl">appendfsync everysec
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>AOF的三种回写机制</strong></p>
+<ul>
+<li>always：写操作完成同步写盘，最大限度保证数据不丢，性能差</li>
+<li>everysec：写操作完成将写指令写入缓冲区，每秒落一次盘，性能适中，可能丢失1s的数据</li>
+<li>no：写操作完成将写指令写入缓冲区，由操作系统控制合适将缓冲区刷入磁盘，性能好，可能丢失很多数据</li>
+</ul>
+<p><strong>AOF重写机制</strong><br>
+官方文档：https://redis.io/docs/management/persistence/</p>
+<p>AOF因为所有写指令都会写入文件，随着时间文件会越来越大，AOF文件过大会导致恢复Redis时时间过长。</p>
+<p>Redis提供AOF重写机制，当达到设定的重写阈值(auto-aof-rewrite-min-size 64mb)时，触发重写任务，来压缩AOF文件。</p>
+<p>Redis7.0之前的重写任务会读取当前所有的Key，将所有Key和其Value写入到新的AOF文件，等到全部Key记录完成，替换之前的AOF文件，这个替换是原子操作。先写入新文件是为了避免重写失败，造成对原有文件的破坏。</p>
+<p>Redis7.0之后的重写任务，主进程会新开一个<code>.incr</code>AOF文件继续执行写入，子进程执行重写生成新的<code>.base</code>快照文件，写入完成后会执行原子性的替换操作。</p>
+<p>AOF重写任务是非常耗时的，所以是非阻塞的，会启用一个新的进程来执行重写任务。</p>
+<p>使用进程而非线程的原因在于，线程之间是共享内存的，在修改内存数据时，需要加锁保护，而进程的共享内存是只读的，如果修改会发生写时复制，生成新的副本。</p>
+<p>执行<code>BGREWRITEAOF</code>命令来主动触发AOF重写程序。</p>
+<p><strong>AOF文件格式</strong></p>
+<p>Redis7.0之前AOF是以单文件的形式存在的，7.0之后改成了多AOF文件，这是不向下兼容的。总共有三类AOF文件：</p>
+<ul>
+<li>appendonly.aof.1.base.rdb/aof：代表初始快照，格式可能是AOF或者RDB的</li>
+<li>appendonly.aof.1.incr.aof：表示从初始快照开始的增量变化aof文件，该文件可能有多个</li>
+<li>appendonly.aof.manifest：以上的文件可以分开存放，manifest清单用于追踪他们的位置</li>
+</ul>
+<p><strong>AOF文件修复</strong></p>
+<ol>
+<li>
+<p>追加命令被截断了<br>
+如果因为某些原因(比如磁盘满了)，导致AOF文件追加写入时失败了，只写入了半截的命令。可以尝试执行<code>redis-check-aof --fix &lt;filename&gt;</code>命令生成自动修复的AOF文件，再使用<code>diff</code>命令比较两个文件的差异。</p>
+</li>
+<li>
+<p>文件损坏了<br>
+执行<code>redis-check-aof --fix &lt;filename&gt;</code>命令查看损坏的地方，尝试手动修复。</p>
+</li>
+</ol>
+<h4 id="rdb">RDB</h4>
+<p>RDB文件是快照文件，将Redis当前内存存储的数据用二进制的方式存储下来，RDB文件相比AOF文件更加紧凑，只存储了当前数据的最终状态，因此使用RDB文件来恢复数据是非常快的。</p>
+<p><strong>启用RDB</strong></p>
+<p>RDB默认配置为：<code>save 3600 1 300 100 60 10000</code>，其含义如下</p>
+<ul>
+<li>3600 1：3600s内至少有1个数据改变，就保存快照</li>
+<li>300 100：300s内是少有100个数据改变，就保存快照</li>
+<li>60 10000：60s内至少有10000个数据改变，就保存快照</li>
+</ul>
+<p>如果希望关闭快照，使用配置：<code>save &quot;&quot;</code></p>
+<p><strong>RDB快照生成流程</strong></p>
+<ol>
+<li>基于Redis进程生成子进程</li>
+<li>子进程将数据写入临时RDB文件</li>
+<li>子进程完成数据写入后将新文件替换旧RDB文件</li>
+</ol>
+<p>子进程写入时同样使用到了写入复制技术。</p>
+<p><strong>主动执行快照生成</strong></p>
+<p>主动保存快照文件有两个命令，<code>SAVE</code>和<code>BGSAVE</code>，他们的区别如下：</p>
+<ul>
+<li><code>SAVE</code>：同步的保存，会阻塞主进程执行</li>
+<li><code>BGSAVE</code>：后台子进程执行保存，不会阻塞主进程</li>
+</ul>
+<h3 id="数据恢复">数据恢复</h3>
+<p>如果想要建立一个当前Redis实例的副本，应该使用主从的方式建立。当然也可以使用当前实例的RDB文件来快速启动一个非同步的副本。</p>
+<h3 id="数据迁移">数据迁移</h3>
+<p>拷贝RDB或AOF文件来迁移。</p>
+<h2 id="高可用方案">高可用方案</h2>
+<h3 id="主从">主从</h3>
+<p>主从能完成数据备份的功能。</p>
+<p>从库与主库建立联系，可以在配置文件中加上：<code>replicaof 192.168.1.1 6379</code>命令，也可以直接在命令行中执行。主从建立流程和具体步骤如下：</p>
+<ol>
+<li>从服务器给主服务器发送<code>psync ? -1</code>命令，表示进行数据同步<br>
+因为是第一次同步，不知道主服务器的runID，所以用<code>?</code>代替，-1则表示同步点</li>
+<li>主服务器响应<code>FULLRESYNC &lt;runID&gt; &lt;offset&gt;</code><br>
+响应内容包括主服务器<code>runID</code>和偏移量</li>
+<li>主服务器执行<code>BGSAVE</code>命令后台生成RDB文件，这期间的写操作同时记录在buffer中</li>
+<li>RDB文件生成后发送给从服务器，从服务器清空自己的数据，使用RDB文件来重建</li>
+<li>从服务器回复重建完成，主服务器将buffer中的写指令发送给从服务器，第一次同步完成，建立长连接</li>
+<li>后面的每次同步都通过这个长连接将buffer中的数据同步过去，这个过程是异步的</li>
+</ol>
+<p><strong>增量复制</strong></p>
+<p>如果长连接断开了，需要重连，重连期间的数据如何同步？Redis2.8之后的版本采用的是增量复制。</p>
+<p>从服务器执行<code>psync &lt;runID&gt; &lt;offset&gt;</code>命令，这次会带上曾经记录的服务器id和同步偏移量，从偏移位置开始增量同步。</p>
+<p>之前说过主服务器要同步的指令会先写在buffer中，再异步同步过去。而这个buffer——repl_backlog_buffer缓冲区的大小是有限制的，默认1mb，他是一个环形缓冲区。也就是说超过1mb的部分会循环覆盖旧数据，如果要断开的时间太长，要恢复的offset以及被覆盖了，那就会进行全量同步。为了避免这种情况，应该调大repl_backlog_buffer配置的值。</p>
+<p>主从架构是没有自动切换的功能的，自动切换需要使用哨兵。</p>
+<h3 id="哨兵">哨兵</h3>
+<p>哨兵在主从的基础上增加故障切换的功能。基于分布式共识算法的高可用方案。</p>
+<p>哨兵服务已经集成在redis-server二进制文件中，使用<code>redis-server /path/to/sentinel.conf --sentinel</code>命令来启动一个哨兵。哨兵默认运行端口为<code>26379</code>。一个最小的配置文件如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 该哨兵将会监听mymaster这个master是否异常，</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果2个哨兵认为其异常了，将会切换到从节点</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 这里并没有配置其他哨兵节点和Redis从节点的信息，</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 这是因为哨兵会通过Pub/Sub能力，从__sentinel__:hello这个Channel中获取其他哨兵的信息，所以mymaster这个名字必须是唯一的，以便服务发现时多个哨兵达成共识建立通信</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 而主从服务器的信息，则会主动与主服务器通信获取，这些配置将会自动的保存到配置文件中，也就是说这些配置都是实时获取的</span>
+</span></span><span class="line"><span class="cl">sentinel monitor mymaster 127.0.0.1 <span class="m">6379</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl">sentinel down-after-milliseconds mymaster <span class="m">60000</span>
+</span></span><span class="line"><span class="cl">sentinel failover-timeout mymaster <span class="m">180000</span>
+</span></span><span class="line"><span class="cl">sentinel parallel-syncs mymaster <span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 该哨兵将会监听resque这个master是否异常，</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果4个哨兵认为其异常了，将会切换到从节点</span>
+</span></span><span class="line"><span class="cl">sentinel monitor resque 192.168.1.3 <span class="m">6380</span> <span class="m">4</span>
+</span></span><span class="line"><span class="cl">sentinel down-after-milliseconds resque <span class="m">10000</span>
+</span></span><span class="line"><span class="cl">sentinel failover-timeout resque <span class="m">180000</span>
+</span></span><span class="line"><span class="cl">sentinel parallel-syncs resque <span class="m">5</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>主从如何切换</strong></p>
+<p>首先哨兵如何知道节点真的挂掉了？这里有两个概念：</p>
+<ul>
+<li><code>主观下线</code>：当前哨兵节点认为其下线了</li>
+<li><code>客观下线</code>：哨兵集群超过半数认为其下线了</li>
+</ul>
+<p>所有哨兵节点每隔1s与主从节点发一次心跳包确认其存活，超过<code>down-after-milliseconds</code>这个配置规定的时间未回复的节点，该哨兵就将其标记为<code>主观下线</code>。此时有两种情况，1.该节点真的挂了无法回复，2.哨兵节点与该节点的网络出问题了，为了避免第二种情况导致的误判，所以需要<code>客观下线</code>。</p>
+<p>当一个哨兵认为该节点<code>主观下线</code>了，就会向其他哨兵发起投票，判断该节点是否下线，如果多数都认为该节点<code>主观下线</code>了，那么就会将该节点标记为<code>客观下线</code>。这里的多数是可以在配置文件中配置的，称之为<code>quorum</code>。</p>
+<p>确定该主节点下线之后，需要从其从节点中选择一个升级为主节点。如何选择合适的从节点？有如下考量：</p>
+<ol>
+<li>历史网络情况：检查每个从节点主观下线的次数，超过10次的将会被过滤掉</li>
+<li>优先级：如果从节点配置了优先级<code>slave-priority</code>，那么优先级小的将会被选择</li>
+<li>复制进度：优先级一样的情况下，谁复制的进度更快选择谁</li>
+<li>节点id：都一样则选择节点id小的那个</li>
+</ol>
+<p>选择好主节点了，还需要通知其他从节点切换主节点。哨兵会向所有从节点发送<code>SLAVEOF</code>命令，切换主节点。</p>
+<p>最后通过Pub/Sub通知客户端发生了主从切换事件，客户端可以通过Sub该Channel来完成事件监听，以便与告警。其实不止主从切换事件，主观下线等事件都可以监听到。事件列表如下：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E5%93%A8%E5%85%B5/%E5%93%A8%E5%85%B5%E9%A2%91%E9%81%93.webp"
+        data-srcset="https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E5%93%A8%E5%85%B5/%E5%93%A8%E5%85%B5%E9%A2%91%E9%81%93.webp, https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E5%93%A8%E5%85%B5/%E5%93%A8%E5%85%B5%E9%A2%91%E9%81%93.webp 1.5x, https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E5%93%A8%E5%85%B5/%E5%93%A8%E5%85%B5%E9%A2%91%E9%81%93.webp 2x"
+        data-sizes="auto"
+        alt="https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E5%93%A8%E5%85%B5/%E5%93%A8%E5%85%B5%E9%A2%91%E9%81%93.webp"
+        title="https://cdn.xiaolincoding.com/gh/xiaolincoder/redis/%E5%93%A8%E5%85%B5/%E5%93%A8%E5%85%B5%E9%A2%91%E9%81%93.webp" /></p>
+<p>旧主节点重新恢复了，重新上线后哨兵会将其恢复为从节点。</p>
+<p><strong>哨兵集群的高可用</strong></p>
+<p>哨兵集群的高可用使用分布式算法来保证，需要保证哨兵集群为奇数个，以便于投票时不发生平票而导致脑裂。哨兵集群要高可用起码需要三个节点，最多容忍(n-1)/2个节点宕机。</p>
+<h3 id="集群">集群</h3>
+<p>集群在前面两者的基础上通过数据分片实现横向扩展的功能。</p>
+<p><code>slot</code>，称之为插槽，Redis集群最重要的概念。一个最小的Redis集群由三主三从组成，所有写入集群的Key将会经过Hash，分配到16384个slot上，而每个主节点将会分配到等量的slot，以达到均衡写入提高写入性能的目的。16384个slot，意味着Redis集群最多支持16384个主从节点。</p>
+<p>如果某个主节点宕机了，那么他的从节点将会升级为主节点。</p>
+<p><strong>横向扩展</strong></p>
+<p>横向扩展，将一个新的主从节点加入集群，需要执行称之为<code>Rehard(重新分片)</code>的操作，来保证各个节点的负载均衡。</p>
+<h3 id="读写分离架构">读写分离架构</h3>
+<p>阿里云上的读写分离架构，本地盘方案采用链式复制，数据同步存在延迟，数据可能不一致，如果要求数据一致，那么应该使用云盘方案的星型复制，或者使用集群。</p>
+<h2 id="可观测能力">可观测能力</h2>
+<h3 id="监控指标">监控指标</h3>
+<h4 id="大key监控">大Key监控</h4>
+<p>大Key指的是某个Key对应的Value很大，单线程的Redis读取或操作这个Key时时间过长，影响了其他请求的执行，导致总体QPS下降。</p>
+<p>如果在集群中遇到大Key问题，还会发生数据倾斜的现象，大Key所在的节点CPU、内存和带宽的负载明显比其他节点要高。</p>
+<p>监控大Key可以有如下方法</p>
+<ul>
+<li>redis-cli &ndash;bigkeys：列出各个数据结构Top1的大Key</li>
+<li>离线分析RDB文件：使用<a href="https://github.com/sripathikrishnan/redis-rdb-tools?spm=a2c4g.443809.0.0.61e328d7K8mOdA" target="_blank" rel="noopener noreffer">redis-rdb-tools</a>工具离线扫描RDB持久化文件，对线上性能无影响</li>
+<li>TopKey：阿里云上支持实时获取大Key和热Key</li>
+</ul>
+<p><strong>如何解决大Key</strong></p>
+<ul>
+<li>拆分：将存储在一个Hash中的成员，分散存储到多个Hash中</li>
+<li>删除：清除大Key应该使用<code>UNLINK &lt;key&gt;</code>命令，该命令是非阻塞式的</li>
+</ul>
+<h4 id="查询历史热key">查询历史热Key</h4>
+<p>热Key指的是某个Key的访问量非常高，其占用了大量的QPS、CPU时间和带宽。热Key同样会导致其他请求的QPS下降，还会发生访问倾斜的现象。如果Key太热，超过Redis实例处理能力，还会出现缓存击穿甚至超卖的情况。</p>
+<p>热Key会出现上述问题，原因在于读请求的数量，超过了Redis实例的处理能力，也就是服务器的性能不够。</p>
+<ul>
+<li>redis-cli &ndash;hotkeys：列出hotkey</li>
+<li>TopKey：阿里云上支持实时获取大Key和热Key</li>
+</ul>
+<p><strong>如何解决大Key</strong></p>
+<ul>
+<li>提高服务器性能：升级硬件，使用更好的CPU、内存</li>
+<li>架构升级：使用读写分离或者集群架构，提升整体架构处理请求的能力</li>
+</ul>
+<h4 id="监控是否发生数据倾斜">监控是否发生数据倾斜</h4>
+<p>监控集群各个节点同一时间段CPU、内存和带宽使用量是否平衡。</p>
+<h3 id="日志">日志</h3>
+<h3 id="访问量倾斜">访问量倾斜</h3>
+<p>某个节点的访问量或QPS明显高于其他节点，导致该节点的CPU使用率和带宽使用率高于其他节点</p>
+<h3 id="数据量倾斜">数据量倾斜</h3>
+<p>某个节点的Key大小大于其他节点的Key，就说明发生数据量倾斜，大多少没有个具体的值，一般是大于20%就认为发生倾斜了。</p>
+<p>发生倾斜的原因一般是大Key 热Key或者一些高消耗的命令O(n)复杂度的命令，或者是使用了错误的Key和Hash方式，导致过多的Key被分配到同一节点上</p>
+<h2 id="缓存击穿-缓存穿透-缓存雪崩">缓存击穿 缓存穿透 缓存雪崩</h2>
+<h2 id="benchmark">Benchmark</h2>
+<p>Redis-benchmark</p>
+<h2 id="禁用高危命令">禁用高危命令</h2>
+<h2 id="调优">调优</h2>
+<h3 id="参数调优">参数调优</h3>
+<p><a href="https://help.aliyun.com/document_detail/98726.html?spm=a2c4g.65001.0.nextDoc.55804630W2a2ik" target="_blank" rel="noopener noreffer">https://help.aliyun.com/document_detail/98726.html?spm=a2c4g.65001.0.nextDoc.55804630W2a2ik</a></p>
+<h3 id="内核调优">内核调优</h3></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-05-22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" data-title="Redis必知必会"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" data-title="Redis必知必会"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" data-title="Redis必知必会" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" data-title="Redis必知必会" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/redis%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" data-title="Redis必知必会"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/redis/">Redis</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A-sql%E7%AF%87/" class="prev" rel="prev" title="MySQL必知必会-SQL篇"><i class="fas fa-angle-left fa-fw"></i>MySQL必知必会-SQL篇</a>
+            <a href="/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%B8%80/" class="next" rel="next" title="基础算法整理(一)">基础算法整理(一)<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
