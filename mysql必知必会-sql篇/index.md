@@ -56,13 +56,13 @@ SELECT prod_id, prod_name FROM products WHERE prod_id REGEXP ''
 
 一些特殊字符：`-`,`|`,`[]`,
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202211031517546.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202211031517546.png)
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202211031516938.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202211031516938.png)
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202211031516247.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202211031516247.png)
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202211031553945.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202211031553945.png)
 
 `^`的双重用途
 - 当在集合中`[^]`，表示否定集合的条件
@@ -82,7 +82,7 @@ SELECT Concat(RTrim(prod_name), "|", LTrim(prod_name), "|", Trim(prod_name)) FRO
 SELECT price, num, price*num AS expanded_price FROM prices;
 ```
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202211031619081.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202211031619081.png)
 
 MYSQL中快速测试函数调用和计算表达式的值：`SELECT 2*3;`或`SELECT Trim(' hello world ');`
 
@@ -876,6 +876,6 @@ REVOKE INSERT ON crashcourse.orders TO xiaoli;
 
 可以被授予或撤销的权限
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202211081713311.png)
-![](https://raw.githubusercontent.com/hts0000/images/main/202211081714284.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202211081713311.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202211081714284.png)
 

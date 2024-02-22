@@ -6,16 +6,16 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>基础算法整理(八) - Hts0000 | 个人博客</title><meta name="Description" content="Hts0000 | 个人博客"><meta property="og:title" content="基础算法整理(八)" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 最短路 最短路问题分为两类" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%85%AB/" /><meta property="og:image" content="http://example.org/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%85%AB/" /><meta property="og:image" content="http://example.org/logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-10-26T14:47:26+08:00" />
 <meta property="article:modified_time" content="2022-10-26T14:47:26+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://example.org/logo.png"/>
 
-<meta name="twitter:title" content="基础算法整理(八)"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://example.org/logo.png" /><meta name="twitter:title" content="基础算法整理(八)"/>
+<meta name="twitter:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 最短路 最短路问题分为两类"/>
+<meta name="twitter:site" content="@xxxx"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -251,7 +251,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">st</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span> <span class="p">=</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 从t点出发更新其余点的最短路
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nf">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">d</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span> <span class="o">+</span> <span class="nx">g</span><span class="p">[</span><span class="nx">t</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">d</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span> <span class="o">+</span> <span class="nx">g</span><span class="p">[</span><span class="nx">t</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// n点不可达
@@ -275,7 +275,7 @@
 </span></span><span class="line"><span class="cl">        <span class="c1">// 为x-&gt;y点建立连接，权重为z
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 因为存在重边，所有需要存储最小值
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 不用处理自环，因为求1-&gt;n的最短路自环没有影响
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="p">=</span> <span class="nf">min</span><span class="p">(</span><span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">],</span> <span class="nx">z</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="nx">g</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">],</span> <span class="nx">z</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 返回1-&gt;n的最短距离
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintln</span><span class="p">(</span><span class="nx">out</span><span class="p">,</span> <span class="nf">dijkstra</span><span class="p">())</span>
@@ -352,7 +352,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 每次循环，只有t能到达的点有可能被更新
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// n次循环加起来，有效操作次数&lt;=m次
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nf">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">d</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span> <span class="o">+</span> <span class="nx">g</span><span class="p">[</span><span class="nx">t</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">d</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span> <span class="o">+</span> <span class="nx">g</span><span class="p">[</span><span class="nx">t</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -379,7 +379,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 每次循环，只有t能到达的点有可能被更新
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// n次循环加起来，有效操作次数&lt;=m次
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nf">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">d</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span> <span class="o">+</span> <span class="nx">g</span><span class="p">[</span><span class="nx">t</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">d</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span> <span class="o">+</span> <span class="nx">g</span><span class="p">[</span><span class="nx">t</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 这里调整堆是O(logn)的
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">heap</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -727,7 +727,7 @@
 </span></span><span class="line"><span class="cl">            <span class="nx">b</span> <span class="o">:=</span> <span class="nx">edges</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">b</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">w</span> <span class="o">:=</span> <span class="nx">edges</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">w</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 使用 backup 的状态，而不是 dist
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">dist</span><span class="p">[</span><span class="nx">b</span><span class="p">]</span> <span class="p">=</span> <span class="nf">min</span><span class="p">(</span><span class="nx">dist</span><span class="p">[</span><span class="nx">b</span><span class="p">],</span> <span class="nx">backup</span><span class="p">[</span><span class="nx">a</span><span class="p">]</span> <span class="o">+</span> <span class="nx">w</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">dist</span><span class="p">[</span><span class="nx">b</span><span class="p">]</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="nx">dist</span><span class="p">[</span><span class="nx">b</span><span class="p">],</span> <span class="nx">backup</span><span class="p">[</span><span class="nx">a</span><span class="p">]</span> <span class="o">+</span> <span class="nx">w</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 因为存在负权，距离可能被更新为0x3f3f3f3f - 某个负权w，所以不能简单判断 dist[n] == 0x3f3f3f3f
@@ -755,7 +755,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">min</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nb">min</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">a</span> <span class="p">&lt;</span> <span class="nx">b</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">b</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -1277,7 +1277,7 @@
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// DP思想
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">d</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nf">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">],</span> <span class="nx">d</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">k</span><span class="p">]</span> <span class="o">+</span> <span class="nx">d</span><span class="p">[</span><span class="nx">k</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">d</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">],</span> <span class="nx">d</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">k</span><span class="p">]</span> <span class="o">+</span> <span class="nx">d</span><span class="p">[</span><span class="nx">k</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -1305,7 +1305,7 @@
 </span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">w</span> <span class="kt">int</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fscan</span><span class="p">(</span><span class="nx">in</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">w</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 重边用取min的方式解决
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">d</span><span class="p">[</span><span class="nx">a</span><span class="p">][</span><span class="nx">b</span><span class="p">]</span> <span class="p">=</span> <span class="nf">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">a</span><span class="p">][</span><span class="nx">b</span><span class="p">],</span> <span class="nx">w</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">d</span><span class="p">[</span><span class="nx">a</span><span class="p">][</span><span class="nx">b</span><span class="p">]</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">a</span><span class="p">][</span><span class="nx">b</span><span class="p">],</span> <span class="nx">w</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="c1">// Floyd算法会将d[N][N]变成存储点i到点j的最短路距离
@@ -1324,7 +1324,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">min</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nb">min</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">a</span> <span class="p">&lt;</span> <span class="nx">b</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">b</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -1361,8 +1361,8 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
         </div>
     </footer></div>

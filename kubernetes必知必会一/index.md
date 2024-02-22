@@ -9,7 +9,7 @@
 
 # Kubernetes架构
 `K8S`使用CS架构，也就是`Server-Client`架构。客户端通过`WebUI`、`CLI`等工具与`Kubernetes Master`连接下达命令，`Master`再将这些命令下发给对应`Node`进行执行。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306121400078.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306121400078.png)
 
 `K8S Master`包含四个核心组件：
 - `API Server`：处理`API`请求，`Kubernetes`中所有组件都会与`API Server`进行连接
@@ -17,10 +17,10 @@
 - `Scheduler`：进行调度管理，比如观察和计算节点与容器负载，决定将容器调度到那个节点
 - `ETCD`：分布式存储系统，存储`Kubernetes`集群所需的元信息
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202306121416910.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306121416910.png)
 
 `K8S Node`是真正运行业务负载的地方，需要运行的容器会经过`Scheduler`计算决定运行在哪个`Node`上，计算完之后通知`API Server`，`API Server`通知对应`Node`上的`Kubelet`组件运行对应的容器。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306121546038.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306121546038.png)
 
 ```yml
 apiVersion: apps/v1
@@ -96,7 +96,7 @@ kubectl get replicasets nginx -o yaml
 这两种逻辑在出错后重试时，会产生巨大的差异。试想一下扩容成功了，但是扩容程序认为自己失败了，会怎么样？`声明式API`重试时，会观测到当前状态与期望状态其实已经一致了，从而停止扩容，就算这个时间错开，扩容了两次，在下个观测周期到来，传感器依然会发现状态不一致而触发缩容，这种设计下当前状态总是同期望状态一起变化的。
 
 `命令式API`如果发生两次扩容，系统很难理解和避免这种错误，特别是期望状态不断变化时，程序必须非常小心的处理每一个可能发生错误的地方，加上大量的判断和回滚，这严重影响性能和故障恢复时间，而且也无法完全保证多次故障发生后，状态仍然与期望的一致。究其根源在于`命令式API`只有一次任务的过程，如果该过程发生错误，必须通过强一致的事务来保证回滚，然后再继续尝试。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306131157408.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306131157408.png)
 
 # Kubernetes中的资源
 ## Deployment
@@ -185,7 +185,7 @@ kubectl rollout undo deployments.apps/nginx-deployment --to-revision=2
 
 **Deployment状态流转图**  
 每一个资源都有其对应的`当前状态(status)`。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306131544588.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306131544588.png)
 
 **spec字段解释**  
 - MinReadySeconds：Deployment 会根据 Pod ready 来看 Pod 是否可用，但是如果我们设置了 MinReadySeconds 之后，比如设置为 30 秒，那 Deployment 就一定会等到 Pod ready 超过 30 秒之后才认为 Pod 是 available 的。Pod available 的前提条件是 Pod ready，但是 ready 的 Pod 不一定是 available 的，它一定要超过 MinReadySeconds 之后，才会判断为 available
@@ -196,6 +196,68 @@ kubectl rollout undo deployments.apps/nginx-deployment --to-revision=2
 **升级策略字段解析**
 - MaxUnavailable：滚动过程中最多百分之几 Pod 不可用
 - MaxSurge：滚动过程中最多存在百分之几 Pod 超过预期 replicas 数量
+
+**Deployment**发布策略  
+- 灰度发布：按百分比逐步升级，阶段性
+- 滚动发布：持续完成升级，每次升级部分
+- 蓝绿发布：分组升级
+
+## Service
+`Service`用于为一组相同的资源提供统一的访问入口，比如一个`Depolyment`中有十个`Pod`副本，每个`Pod`提供的应用是一样的，希望对用户暴露一个统一的入口，`Service`就是用来干这个的。
+
+`Service`配置文件中，使用`selector.matchLabels`来匹配一组`Pod`，为这组`Pod`提供一个统一入口。
+
+`Service`通过`type`来配置类型，支持的类型及其功能：
+- ClusterIP：默认值，将`Service`暴露在`Service`网段上，只能集群内部访问
+- NodePort：将`Service`暴露在`Node`网段上，可以通过`Node IP`来访问
+- LoadBalancer：外接云厂商产品来做负载均衡
+
+**配置文件模板**  
+```yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-world-service
+  labels:
+    app: hello-world
+spec:
+  selector:
+    matchLabels:  # 根据标签选中所有匹配到的pod
+      app: hello-world
+  # clusterIp: 10.110.211.92  # 指定service网段的ip，不知道就从service网段中获取一个可用的
+  type: ClusterIP # Service的类型
+  ports:
+  - protocol: TCP
+    port: 8080  # 暴露到集群内部的端口
+    targetPort: 80  # 对应pod暴露的端口，从集群内部或外部访问的请求最终会请求这个端口
+    nodePort: 80 # 暴露到集群外部的端口
+```
+
+**查看Service资源字段解释**  
+```bash
+kubectl describe services
+
+Name:                     demo-deployment
+Namespace:                demo
+Labels:                   app=demo
+Annotations:              <none>
+Selector:                 app=demo
+Type:                     NodePort
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.110.211.92
+IPs:                      10.110.211.92
+Port:                     <unset>  18080/TCP
+TargetPort:               18080/TCP
+NodePort:                 <unset>  32581/TCP
+# Endpoints：通过标签匹配到的所有Pod
+Endpoints:                10.244.169.162:18080,10.244.169.164:18080,10.244.36.77:18080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+```
+
+值得一提的是，`Service`的`type`为`NodePort`时，无论访问哪台`Node`的这个端口，都能访问，但是查看开放的端口，又没有看到监听。其实这是`Kubernetes`的网络插件来管理的，通常情况下时直接修改`iptables`，在内核层面完成转发。
 
 ## Job
 `Job`就是一个任务，对于资源文件指定的任务启动一个对应的Pod执行，如果该任务要求执行10次，而且并发执行，那么将会创建10个Pod并发来执行同一个任务。
@@ -352,7 +414,7 @@ spec:
 - 安全管控是用 SecurityContext；
 - 前置校验是用 InitContainers 这几个在 spec 里面加的字段，来实现的这些配置管理。
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202306141154350.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306141154350.png)
 
 ## ConfigMap
 存储`Pod`的配置，用于实现`Pod`与配置的解耦。
@@ -604,13 +666,41 @@ spec:
               key: ADDR
 ```
 
+> 镜像仓库认证
+> 如果镜像仓库配置了需要认证，可以配置一个`Secret`资源，记录认证的用户名和密码。
+> ```yml
+> apiVersion: v1
+> kind: Secret
+> metadata:
+>   name: mysecret
+>   namespace: default
+> type: kubernetes.io/dockerconfigjson
+> data:
+>   .dockerconfigjson: >-
+> eyJhdXRocyI6eyJtaW5pc28tcmVnaXN0cnktdnBjLmNuLXNoZW56aGVuLmNyLmFsaXl1bmNzLmNvbSI6eyJ1c2VybmFtZSI6ImRvY2tlci1yb0BtaW5pc28xIiwicGFzc3dvcmQiOiJWM2liZEZ3a2xNMnlQMzF6IiwiYXV0aCI6IlpHOWphMlZ5TFhKdlFHMXBibWx6YnpFNlZqTnBZbVJHZDJ0c1RUSjVVRE14ZWc9PSJ9fX0=
+> ```
+> 
+> 然后在`Deployment`中加上`imagePullSecrets`配置项，引用`Secret`的配置，即可完成镜像仓库的认证。
+> ```yml
+> apiVersion: apps/v1
+> kind: Deployment
+> ...
+> spec:
+>   ...
+>   spec:
+>     # 配置拉取使用的Secret
+>     imagePullSecrets:
+>       - name: miniso-repo-acr
+>   ...
+> ```
+
 执行`kubectl apply -f demo-deployment.yaml`命令，创建`Deployment`。
 
 执行`kubectl get deployments -n demo`查看`Deployments`信息。`-n`选项指定命名空间，因为我们将`demo-deployment`创建在`demo`这个命名空间里的。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161442413.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161442413.png)
 
 执行`kubectl get pods -n demo`查看`Pods`信息。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161453080.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161453080.png)
 
 确保`Pods`已经正常运行。
 
@@ -629,14 +719,14 @@ spec:
 `Helm`官方文档：https://helm.sh/zh/docs/
 
 需要注意的是，`Helm`与`Kubernetes`有版本支持的要求，不同版本的`Helm`支持的`Kubernetes`版本参考文档：https://helm.sh/zh/docs/topics/version_skew/。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161513189.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161513189.png)
 
 首先安装`Helm`很简单，下载下来就是个二进制包，放到`/usr/bin`目录即可。下载地址：https://github.com/helm/helm/releases
 
 
 前往`Helm Charts Hub`查找`Prometheus Chart`。  
 `Charts Hub`地址：https://artifacthub.io/。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161532346.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161532346.png)
 
 一般来说里面的教程会提示增加一个仓库，但是这些仓库下载拉取镜像时，经常会失败，所以我们需要配置`Helm`的下载仓库，`Helm`支持配置多个仓库，下载的时候需要加上指定仓库的前缀。  
 ```bash
@@ -648,10 +738,10 @@ helm repo add incubator https://charts.helm.sh/incubator
 ```
 
 执行`helm repo list`查看所有仓库。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161534906.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161534906.png)
 
 我们在`bitnami`仓库和官方提供的`prometheus-community`仓库分别查找`promethues`，看看他们的版本差异。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161537507.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161537507.png)
 
 可以看到两个仓库的版本是同步的。为了下载安装顺利，我们选择使用`bitnami`仓库。
 
@@ -664,48 +754,48 @@ helm install prometheus bitnami/prometheus
 helm install grafana bitnami/grafana
 ```
 下载完之后查看，altermanager也安装上了。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161544667.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161544667.png)
 
 ## 暴露Grafana和Prometheus访问地址
 默认情况下`Grafana`和`Prometheus`的`Service Type`为`ClusterIP`，只能通过`Service`网段访问，也就是只有集群内可访问。我们希望集群外也能访问，就需要将`Service Type`修改为`NodePort`，并给资源分配一个`nodePort`，即`Node`上的`Port`。
 
 首先查看所有的`Service`。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161553981.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161553981.png)
 
 执行`kubectl edit services prometheus-server`实时修改配置，将`type`修改为`NodePort`，增加`nodePort`配置。`grafana`也是一样的操作。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161600238.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161600238.png)
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161601718.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161601718.png)
 
 然后就可以通过`Node IP`来访问`Grafana`和`Prometheus`了。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161601956.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161601956.png)
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161603709.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161603709.png)
 
 ## Prometheus访问K8S动态发现Pod
 现在`Prometheus`默认只有`Prometheus`自己和`Altermanager`这两个采集源。我们增加上`demo-deployment`中的所有`pod`。但是`pod ip`是不固定的，如果`pod`重启或滚动升级，ip地址会变化。这时就需要将`Prometheus`配置为主动与`K8S`读取`Pod`配置。
 
 `Prometheus`的配置存储在`ConfigMap`中，我们先查看所有`ConfigMap`。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161608184.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161608184.png)
 
 执行`kubectl edit configmap prometheus-server`命令进行编辑。增加针对`demo`这个`namespace`的指标采集。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161609919.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161609919.png)
 
 `Prometheus`启动后配置就固定了，需要重启，我们可以把`prometheus`这个`pod`删掉，让`Kubernetes Deployment`自动帮我们重启。重启之后就能看到三个`demo`副本的监控信息了。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161612121.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161612121.png)
 
 ## 配置Grafana
 在`Grafana`中配置`Prometheus`数据源，并展示指标的数据。
 
 配置数据源时，地址就是`Prometheus`所在`Node`的地址，以及`nodePort`配置的端口。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161614866.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161614866.png)
 
 添加一个`Panel`。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161621557.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161621557.png)
 
 在`Options`和侧边栏里还可以配置指标和`Panel`的名称。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161623406.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161623406.png)
 
 ## 访问测试
 使用`ab`工具访问这些`Pod`，就可以在`Grafana`中看到指标的变化了。需要注意执行`ab`命令的机器，必须是`Kubernetes`集群内的机器，`ab`访问的地址为`Pod`在集群内的地址，如果希望集群外访问，可以创建一个`Services`，通过向外暴露`demo-deployment`的统一入口。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202306161625914.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202306161625914.png)

@@ -289,7 +289,7 @@ func main() {
 公式为：`b[l] += C; b[r+1] -= C`。
 
 图例——为`[4:7]`这个区间加上`3`。
-![](https://raw.githubusercontent.com/hts0000/images/main/202209162051303.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202209162051303.png)
 
 ### 代码模板
 ```go

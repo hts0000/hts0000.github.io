@@ -169,6 +169,12 @@ const P uint64 = 131
 var h, p [N]uint64
 
 func get(l, r int) uint64 {
+    // 为什么是 h[r] - h[l-1] * p[r-l+1]？
+    // 这个公式的作用是求出 r ~ l 这一段的hash值
+    // h[l-1] * p[r-l+1] 是把 1 ~ l - 1 这一段放大到与 1 ~ r 对齐同一位
+    // 比如 ABCDE 与 ABC 前三个字符是一样的，只差两位
+    // ABC 的 hash 值乘上 P^2 变成 ABC00，再用 ABCDE - ABC00，得到 DE 的 hash 值
+    // 然后再相减
     return h[r] - h[l-1] * p[r-l+1]
 }
 

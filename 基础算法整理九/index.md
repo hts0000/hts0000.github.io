@@ -239,7 +239,7 @@ func main() {
 
 # 二分图
 二分图指的是图中所有点能划分到两个集合中，所有的边都在两个集合之间连接，集合内部没有边。
-![](https://raw.githubusercontent.com/hts0000/images/main/202210311442015.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202210311442015.png)
 
 二分图的题目通常是判断一个图是否是二分图。
 
@@ -351,7 +351,7 @@ func main() {
 
 如图两个集合Boys和Girls，为每个男生匹配一个女生，最多能匹配多少个。
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202210311621297.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202210311621297.png)
 
 算法运行步骤：
 1. 遍历集合Boys
@@ -359,7 +359,7 @@ func main() {
 	2. 如果Boys[i]的所有可匹配女生都已经分配了
 		1. 那么尝试让这些已匹配的人去匹配其他人，空出位置
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202210311630509.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202210311630509.png)
 
 图中B2只能匹配G2，但是G2已经被分配给B1了，那么尝试让B1匹配其他人，以增加匹配数。
 

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Kubernetes - Hts0000 | 个人博客</title><meta name="Description" content="Hts0000 | 个人博客"><meta property="og:title" content="Kubernetes" />
+<meta property="og:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes是操" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/kubernetes/" /><meta property="og:image" content="http://localhost:1313/logo.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-26T12:58:02+08:00" />
+<meta property="article:modified_time" content="2022-02-26T12:58:02+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/logo.png" /><meta name="twitter:title" content="Kubernetes"/>
+<meta name="twitter:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes是操"/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/kubernetes/" /><link rel="prev" href="http://localhost:1313/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/" /><link rel="next" href="http://localhost:1313/kubernetes-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Kubernetes",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/kubernetes\/"
+        },"genre": "posts","keywords": "草稿","wordcount":  2176 ,
+        "url": "http:\/\/localhost:1313\/kubernetes\/","datePublished": "2022-02-26T12:58:02+08:00","dateModified": "2022-02-26T12:58:02+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "hts0000"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 文章 </a><a class="menu-item" href="/tags"> 标签 </a><a class="menu-item" href="/categories"> 分类 </a><a class="menu-item" href="/about"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">文章</a><a class="menu-item" href="/tags" title="">标签</a><a class="menu-item" href="/categories" title="">分类</a><a class="menu-item" href="/about" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Kubernetes</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%8D%89%E7%A8%BF/"><i class="far fa-folder fa-fw"></i>草稿</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-26">2022-02-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2176 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
+<p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
+<h3 id="kubernetes是操作系统">Kubernetes是操作系统</h3>
+<h3 id="编排对象">编排对象</h3>
+<p>K8S中，编排对象分为Pod（需要持续提供服务的应用）、Job（只运行一次的任务）、CronJob（定时运行的任务），这些对象用于描述你试图管理的应用</p>
+<h3 id="服务对象">服务对象</h3>
+<p>K8S中，服务对象用于描述平台级的服务，比如Service（Pod的代理）、Secret（信息加密）、Horizontal Pod Autoscaler（自动水平扩展器）等。</p>
+<p>由下图可以看到，K8S首先抽象出了需要编排的对象—Pod，再根据Pod运行时需要的服务，声明了一系列的API对象（服务对象），这就是所谓的声明式API。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://gitee.com/hts0000/my-images/raw/master/img/20201202111315.png"
+        data-srcset="https://gitee.com/hts0000/my-images/raw/master/img/20201202111315.png, https://gitee.com/hts0000/my-images/raw/master/img/20201202111315.png 1.5x, https://gitee.com/hts0000/my-images/raw/master/img/20201202111315.png 2x"
+        data-sizes="auto"
+        alt="https://gitee.com/hts0000/my-images/raw/master/img/20201202111315.png"
+        title="image-20201202104037532" /></p>
+<h3 id="pod">Pod</h3>
+<h4 id="一般来说pod启动过程如下">一般来说，Pod启动过程如下：</h4>
+<ol>
+<li>调度到某台机器。kubernetes根据一定的优先级算法选择一台机器将其作为pod运行的机器</li>
+<li>拉取pod资源文件中指定的镜像</li>
+<li>挂载存储配置等</li>
+<li>运行pod，进行健康检查</li>
+</ol>
+<h4 id="pod-的状态有">pod 的状态有：</h4>
+<ul>
+<li><code>Pending</code>: 一般表示还没有开始调度到某台机器上。如果没有符合条件的主机，就会一直处于 Pending 状态</li>
+<li><code>Running</code>: 运行中</li>
+<li><code>Succeeded</code>：有些 pod 不是长久运行的，比如 cronjob,一段时间就结束了。需要反馈任务执行的结果</li>
+<li><code>Failed</code>：pod 的 container 异常退出，比如 command 写的有问题</li>
+<li><code>Unknown</code>：未知。比如 pod 所在的机器无法连接</li>
+<li><code>podIP</code>: pod 所分配到的 ip, 这个 ip 是全集群唯一的</li>
+<li><code>qosClass</code>: 资源分配相关，在后面小节介绍</li>
+<li><code>startTime</code>: 启动时间</li>
+</ul>
+<h3 id="kubeadm单机部署">kubeadm单机部署</h3>
+<ol>
+<li>安装kubeadm、kubectl和kubelet</li>
+<li>初始化当前节点为master节点（初始化完成后会生成token，用于后续node节点接入集群）</li>
+<li>配置$HOME/.kube/config文件</li>
+<li>将当前节点标记为可用节点（master默认Taints为不可调度，需要修改或者删除Taints）</li>
+<li>安装网络插件flannel（需要flannel.yml文件）</li>
+<li>查看各个pod运行状态kubectl get pods -n kube-system</li>
+<li>查看master节点是否运行正常kubectl get node</li>
+</ol>
+<p><a href="https://www.freeaihub.com/kubernetes/setup.html" target="_blank" rel="noopener noreffer">kubeadm单机部署K8S参考</a></p>
+<h3 id="resource">Resource</h3>
+<p>Resource 是 Kubernetes 的一个基础概念，kubernets 用 Resource 来表示集群中的各个资源。比如<code>Pod</code>节点（主机）、<code>Container</code>容器、<code>Proxy</code>路由、<code>Config</code>配置文件等等。这些概念听起来差别很大，但是却有很多共同的基本属性。比如名称、创建时间、标签、uuid 等。kubernetes 对这些信息进行抽象，提供了一个通用的 metadata 结构，再加上各个 resource 自己的其它信息，构成了一个形式类似的数据结构。</p>
+<h4 id="configmap">ConfigMap</h4>
+<p>很像环境变量或者很多软件的配置文件，存储了一些 key-value 键值对。</p>
+<h4 id="pod-1">Pod</h4>
+<p>Pod是一组container的集合，集合内的container默认共享Network NameSpace和Mount NameSpace，也支持配置其他资源进行共享。</p>
+<h3 id="kubectl基本使用">kubectl基本使用</h3>
+<h4 id="查看">查看</h4>
+<p>kubectl配置文件存放路径：~/.kube/config</p>
+<p>kubectl cluster-info：查看K8S集群的版本和基本信息</p>
+<p>kubectl get ns：查看所有namespace</p>
+<p>kubectl get namespace kube-system -o yaml：查看某一个namespace，以yaml方式输出</p>
+<p>kubectl get configmap cluster-info -n kube-system -o yaml：查看namespace为kube-system的cluster-info的配置文件，以yaml方式输出</p>
+<p>kubectl get node master -o yaml：查看节点的信息</p>
+<p>kubectl get pod pod名称 -o yaml：查看pod的信息</p>
+<p>kubectl get pod pod名称 -w：持续监控pod的信息</p>
+<p>kubectl logs &ndash;tail 10 pod-sample：查看pod名为pod-sample的日志信息</p>
+<p>kubectl logs &ndash;tail 10 pods/etcd-node1 &ndash;namespace kube-system：查看namespace为kube-system中pod名为pods/etcd-node1的日志，只看后10行</p>
+<h4 id="增加">增加</h4>
+<p>kubectl create namespace 资源名称：创建一个namespace</p>
+<p>kubectl create ns 资源名称-v=9：创建一个namespace，并显示创建过程日志，9表示日志级别，数字越大日志越详细</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">root@freeaihub:~# kubectl create ns test1 -v<span class="o">=</span><span class="m">9</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># kubectl载入本地配置文件</span>
+</span></span><span class="line"><span class="cl">I1203 02:57:29.070303   <span class="m">32654</span> loader.go:375<span class="o">]</span> Config loaded from file:  /root/.kube/config
+</span></span><span class="line"><span class="cl"><span class="c1"># 根据命令行参数生成合适的body发送给apiserver</span>
+</span></span><span class="line"><span class="cl">I1203 02:57:29.078742   <span class="m">32654</span> request.go:1068<span class="o">]</span> Request Body: <span class="o">{</span><span class="s2">&#34;apiVersion&#34;</span>:<span class="s2">&#34;v1&#34;</span>,<span class="s2">&#34;kind&#34;</span>:<span class="s2">&#34;Namespace&#34;</span>,<span class="s2">&#34;metadata&#34;</span>:<span class="o">{</span><span class="s2">&#34;creationTimestamp&#34;</span>:null,<span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;test1&#34;</span><span class="o">}</span>,<span class="s2">&#34;spec&#34;</span>:<span class="o">{}</span>,<span class="s2">&#34;status&#34;</span>:<span class="o">{}}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># https请求调用api</span>
+</span></span><span class="line"><span class="cl">I1203 02:57:29.078950   <span class="m">32654</span> round_trippers.go:423<span class="o">]</span> curl -k -v -XPOST  -H <span class="s2">&#34;Accept: application/json&#34;</span> -H <span class="s2">&#34;User-Agent: kubectl/v1.18.2 (linux/amd64) kubernetes/52c56ce&#34;</span> <span class="s1">&#39;https://172.87.64.11:6443/api/v1/namespaces&#39;</span>
+</span></span><span class="line"><span class="cl">I1203 02:57:29.099372   <span class="m">32654</span> round_trippers.go:443<span class="o">]</span> POST https://172.87.64.11:6443/api/v1/namespaces <span class="m">201</span> Created in <span class="m">20</span> milliseconds
+</span></span><span class="line"><span class="cl">I1203 02:57:29.099422   <span class="m">32654</span> round_trippers.go:449<span class="o">]</span> Response Headers:
+</span></span><span class="line"><span class="cl">I1203 02:57:29.099548   <span class="m">32654</span> round_trippers.go:452<span class="o">]</span>     Content-Type: application/json
+</span></span><span class="line"><span class="cl">I1203 02:57:29.099650   <span class="m">32654</span> round_trippers.go:452<span class="o">]</span>     Content-Length: <span class="m">455</span>
+</span></span><span class="line"><span class="cl">I1203 02:57:29.099671   <span class="m">32654</span> round_trippers.go:452<span class="o">]</span>     Date: Thu, <span class="m">03</span> Dec <span class="m">2020</span> 02:57:29 GMTI1203 02:57:29.099794   <span class="m">32654</span> request.go:1068<span class="o">]</span> Response Body: <span class="o">{</span><span class="s2">&#34;kind&#34;</span>:<span class="s2">&#34;Namespace&#34;</span>,<span class="s2">&#34;apiVersion&#34;</span>:<span class="s2">&#34;v1&#34;</span>,<span class="s2">&#34;metadata&#34;</span>:<span class="o">{</span><span class="s2">&#34;name&#34;</span>:<span class="s2">&#34;test1&#34;</span>,<span class="s2">&#34;selfLink&#34;</span>:<span class="s2">&#34;/api/v1/namespaces/test1&#34;</span>,<span class="s2">&#34;uid&#34;</span>:<span class="s2">&#34;51c4e17b-a5fc-4dfb-93f1-07a701997a6a&#34;</span>,<span class="s2">&#34;resourceVersion&#34;</span>:<span class="s2">&#34;6720&#34;</span>,<span class="s2">&#34;creationTimestamp&#34;</span>:<span class="s2">&#34;2020-12-03T02:57:29Z&#34;</span>,<span class="s2">&#34;managedFields&#34;</span>:<span class="o">[{</span><span class="s2">&#34;manager&#34;</span>:<span class="s2">&#34;kubectl&#34;</span>,<span class="s2">&#34;operation&#34;</span>:<span class="s2">&#34;Update&#34;</span>,<span class="s2">&#34;apiVersion&#34;</span>:<span class="s2">&#34;v1&#34;</span>,<span class="s2">&#34;time&#34;</span>:<span class="s2">&#34;2020-12-03T02:57:29Z&#34;</span>,<span class="s2">&#34;fieldsType&#34;</span>:<span class="s2">&#34;FieldsV1&#34;</span>,<span class="s2">&#34;fieldsV1&#34;</span>:<span class="o">{</span><span class="s2">&#34;f:status&#34;</span>:<span class="o">{</span><span class="s2">&#34;f:phase&#34;</span>:<span class="o">{}}}}]}</span>,<span class="s2">&#34;spec&#34;</span>:<span class="o">{</span><span class="s2">&#34;finalizers&#34;</span>:<span class="o">[</span><span class="s2">&#34;kubernetes&#34;</span><span class="o">]}</span>,<span class="s2">&#34;status&#34;</span>:<span class="o">{</span><span class="s2">&#34;phase&#34;</span>:<span class="s2">&#34;Active&#34;</span><span class="o">}}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建成功</span>
+</span></span><span class="line"><span class="cl">namespace/test1 created
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>kubectl create -f 资源文件路径：更常用的创建资源的方式，在资源文件中编辑好需要创建的资源类型（kind）、元数据（metadata）、资源名称（name）。</p>
+<p>kubectl create configmap 资源名称 &ndash;from-literal=a=a &ndash;from-literal=b=b -n default -v=9：创建一个configmap资源，创建步骤与namespace相似。</p>
+<h4 id="删除">删除</h4>
+<p>kubectl delete cm 资源名称 -n default：删除default namespace中指定的configmap资源</p>
+<p>kubectl delete ns 资源名称：删除default namespace中指定的configmap资源</p>
+<h4 id="操作pod和容器">操作pod和容器</h4>
+<p>kubectl exec -it pod名称 执行的命令</p>
+<p>kubectl exec -it pod-sample sh</p>
+<p>kubectl exec -it pod-sample -c pod-sample-container &ndash; sh：进入pod-sample pod中的pod-sample-container容器，执行命令为sh</p>
+<h3 id="k8s的调度算法">K8S的调度算法</h3>
+<h3 id="应用部署在k8s上的流程">应用部署在K8S上的流程</h3>
+<ol>
+<li>开发应用</li>
+<li>打包需要上线的应用，制作成镜像，提交到Docker Registry</li>
+<li>选择应用合适的K8S API对象（Pod、Deployment等），编写相应的YAML文件</li>
+<li>使用kubectl创建该对象</li>
+<li>后续滚动升级等操作都使用kubectl和更新YAML文件的方式来维护</li>
+</ol></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-02-26</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/kubernetes/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://localhost:1313/kubernetes/" data-title="Kubernetes"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/kubernetes/" data-title="Kubernetes"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://localhost:1313/kubernetes/" data-title="Kubernetes" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://localhost:1313/kubernetes/" data-title="Kubernetes" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://localhost:1313/kubernetes/" data-title="Kubernetes"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E8%8D%89%E7%A8%BF/">草稿</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/" class="prev" rel="prev" title="树的递归遍历"><i class="fas fa-angle-left fa-fw"></i>树的递归遍历</a>
+            <a href="/kubernetes-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="next" rel="next" title="Kubernetes 基础概念">Kubernetes 基础概念<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

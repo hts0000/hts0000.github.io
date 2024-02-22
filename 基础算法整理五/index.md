@@ -10,7 +10,7 @@
 # Trie树/字典树
 Trie是一种高效存储和查找字符串集合的数据结构。其存储形式如下图所示：
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202210121114098.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202210121114098.png)
 
 红色星号标记了存在以该词结尾的单词。
 
@@ -97,7 +97,7 @@ func main() {
 并查集是**树形的数据结构**，用数根来表示这个集合的编号，其余每个节点存储它的父节点是谁
 
 ## 朴素并查集
-![](https://raw.githubusercontent.com/hts0000/images/main/202210151611773.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202210151611773.png)
 
 问题1：如何判断树根？  
 集合中只有树根的父节点等于自身，因此判断是否与父节点相同即可：`if x == p[x]`
@@ -113,7 +113,7 @@ func main() {
 在一次求元素属于那个集合的操作中，将**查找路径上的所有节点直接指向根节点**，本质上是降低了树的高度。  
 在代码实现时，一般会直接带上路径压缩。
 
-![](https://raw.githubusercontent.com/hts0000/images/main/202210151652133.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202210151652133.png)
 
 ### 代码模板
 ```go
@@ -207,7 +207,7 @@ func find(x int) int {
 
 ### 实现细节
 我们使用**一维数组**来存储集合，将下标为1的位置定义为根节点，那么每个节点`i`与其左右节点的关系为：$左节点 = 2*i，右节点 = 2*i+1$。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202210171109125.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202210171109125.png)
 
 我们定义两种操作：`down(u int)`和`up(u int)`，分别从u向下调整堆，和从u向上调整堆。
 

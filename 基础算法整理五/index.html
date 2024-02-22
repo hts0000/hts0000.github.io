@@ -6,16 +6,16 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>基础算法整理(五) - Hts0000 | 个人博客</title><meta name="Description" content="Hts0000 | 个人博客"><meta property="og:title" content="基础算法整理(五)" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Trie树/字典树 Tri" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%94/" /><meta property="og:image" content="http://example.org/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%94/" /><meta property="og:image" content="http://example.org/logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-10-12T10:25:37+08:00" />
 <meta property="article:modified_time" content="2022-10-12T10:25:37+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://example.org/logo.png"/>
 
-<meta name="twitter:title" content="基础算法整理(五)"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://example.org/logo.png" /><meta name="twitter:title" content="基础算法整理(五)"/>
+<meta name="twitter:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Trie树/字典树 Tri"/>
+<meta name="twitter:site" content="@xxxx"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -101,7 +101,7 @@
 </div>
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">基础算法整理(五)</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>算法</a>&nbsp;<a href="/categories/%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86/"><i class="far fa-folder fa-fw"></i>算法整理</a>&nbsp;<a href="/categories/trie/"><i class="far fa-folder fa-fw"></i>Trie</a>&nbsp;<a href="/categories/%E5%AD%97%E5%85%B8%E6%A0%91/"><i class="far fa-folder fa-fw"></i>字典树</a>&nbsp;<a href="/categories/%E5%B9%B6%E6%9F%A5%E9%9B%86/"><i class="far fa-folder fa-fw"></i>并查集</a>&nbsp;<a href="/categories/heap/"><i class="far fa-folder fa-fw"></i>heap</a>&nbsp;<a href="/categories/%E5%A0%86/"><i class="far fa-folder fa-fw"></i>堆</a></span></div>
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw"></i>算法</a>&nbsp;<a href="/categories/%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86/"><i class="far fa-folder fa-fw"></i>算法整理</a>&nbsp;<a href="/categories/trie/"><i class="far fa-folder fa-fw"></i>Trie</a>&nbsp;<a href="/categories/%E5%AD%97%E5%85%B8%E6%A0%91/"><i class="far fa-folder fa-fw"></i>字典树</a>&nbsp;<a href="/categories/%E5%B9%B6%E6%9F%A5%E9%9B%86/"><i class="far fa-folder fa-fw"></i>并查集</a>&nbsp;<a href="/categories/heap/"><i class="far fa-folder fa-fw"></i>Heap</a>&nbsp;<a href="/categories/%E5%A0%86/"><i class="far fa-folder fa-fw"></i>堆</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-12">2022-10-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2365 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
         </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
@@ -111,11 +111,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202210121114098.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202210121114098.png, https://raw.githubusercontent.com/hts0000/images/main/202210121114098.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202210121114098.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202210121114098.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202210121114098.png, https://cdn.jsdelivr.net/gh/hts0000/images/202210121114098.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202210121114098.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202210121114098.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202210121114098.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202210121114098.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202210121114098.png" /></p>
 <p>红色星号标记了存在以该词结尾的单词。</p>
 <h3 id="代码模板">代码模板</h3>
 <div class="highlight"><div class="chroma">
@@ -269,11 +269,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202210151611773.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202210151611773.png, https://raw.githubusercontent.com/hts0000/images/main/202210151611773.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202210151611773.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202210151611773.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202210151611773.png, https://cdn.jsdelivr.net/gh/hts0000/images/202210151611773.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202210151611773.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202210151611773.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202210151611773.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202210151611773.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202210151611773.png" /></p>
 <p>问题1：如何判断树根？<br>
 集合中只有树根的父节点等于自身，因此判断是否与父节点相同即可：<code>if x == p[x]</code></p>
 <p>问题2：如何求一个元素属于那个集合？<br>
@@ -287,11 +287,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202210151652133.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202210151652133.png, https://raw.githubusercontent.com/hts0000/images/main/202210151652133.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202210151652133.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202210151652133.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202210151652133.png, https://cdn.jsdelivr.net/gh/hts0000/images/202210151652133.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202210151652133.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202210151652133.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202210151652133.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202210151652133.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202210151652133.png" /></p>
 <h3 id="代码模板-1">代码模板</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -448,11 +448,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202210171109125.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202210171109125.png, https://raw.githubusercontent.com/hts0000/images/main/202210171109125.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202210171109125.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202210171109125.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202210171109125.png, https://cdn.jsdelivr.net/gh/hts0000/images/202210171109125.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202210171109125.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202210171109125.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202210171109125.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202210171109125.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202210171109125.png" /></p>
 <p>我们定义两种操作：<code>down(u int)</code>和<code>up(u int)</code>，分别从u向下调整堆，和从u向上调整堆。</p>
 <p><code>down</code>会判断u是否小于其左右节点(对于小根堆而言)，如果不是，则交换u与最小者，再递归调整最小者。</p>
 <p><code>up</code>会判断u是否小于其父节点(对于小根堆而言)，如果不是，则交换u与其父节点，再循环调整其父节点。</p>
@@ -552,7 +552,7 @@ $$sum((n/4)*1, (n/8)*2, (n/16)*3, &hellip;) = n$$</p>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>,&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86/">算法整理</a>,&nbsp;<a href="/tags/trie/">Trie</a>,&nbsp;<a href="/tags/%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a>,&nbsp;<a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a>,&nbsp;<a href="/tags/heap/">heap</a>,&nbsp;<a href="/tags/%E5%A0%86/">堆</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>,&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86/">算法整理</a>,&nbsp;<a href="/tags/trie/">Trie</a>,&nbsp;<a href="/tags/%E5%AD%97%E5%85%B8%E6%A0%91/">字典树</a>,&nbsp;<a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/">并查集</a>,&nbsp;<a href="/tags/heap/">Heap</a>,&nbsp;<a href="/tags/%E5%A0%86/">堆</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
@@ -563,8 +563,8 @@ $$sum((n/4)*1, (n/8)*2, (n/16)*3, &hellip;) = n$$</p>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
         </div>
     </footer></div>

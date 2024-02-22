@@ -200,10 +200,10 @@ func main() {
 - 邻接表
 
 邻接矩阵是一个N*N的二维数组。x行y列存储值为1，表示x顶点与y顶点有一条边。邻接矩阵使用比较少，因为他需要`O(n^2)`的存储空间，比较适合存储稠密图。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202210211554433.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202210211554433.png)
 
 邻接表是一个元素是链表的数组，下标x存储的是一条链表，链表所有节点是x顶点能到达的所有其他顶点。  
-![](https://raw.githubusercontent.com/hts0000/images/main/202210211544438.png)
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202210211544438.png)
 
 重边：指的是点i到点j之间存在不止一条边
 

@@ -1,15 +1,78 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>草稿 - 分类 - Hts0000 | 个人博客</title>
-        <link>http://example.org/categories/%E8%8D%89%E7%A8%BF/</link>
+        <link>http://localhost:1313/categories/%E8%8D%89%E7%A8%BF/</link>
         <description>草稿 - 分类 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Sun, 03 Apr 2022 09:43:41 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/%E8%8D%89%E7%A8%BF/" rel="self" type="application/rss+xml" /><item>
-    <title>二分查找</title>
-    <link>http://example.org/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</link>
-    <pubDate>Sun, 03 Apr 2022 09:43:41 &#43;0800</pubDate>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Fri, 10 Feb 2023 12:39:44 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E8%8D%89%E7%A8%BF/" rel="self" type="application/rss+xml" /><item>
+    <title>一次网络连接的过程</title>
+    <link>http://localhost:1313/%E4%B8%80%E6%AC%A1%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</link>
+    <pubDate>Fri, 10 Feb 2023 12:39:44 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</guid>
-    <description><![CDATA[]]></description>
+    <guid>http://localhost:1313/%E4%B8%80%E6%AC%A1%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>K8s Deploy</title>
+    <link>http://localhost:1313/k8s-deploy/</link>
+    <pubDate>Wed, 11 Jan 2023 16:31:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/k8s-deploy/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>Vue Introduction</title>
+    <link>http://localhost:1313/vue-introduction/</link>
+    <pubDate>Fri, 16 Dec 2022 10:37:43 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/vue-introduction/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>RabbitMQ Introduction</title>
+    <link>http://localhost:1313/rabbitmq-introduction/</link>
+    <pubDate>Tue, 01 Nov 2022 20:58:19 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/rabbitmq-introduction/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>C&#43;&#43;写算法</title>
+    <link>http://localhost:1313/c-%E5%86%99%E7%AE%97%E6%B3%95/</link>
+    <pubDate>Mon, 24 Oct 2022 15:04:01 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/c-%E5%86%99%E7%AE%97%E6%B3%95/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>Golang中的context</title>
+    <link>http://localhost:1313/golang%E4%B8%AD%E7%9A%84context/</link>
+    <pubDate>Sun, 25 Sep 2022 15:50:13 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/golang%E4%B8%AD%E7%9A%84context/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>Mongodb Introduction</title>
+    <link>http://localhost:1313/mongodb-introduction/</link>
+    <pubDate>Tue, 13 Sep 2022 18:52:21 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/mongodb-introduction/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>Protocolbuffers</title>
+    <link>http://localhost:1313/protocolbuffers/</link>
+    <pubDate>Sat, 23 Jul 2022 15:31:06 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/protocolbuffers/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>背包问题</title>
+    <link>http://localhost:1313/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</link>
+    <pubDate>Sat, 11 Jun 2022 15:37:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>页面置换算法</title>
+    <link>http://localhost:1313/%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95/</link>
+    <pubDate>Sun, 15 May 2022 15:24:20 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
 </item></channel>
 </rss>

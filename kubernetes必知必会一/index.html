@@ -6,20 +6,20 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Kubernetes必知必会(一) - Hts0000 | 个人博客</title><meta name="Description" content="Hts0000 | 个人博客"><meta property="og:title" content="Kubernetes必知必会(一)" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes架构" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/" /><meta property="og:image" content="http://example.org/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/" /><meta property="og:image" content="http://example.org/logo.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-06-12T13:56:08+08:00" />
 <meta property="article:modified_time" content="2023-06-12T13:56:08+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://example.org/logo.png"/>
 
-<meta name="twitter:title" content="Kubernetes必知必会(一)"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://example.org/logo.png" /><meta name="twitter:title" content="Kubernetes必知必会(一)"/>
+<meta name="twitter:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes架构"/>
+<meta name="twitter:site" content="@xxxx"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/" /><link rel="prev" href="http://example.org/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/" /><link rel="prev" href="http://example.org/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" /><link rel="next" href="http://example.org/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/example.org\/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80\/"
-        },"genre": "posts","keywords": "Kubernetes, 运维","wordcount":  9100 ,
+        },"genre": "posts","keywords": "Kubernetes, 运维","wordcount":  10023 ,
         "url": "http:\/\/example.org\/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80\/","datePublished": "2023-06-12T13:56:08+08:00","dateModified": "2023-06-12T13:56:08+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -102,8 +102,8 @@
 <main class="main">
                 <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Kubernetes必知必会(一)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/kubernetes/"><i class="far fa-folder fa-fw"></i>Kubernetes</a>&nbsp;<a href="/categories/%E8%BF%90%E7%BB%B4/"><i class="far fa-folder fa-fw"></i>运维</a>&nbsp;<a href="/categories/%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/"><i class="far fa-folder fa-fw"></i>必知必会</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-06-12">2023-06-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 9100 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 19 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-06-12">2023-06-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10023 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;</div>
         </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
 <p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
 <h1 id="kubernetes架构">Kubernetes架构</h1>
@@ -111,11 +111,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306121400078.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306121400078.png, https://raw.githubusercontent.com/hts0000/images/main/202306121400078.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306121400078.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306121400078.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306121400078.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306121400078.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306121400078.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306121400078.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306121400078.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306121400078.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306121400078.png" /></p>
 <p><code>K8S Master</code>包含四个核心组件：</p>
 <ul>
 <li><code>API Server</code>：处理<code>API</code>请求，<code>Kubernetes</code>中所有组件都会与<code>API Server</code>进行连接</li>
@@ -126,20 +126,20 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306121416910.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306121416910.png, https://raw.githubusercontent.com/hts0000/images/main/202306121416910.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306121416910.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306121416910.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306121416910.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306121416910.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306121416910.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306121416910.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306121416910.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306121416910.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306121416910.png" /></p>
 <p><code>K8S Node</code>是真正运行业务负载的地方，需要运行的容器会经过<code>Scheduler</code>计算决定运行在哪个<code>Node</code>上，计算完之后通知<code>API Server</code>，<code>API Server</code>通知对应<code>Node</code>上的<code>Kubelet</code>组件运行对应的容器。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306121546038.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306121546038.png, https://raw.githubusercontent.com/hts0000/images/main/202306121546038.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306121546038.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306121546038.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306121546038.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306121546038.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306121546038.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306121546038.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306121546038.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306121546038.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306121546038.png" /></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -267,11 +267,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306131157408.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306131157408.png, https://raw.githubusercontent.com/hts0000/images/main/202306131157408.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306131157408.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306131157408.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306131157408.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306131157408.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306131157408.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306131157408.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306131157408.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306131157408.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306131157408.png" /></p>
 <h1 id="kubernetes中的资源">Kubernetes中的资源</h1>
 <h2 id="deployment">Deployment</h2>
 <p><code>Deployment</code>是对<code>Replicaset</code>的高级封装，<code>Replicaset</code>控制<code>Pod</code>的副本数量，<code>Deployment</code>负责控制使用哪个<code>Replicaset</code>。创建或修改<code>Deployment</code>就会新创建一个<code>Replicaset</code>，每个<code>Replicaset</code>都记录了管理的<code>Pod</code>的副本、容器等等信息。<code>Deployment</code>回滚就是回滚使用历史版本的<code>Replicaset</code>信息来创建<code>Pod</code>。</p>
@@ -438,11 +438,11 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306131544588.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306131544588.png, https://raw.githubusercontent.com/hts0000/images/main/202306131544588.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306131544588.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306131544588.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306131544588.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306131544588.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306131544588.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306131544588.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306131544588.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306131544588.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306131544588.png" /></p>
 <p><strong>spec字段解释</strong></p>
 <ul>
 <li>MinReadySeconds：Deployment 会根据 Pod ready 来看 Pod 是否可用，但是如果我们设置了 MinReadySeconds 之后，比如设置为 30 秒，那 Deployment 就一定会等到 Pod ready 超过 30 秒之后才认为 Pod 是 available 的。Pod available 的前提条件是 Pod ready，但是 ready 的 Pod 不一定是 available 的，它一定要超过 MinReadySeconds 之后，才会判断为 available</li>
@@ -455,6 +455,110 @@
 <li>MaxUnavailable：滚动过程中最多百分之几 Pod 不可用</li>
 <li>MaxSurge：滚动过程中最多存在百分之几 Pod 超过预期 replicas 数量</li>
 </ul>
+<p><strong>Deployment</strong>发布策略</p>
+<ul>
+<li>灰度发布：按百分比逐步升级，阶段性</li>
+<li>滚动发布：持续完成升级，每次升级部分</li>
+<li>蓝绿发布：分组升级</li>
+</ul>
+<h2 id="service">Service</h2>
+<p><code>Service</code>用于为一组相同的资源提供统一的访问入口，比如一个<code>Depolyment</code>中有十个<code>Pod</code>副本，每个<code>Pod</code>提供的应用是一样的，希望对用户暴露一个统一的入口，<code>Service</code>就是用来干这个的。</p>
+<p><code>Service</code>配置文件中，使用<code>selector.matchLabels</code>来匹配一组<code>Pod</code>，为这组<code>Pod</code>提供一个统一入口。</p>
+<p><code>Service</code>通过<code>type</code>来配置类型，支持的类型及其功能：</p>
+<ul>
+<li>ClusterIP：默认值，将<code>Service</code>暴露在<code>Service</code>网段上，只能集群内部访问</li>
+<li>NodePort：将<code>Service</code>暴露在<code>Node</code>网段上，可以通过<code>Node IP</code>来访问</li>
+<li>LoadBalancer：外接云厂商产品来做负载均衡</li>
+</ul>
+<p><strong>配置文件模板</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hello-world-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">hello-world</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">  </span><span class="c"># 根据标签选中所有匹配到的pod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">hello-world</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># clusterIp: 10.110.211.92  # 指定service网段的ip，不知道就从service网段中获取一个可用的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterIP</span><span class="w"> </span><span class="c"># Service的类型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">  </span><span class="c"># 暴露到集群内部的端口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">  </span><span class="c"># 对应pod暴露的端口，从集群内部或外部访问的请求最终会请求这个端口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">nodePort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="c"># 暴露到集群外部的端口</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查看Service资源字段解释</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl describe services
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Name:                     demo-deployment
+</span></span><span class="line"><span class="cl">Namespace:                demo
+</span></span><span class="line"><span class="cl">Labels:                   <span class="nv">app</span><span class="o">=</span>demo
+</span></span><span class="line"><span class="cl">Annotations:              &lt;none&gt;
+</span></span><span class="line"><span class="cl">Selector:                 <span class="nv">app</span><span class="o">=</span>demo
+</span></span><span class="line"><span class="cl">Type:                     NodePort
+</span></span><span class="line"><span class="cl">IP Family Policy:         SingleStack
+</span></span><span class="line"><span class="cl">IP Families:              IPv4
+</span></span><span class="line"><span class="cl">IP:                       10.110.211.92
+</span></span><span class="line"><span class="cl">IPs:                      10.110.211.92
+</span></span><span class="line"><span class="cl">Port:                     &lt;unset&gt;  18080/TCP
+</span></span><span class="line"><span class="cl">TargetPort:               18080/TCP
+</span></span><span class="line"><span class="cl">NodePort:                 &lt;unset&gt;  32581/TCP
+</span></span><span class="line"><span class="cl"><span class="c1"># Endpoints：通过标签匹配到的所有Pod</span>
+</span></span><span class="line"><span class="cl">Endpoints:                10.244.169.162:18080,10.244.169.164:18080,10.244.36.77:18080
+</span></span><span class="line"><span class="cl">Session Affinity:         None
+</span></span><span class="line"><span class="cl">External Traffic Policy:  Cluster
+</span></span><span class="line"><span class="cl">Events:                   &lt;none&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>值得一提的是，<code>Service</code>的<code>type</code>为<code>NodePort</code>时，无论访问哪台<code>Node</code>的这个端口，都能访问，但是查看开放的端口，又没有看到监听。其实这是<code>Kubernetes</code>的网络插件来管理的，通常情况下时直接修改<code>iptables</code>，在内核层面完成转发。</p>
 <h2 id="job">Job</h2>
 <p><code>Job</code>就是一个任务，对于资源文件指定的任务启动一个对应的Pod执行，如果该任务要求执行10次，而且并发执行，那么将会创建10个Pod并发来执行同一个任务。</p>
 <p><strong>配置文件模板</strong></p>
@@ -735,11 +839,11 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306141154350.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306141154350.png, https://raw.githubusercontent.com/hts0000/images/main/202306141154350.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306141154350.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306141154350.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306141154350.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306141154350.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306141154350.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306141154350.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306141154350.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306141154350.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306141154350.png" /></p>
 <h2 id="configmap">ConfigMap</h2>
 <p>存储<code>Pod</code>的配置，用于实现<code>Pod</code>与配置的解耦。</p>
 <p><strong>配置文件模板</strong></p>
@@ -1186,25 +1290,80 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">ADDR</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>执行<code>kubectl apply -f demo-deployment.yaml</code>命令，创建<code>Deployment</code>。</p>
+</div><blockquote>
+<p>镜像仓库认证
+如果镜像仓库配置了需要认证，可以配置一个<code>Secret</code>资源，记录认证的用户名和密码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mysecret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes.io/dockerconfigjson</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">data</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">.dockerconfigjson</span><span class="p">:</span><span class="w"> </span><span class="l">&gt;-</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">eyJhdXRocyI6eyJtaW5pc28tcmVnaXN0cnktdnBjLmNuLXNoZW56aGVuLmNyLmFsaXl1bmNzLmNvbSI6eyJ1c2VybmFtZSI6ImRvY2tlci1yb0BtaW5pc28xIiwicGFzc3dvcmQiOiJWM2liZEZ3a2xNMnlQMzF6IiwiYXV0aCI6IlpHOWphMlZ5TFhKdlFHMXBibWx6YnpFNlZqTnBZbVJHZDJ0c1RUSjVVRE14ZWc9PSJ9fX0=</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后在<code>Deployment</code>中加上<code>imagePullSecrets</code>配置项，引用<code>Secret</code>的配置，即可完成镜像仓库的认证。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># 配置拉取使用的Secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">imagePullSecrets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">miniso-repo-acr</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">...</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>执行<code>kubectl apply -f demo-deployment.yaml</code>命令，创建<code>Deployment</code>。</p>
 <p>执行<code>kubectl get deployments -n demo</code>查看<code>Deployments</code>信息。<code>-n</code>选项指定命名空间，因为我们将<code>demo-deployment</code>创建在<code>demo</code>这个命名空间里的。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161442413.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161442413.png, https://raw.githubusercontent.com/hts0000/images/main/202306161442413.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161442413.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161442413.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161442413.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161442413.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161442413.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161442413.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161442413.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161442413.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161442413.png" /></p>
 <p>执行<code>kubectl get pods -n demo</code>查看<code>Pods</code>信息。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161453080.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161453080.png, https://raw.githubusercontent.com/hts0000/images/main/202306161453080.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161453080.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161453080.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161453080.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161453080.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161453080.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161453080.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161453080.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161453080.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161453080.png" /></p>
 <p>确保<code>Pods</code>已经正常运行。</p>
 <h2 id="使用helm安装prometheusaltermanager和grafana">使用Helm安装Prometheus、Altermanager和Grafana</h2>
 <p><code>Helm</code>是<code>Kubernetes</code>的包管理工具，可以方便的在<code>Kubernetes</code>上部署软件。</p>
@@ -1222,22 +1381,22 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161513189.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161513189.png, https://raw.githubusercontent.com/hts0000/images/main/202306161513189.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161513189.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161513189.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161513189.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161513189.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161513189.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161513189.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161513189.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161513189.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161513189.png" /></p>
 <p>首先安装<code>Helm</code>很简单，下载下来就是个二进制包，放到<code>/usr/bin</code>目录即可。下载地址：https://github.com/helm/helm/releases</p>
 <p>前往<code>Helm Charts Hub</code>查找<code>Prometheus Chart</code>。<br>
 <code>Charts Hub</code>地址：https://artifacthub.io/。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161532346.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161532346.png, https://raw.githubusercontent.com/hts0000/images/main/202306161532346.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161532346.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161532346.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161532346.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161532346.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161532346.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161532346.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161532346.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161532346.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161532346.png" /></p>
 <p>一般来说里面的教程会提示增加一个仓库，但是这些仓库下载拉取镜像时，经常会失败，所以我们需要配置<code>Helm</code>的下载仓库，<code>Helm</code>支持配置多个仓库，下载的时候需要加上指定仓库的前缀。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1259,20 +1418,20 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161534906.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161534906.png, https://raw.githubusercontent.com/hts0000/images/main/202306161534906.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161534906.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161534906.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161534906.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161534906.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161534906.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161534906.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161534906.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161534906.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161534906.png" /></p>
 <p>我们在<code>bitnami</code>仓库和官方提供的<code>prometheus-community</code>仓库分别查找<code>promethues</code>，看看他们的版本差异。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161537507.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161537507.png, https://raw.githubusercontent.com/hts0000/images/main/202306161537507.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161537507.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161537507.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161537507.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161537507.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161537507.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161537507.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161537507.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161537507.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161537507.png" /></p>
 <p>可以看到两个仓库的版本是同步的。为了下载安装顺利，我们选择使用<code>bitnami</code>仓库。</p>
 <p><code>Helm</code>在下载安装<code>Chart</code>时，需要指定仓库作为前缀。</p>
 <div class="highlight"><div class="chroma">
@@ -1295,124 +1454,124 @@
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161544667.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161544667.png, https://raw.githubusercontent.com/hts0000/images/main/202306161544667.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161544667.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161544667.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161544667.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161544667.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161544667.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161544667.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161544667.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161544667.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161544667.png" /></p>
 <h2 id="暴露grafana和prometheus访问地址">暴露Grafana和Prometheus访问地址</h2>
 <p>默认情况下<code>Grafana</code>和<code>Prometheus</code>的<code>Service Type</code>为<code>ClusterIP</code>，只能通过<code>Service</code>网段访问，也就是只有集群内可访问。我们希望集群外也能访问，就需要将<code>Service Type</code>修改为<code>NodePort</code>，并给资源分配一个<code>nodePort</code>，即<code>Node</code>上的<code>Port</code>。</p>
 <p>首先查看所有的<code>Service</code>。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161553981.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161553981.png, https://raw.githubusercontent.com/hts0000/images/main/202306161553981.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161553981.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161553981.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161553981.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161553981.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161553981.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161553981.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161553981.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161553981.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161553981.png" /></p>
 <p>执行<code>kubectl edit services prometheus-server</code>实时修改配置，将<code>type</code>修改为<code>NodePort</code>，增加<code>nodePort</code>配置。<code>grafana</code>也是一样的操作。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161600238.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161600238.png, https://raw.githubusercontent.com/hts0000/images/main/202306161600238.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161600238.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161600238.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161600238.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161600238.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161600238.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161600238.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161600238.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161600238.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161600238.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161601718.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161601718.png, https://raw.githubusercontent.com/hts0000/images/main/202306161601718.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161601718.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161601718.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161601718.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161601718.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161601718.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161601718.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161601718.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161601718.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161601718.png" /></p>
 <p>然后就可以通过<code>Node IP</code>来访问<code>Grafana</code>和<code>Prometheus</code>了。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161601956.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161601956.png, https://raw.githubusercontent.com/hts0000/images/main/202306161601956.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161601956.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161601956.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161601956.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161601956.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161601956.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161601956.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161601956.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161601956.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161601956.png" /></p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161603709.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161603709.png, https://raw.githubusercontent.com/hts0000/images/main/202306161603709.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161603709.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161603709.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161603709.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161603709.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161603709.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161603709.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161603709.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161603709.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161603709.png" /></p>
 <h2 id="prometheus访问k8s动态发现pod">Prometheus访问K8S动态发现Pod</h2>
 <p>现在<code>Prometheus</code>默认只有<code>Prometheus</code>自己和<code>Altermanager</code>这两个采集源。我们增加上<code>demo-deployment</code>中的所有<code>pod</code>。但是<code>pod ip</code>是不固定的，如果<code>pod</code>重启或滚动升级，ip地址会变化。这时就需要将<code>Prometheus</code>配置为主动与<code>K8S</code>读取<code>Pod</code>配置。</p>
 <p><code>Prometheus</code>的配置存储在<code>ConfigMap</code>中，我们先查看所有<code>ConfigMap</code>。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161608184.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161608184.png, https://raw.githubusercontent.com/hts0000/images/main/202306161608184.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161608184.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161608184.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161608184.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161608184.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161608184.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161608184.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161608184.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161608184.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161608184.png" /></p>
 <p>执行<code>kubectl edit configmap prometheus-server</code>命令进行编辑。增加针对<code>demo</code>这个<code>namespace</code>的指标采集。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161609919.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161609919.png, https://raw.githubusercontent.com/hts0000/images/main/202306161609919.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161609919.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161609919.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161609919.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161609919.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161609919.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161609919.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161609919.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161609919.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161609919.png" /></p>
 <p><code>Prometheus</code>启动后配置就固定了，需要重启，我们可以把<code>prometheus</code>这个<code>pod</code>删掉，让<code>Kubernetes Deployment</code>自动帮我们重启。重启之后就能看到三个<code>demo</code>副本的监控信息了。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161612121.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161612121.png, https://raw.githubusercontent.com/hts0000/images/main/202306161612121.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161612121.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161612121.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161612121.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161612121.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161612121.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161612121.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161612121.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161612121.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161612121.png" /></p>
 <h2 id="配置grafana">配置Grafana</h2>
 <p>在<code>Grafana</code>中配置<code>Prometheus</code>数据源，并展示指标的数据。</p>
 <p>配置数据源时，地址就是<code>Prometheus</code>所在<code>Node</code>的地址，以及<code>nodePort</code>配置的端口。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161614866.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161614866.png, https://raw.githubusercontent.com/hts0000/images/main/202306161614866.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161614866.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161614866.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161614866.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161614866.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161614866.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161614866.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161614866.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161614866.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161614866.png" /></p>
 <p>添加一个<code>Panel</code>。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161621557.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161621557.png, https://raw.githubusercontent.com/hts0000/images/main/202306161621557.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161621557.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161621557.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161621557.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161621557.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161621557.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161621557.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161621557.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161621557.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161621557.png" /></p>
 <p>在<code>Options</code>和侧边栏里还可以配置指标和<code>Panel</code>的名称。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161623406.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161623406.png, https://raw.githubusercontent.com/hts0000/images/main/202306161623406.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161623406.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161623406.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161623406.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161623406.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161623406.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161623406.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161623406.png" /></p>
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161623406.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161623406.png" /></p>
 <h2 id="访问测试">访问测试</h2>
 <p>使用<code>ab</code>工具访问这些<code>Pod</code>，就可以在<code>Grafana</code>中看到指标的变化了。需要注意执行<code>ab</code>命令的机器，必须是<code>Kubernetes</code>集群内的机器，<code>ab</code>访问的地址为<code>Pod</code>在集群内的地址，如果希望集群外访问，可以创建一个<code>Services</code>，通过向外暴露<code>demo-deployment</code>的统一入口。<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="https://raw.githubusercontent.com/hts0000/images/main/202306161625914.png"
-        data-srcset="https://raw.githubusercontent.com/hts0000/images/main/202306161625914.png, https://raw.githubusercontent.com/hts0000/images/main/202306161625914.png 1.5x, https://raw.githubusercontent.com/hts0000/images/main/202306161625914.png 2x"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202306161625914.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202306161625914.png, https://cdn.jsdelivr.net/gh/hts0000/images/202306161625914.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202306161625914.png 2x"
         data-sizes="auto"
-        alt="https://raw.githubusercontent.com/hts0000/images/main/202306161625914.png"
-        title="https://raw.githubusercontent.com/hts0000/images/main/202306161625914.png" /></p></div><div class="post-footer" id="post-footer">
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202306161625914.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202306161625914.png" /></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -1437,12 +1596,13 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" class="prev" rel="prev" title="Prometheus必知必会"><i class="fas fa-angle-left fa-fw"></i>Prometheus必知必会</a></div>
+    <div class="post-nav"><a href="/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" class="prev" rel="prev" title="Prometheus必知必会"><i class="fas fa-angle-left fa-fw"></i>Prometheus必知必会</a>
+            <a href="/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" class="next" rel="next" title="Jenkins必知必会">Jenkins必知必会<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
         </div>
     </footer></div>

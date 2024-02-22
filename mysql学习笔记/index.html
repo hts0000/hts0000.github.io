@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title> - Hts0000 | 个人博客</title><meta name="Description" content="Hts0000 | 个人博客"><meta property="og:title" content="" />
+<meta property="og:description" content="MySQL组成模块 连接器：客户端通过驱动连接，连接器负责进行连接交互 查询缓存：针对查询语句的缓存，只有查询语句完全一致时，才能命中，8.0以" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" /><meta property="og:image" content="http://example.org/logo.png" /><meta property="article:section" content="posts" />
+
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://example.org/logo.png" /><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="MySQL组成模块 连接器：客户端通过驱动连接，连接器负责进行连接交互 查询缓存：针对查询语句的缓存，只有查询语句完全一致时，才能命中，8.0以"/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" /><link rel="prev" href="http://example.org/%E4%BA%91%E4%BA%A7%E5%93%81/" /><link rel="next" href="http://example.org/%E5%9F%BA%E4%BA%8Ehugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/"
+        },"genre": "posts","wordcount":  1435 ,
+        "url": "http:\/\/example.org\/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0\/","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "hts0000"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 文章 </a><a class="menu-item" href="/tags"> 标签 </a><a class="menu-item" href="/categories"> 分类 </a><a class="menu-item" href="/about"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">文章</a><a class="menu-item" href="/tags" title="">标签</a><a class="menu-item" href="/categories" title="">分类</a><a class="menu-item" href="/about" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX"></h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1435 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#mysql表空间的结构">MySQL表空间的结构</a></li>
+    <li><a href="#mysql行格式">MySQL行格式</a></li>
+    <li><a href="#行溢出">行溢出</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#索引分类">索引分类</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#索引底层使用了什么数据结构和算法">索引底层使用了什么数据结构和算法？</a></li>
+    <li><a href="#为什么-mysql-innodb-选择-btree-作为索引的数据结构">为什么 MySQL InnoDB 选择 B+tree 作为索引的数据结构？</a></li>
+    <li><a href="#什么时候适用索引">什么时候适用索引？</a></li>
+    <li><a href="#什么时候不需要创建索引">什么时候不需要创建索引？</a></li>
+    <li><a href="#什么情况下索引会失效">什么情况下索引会失效？</a></li>
+    <li><a href="#有什么优化索引的方法">有什么优化索引的方法？</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#gtid同步原理">GTID同步原理</a></li>
+    <li><a href="#gtid同步对比bin-log日志同步">GTID同步对比bin-log日志同步</a></li>
+    <li><a href="#实操">实操</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="mysql组成模块">MySQL组成模块</h1>
+<ul>
+<li>连接器：客户端通过驱动连接，连接器负责进行连接交互</li>
+<li>查询缓存：针对查询语句的缓存，只有查询语句完全一致时，才能命中，8.0以移除</li>
+<li>SQL解析器：将SQL语句解析成语法树</li>
+<li>预处理模块：检查查询字段和表是否存在，还有扩展查询时<code>*</code>为全部字段</li>
+<li>优化器：根据代价选择一种执行代价最低的路径，比如存在多个索引时，选择使用哪个索引</li>
+<li>执行器：与存储引擎交互，将执行计划交给存储引擎</li>
+</ul>
+<h1 id="mysql存储基础">MySQL存储基础</h1>
+<p>MySQL数据文件存储位置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;datadir&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个目录下会为每个数据库创建一个目录，目录下有这几种文件</p>
+<ul>
+<li>*.frm文件：表结构文件，存储表结构定义</li>
+<li>*.ibd文件：表数据文件，每张表一个单独的ibd文件</li>
+<li>*.opt文件：存储当前数据库默认字符集和字符校验规则</li>
+</ul>
+<h2 id="mysql表空间的结构">MySQL表空间的结构</h2>
+<p>表空间由：段、区、页、行组成
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202302231621037.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202302231621037.png, https://cdn.jsdelivr.net/gh/hts0000/images/202302231621037.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202302231621037.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202302231621037.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202302231621037.png" /></p>
+<p>行就是表中的一行数据，表结构不同，行存储也有不同的存储结构。</p>
+<p>页是存储引擎操作的最小单位，默认大小为16KB，从硬盘读取或写入硬盘都是以16KB的大小进行操作的，这是为了降低磁盘I/O。页的类型有很多种，数据页、Undo页等，数据存储在数据页中。</p>
+<p>区由64个页组成，大小1MB。页还是太小了，数据很容易存储在不同的页中，造成随机I/O。因此数据量大的时候，会使用区来分配，这样可以使得多个页是顺序存储的。</p>
+<p>段由多个区组成，表空间由多个段组成。</p>
+<h2 id="mysql行格式">MySQL行格式</h2>
+<p>行格式指示了一行数据如何组织和记录的。下面是<code>COMPACT行格式</code>的组织形式。行格式将一条数据分为额外记录信息和真是数据两部分。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202302231649778.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202302231649778.png, https://cdn.jsdelivr.net/gh/hts0000/images/202302231649778.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202302231649778.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202302231649778.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202302231649778.png" /></p>
+<p><strong>变长字段长度列表</strong>
+记录每一个类型为<code>varchar</code>的列的字节长度。比如存储了一个字符，而且字符集为ascii，那么字节长度为1。如果有多个类型为<code>varchar</code>的列，他们的存放顺序是逆序的。当不存在<code>varchar</code>类型的列时，变长字段长度列表不存在。</p>
+<p><strong>NULL值列表</strong>
+以一个8bit的数，来标识那个列可以为<code>NULL</code>，可以为<code>NULL</code>的列置为1，少于8列，也是8bit，多余8列，再往上补8bit。NULL值列表的位，也是逆序存储的。当没有允许为NULL的列时，NULL值列表这个额外字段不存在。</p>
+<h2 id="行溢出">行溢出</h2>
+<p>当一行的数据大于一页的存储空间16KB时，会发生行溢出。溢出有两种处理方式：</p>
+<ul>
+<li>将溢出的部分移到溢出页，未溢出的部分后面记录一个指针，指向溢出页的位置。</li>
+<li>真实数据只存储指向溢出页的指针，所有数据都存储在溢出页。</li>
+</ul>
+<h1 id="索引">索引</h1>
+<h2 id="索引分类">索引分类</h2>
+<p>我们可以按照四个角度来分类索引。</p>
+<ul>
+<li>按「数据结构」分类：B+tree索引、Hash索引、Full-text索引。</li>
+<li>按「物理存储」分类：聚簇索引（主键索引）、二级索引（辅助索引）。</li>
+<li>按「字段特性」分类：主键索引、唯一索引、普通索引、前缀索引。</li>
+<li>按「字段个数」分类：单列索引、联合索引。</li>
+</ul>
+<h1 id="mysql常见面试题">MySQL常见面试题</h1>
+<h2 id="索引底层使用了什么数据结构和算法">索引底层使用了什么数据结构和算法？</h2>
+<h2 id="为什么-mysql-innodb-选择-btree-作为索引的数据结构">为什么 MySQL InnoDB 选择 B+tree 作为索引的数据结构？</h2>
+<h2 id="什么时候适用索引">什么时候适用索引？</h2>
+<h2 id="什么时候不需要创建索引">什么时候不需要创建索引？</h2>
+<h2 id="什么情况下索引会失效">什么情况下索引会失效？</h2>
+<h2 id="有什么优化索引的方法">有什么优化索引的方法？</h2>
+<h1 id="基于gtid搭建数据库主从">基于GTID搭建数据库主从</h1>
+<h2 id="gtid同步原理">GTID同步原理</h2>
+<p>GTID(Global Transaction ID)全局事务ID。主库每一个事务产生一个全局唯一的GTID号，连同变更记录一同写入到bin-log日志中，从库的io线程拉取主库变更的bin-log日志，同步到本地的relay-log日志中，sql线程读取relay-log日志内的GTID号，对比本地的bin-log日志内的GTID，查看是否执行过该GTID号代表的事务，如果没有，将变更内容写入数据库，如果有则忽略。</p>
+<h2 id="gtid同步对比bin-log日志同步">GTID同步对比bin-log日志同步</h2>
+<h2 id="实操">实操</h2>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 0001-01-01</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://example.org/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-title=""><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://example.org/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-title=""><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://example.org/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-title="" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://example.org/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-title="" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://example.org/mysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-title=""><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E4%BA%91%E4%BA%A7%E5%93%81/" class="prev" rel="prev" title=""><i class="fas fa-angle-left fa-fw"></i></a>
+            <a href="/%E5%9F%BA%E4%BA%8Ehugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="next" rel="next" title="基于Hugo快速搭建个人博客">基于Hugo快速搭建个人博客<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
