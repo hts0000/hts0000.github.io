@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>前缀和 - 分类 - Hts0000 | 个人博客</title>
-        <link>http://example.org/categories/%E5%89%8D%E7%BC%80%E5%92%8C/</link>
+        <link>http://localhost:1313/categories/%E5%89%8D%E7%BC%80%E5%92%8C/</link>
         <description>前缀和 - 分类 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Thu, 15 Sep 2022 10:19:03 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Thu, 15 Sep 2022 10:19:03 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="self" type="application/rss+xml" /><item>
     <title>基础算法整理(二)</title>
-    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%8C/</link>
+    <link>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%8C/</link>
     <pubDate>Thu, 15 Sep 2022 10:19:03 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%8C/</guid>
+    <guid>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%8C/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 高精度 高精度是指，不能直]]></description>
 </item></channel>
 </rss>

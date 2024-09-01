@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Redis - 分类 - Hts0000 | 个人博客</title>
-        <link>http://example.org/categories/redis/</link>
+        <link>http://localhost:1313/categories/redis/</link>
         <description>Redis - 分类 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Sun, 22 May 2022 15:09:50 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/redis/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Sun, 22 May 2022 15:09:50 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/redis/" rel="self" type="application/rss+xml" /><item>
     <title>Redis必知必会</title>
-    <link>http://example.org/redis/</link>
+    <link>http://localhost:1313/redis/</link>
     <pubDate>Sun, 22 May 2022 15:09:50 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/redis/</guid>
+    <guid>http://localhost:1313/redis/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Redis Redis如何通过Ke]]></description>
 </item></channel>
 </rss>

@@ -1,78 +1,78 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>所有文章 - Hts0000 | 个人博客</title>
-        <link>http://example.org/posts/</link>
+        <link>http://localhost:1313/posts/</link>
         <description>所有文章 | Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Wed, 05 Jul 2023 09:58:33 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Sun, 25 Aug 2024 13:56:08 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>大语言模型的下半场(一)——Agent介绍</title>
+    <link>http://localhost:1313/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/</link>
+    <pubDate>Sun, 25 Aug 2024 13:56:08 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 大语言模型的下半场——A]]></description>
+</item><item>
     <title>Jenkins必知必会</title>
-    <link>http://example.org/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
+    <link>http://localhost:1313/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
     <pubDate>Wed, 05 Jul 2023 09:58:33 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
+    <guid>http://localhost:1313/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Jenkins介绍 Jen]]></description>
 </item><item>
-    <title>Kubernetes必知必会(一)</title>
-    <link>http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</link>
+    <title>Kubernetes必知必会(二)</title>
+    <link>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%BA%8C/</link>
     <pubDate>Mon, 12 Jun 2023 13:56:08 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</guid>
+    <guid>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%BA%8C/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes应用]]></description>
+</item><item>
+    <title>Kubernetes必知必会(一)</title>
+    <link>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</link>
+    <pubDate>Mon, 12 Jun 2023 13:56:08 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes架构]]></description>
 </item><item>
     <title>Prometheus必知必会</title>
-    <link>http://example.org/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
+    <link>http://localhost:1313/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
     <pubDate>Mon, 05 Jun 2023 09:58:33 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
+    <guid>http://localhost:1313/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Prometheus介绍]]></description>
 </item><item>
+    <title>一次网络连接的过程</title>
+    <link>http://localhost:1313/%E4%B8%80%E6%AC%A1%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</link>
+    <pubDate>Fri, 10 Feb 2023 12:39:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/%E4%B8%80%E6%AC%A1%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>K8s Deploy</title>
+    <link>http://localhost:1313/k8s-deploy/</link>
+    <pubDate>Wed, 11 Jan 2023 16:31:51 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/k8s-deploy/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
+    <title>Vue Introduction</title>
+    <link>http://localhost:1313/vue-introduction/</link>
+    <pubDate>Fri, 16 Dec 2022 10:37:43 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>http://localhost:1313/vue-introduction/</guid>
+    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com]]></description>
+</item><item>
     <title>基础算法整理(十二)</title>
-    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81%E4%BA%8C/</link>
+    <link>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81%E4%BA%8C/</link>
     <pubDate>Mon, 14 Nov 2022 16:16:23 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81%E4%BA%8C/</guid>
+    <guid>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81%E4%BA%8C/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 数位统计DP 数位DP强调]]></description>
 </item><item>
     <title>基础算法整理(十一)</title>
-    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81%E4%B8%80/</link>
+    <link>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81%E4%B8%80/</link>
     <pubDate>Sun, 13 Nov 2022 22:15:40 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81%E4%B8%80/</guid>
+    <guid>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81%E4%B8%80/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 线性DP 递推方程有明显的]]></description>
-</item><item>
-    <title>基础算法整理(十)</title>
-    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81/</link>
-    <pubDate>Tue, 01 Nov 2022 15:11:50 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%8D%81/</guid>
-    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 背包问题 有 N 件物品和一个]]></description>
-</item><item>
-    <title>基础算法整理(九)</title>
-    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%B9%9D/</link>
-    <pubDate>Mon, 31 Oct 2022 08:49:34 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%B9%9D/</guid>
-    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 最小生成树 最小生成树问题]]></description>
-</item><item>
-    <title>基础算法整理(八)</title>
-    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%85%AB/</link>
-    <pubDate>Wed, 26 Oct 2022 14:47:26 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%85%AB/</guid>
-    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 最短路 最短路问题分为两类]]></description>
-</item><item>
-    <title>基础算法整理(七)</title>
-    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%B8%83/</link>
-    <pubDate>Thu, 20 Oct 2022 09:35:45 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%B8%83/</guid>
-    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 搜索 BFS 使用数据结构：qu]]></description>
-</item><item>
-    <title>基础算法整理(六)</title>
-    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%85%AD/</link>
-    <pubDate>Wed, 19 Oct 2022 08:25:11 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%85%AD/</guid>
-    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Hash表/哈希表 Has]]></description>
 </item></channel>
 </rss>

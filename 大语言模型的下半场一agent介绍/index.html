@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>大语言模型的下半场(一)——Agent介绍 - Hts0000 | 个人博客</title><meta name="Description" content="Hts0000 | 个人博客"><meta property="og:title" content="大语言模型的下半场(一)——Agent介绍" />
+<meta property="og:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 大语言模型的下半场——A" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/" /><meta property="og:image" content="http://localhost:1313/logo.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-08-25T13:56:08+08:00" />
+<meta property="article:modified_time" content="2024-09-01T17:31:19+08:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/logo.png" /><meta name="twitter:title" content="大语言模型的下半场(一)——Agent介绍"/>
+<meta name="twitter:description" content="转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 大语言模型的下半场——A"/>
+<meta name="twitter:site" content="@xxxx"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://localhost:1313/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/" /><link rel="prev" href="http://localhost:1313/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "大语言模型的下半场(一)——Agent介绍",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/localhost:1313\/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D\/"
+        },"genre": "posts","keywords": "AI","wordcount":  2427 ,
+        "url": "http:\/\/localhost:1313\/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D\/","datePublished": "2024-08-25T13:56:08+08:00","dateModified": "2024-09-01T17:31:19+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "hts0000"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts"> 文章 </a><a class="menu-item" href="/tags"> 标签 </a><a class="menu-item" href="/categories"> 分类 </a><a class="menu-item" href="/about"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Hts0000 | 个人博客">Hts0000 | 个人博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts" title="">文章</a><a class="menu-item" href="/tags" title="">标签</a><a class="menu-item" href="/categories" title="">分类</a><a class="menu-item" href="/about" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">大语言模型的下半场(一)——Agent介绍</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>hts0000</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/ai/"><i class="far fa-folder fa-fw"></i>AI</a>&nbsp;<a href="/categories/%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/"><i class="far fa-folder fa-fw"></i>必知必会</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-25">2024-08-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2427 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="content" id="content"><p>转载请注明出处：<code>https://hts0000.github.io/</code></p>
+<p>欢迎与我联系：<code>hts_0000@sina.com</code></p>
+<h1 id="大语言模型的下半场agent介绍">大语言模型的下半场——Agent介绍</h1>
+<h2 id="什么是agent">什么是Agent？</h2>
+<p>我们都知道大模型很强大，能够像人类大脑一样思考和推理。但是大模型没有与世界互动的能力，就像人类只有大脑没有四肢，无法使用工具。如何让大模型能够使用工具，完成超越大模型能力边界的事情呢？答案是Agent，也叫做智能体。</p>
+<p>OpenAI应用研究主管LilianWeng在<a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" rel="noopener noreffer">LLM Powered Autonomous Agents</a>中总结：<code>Agent = Memory + Planning + Tools + Action</code>。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202408251747908.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202408251747908.png, https://cdn.jsdelivr.net/gh/hts0000/images/202408251747908.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202408251747908.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202408251747908.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202408251747908.png" /></p>
+<ul>
+<li>记忆(Memory)：记忆分为短期记忆和长期记忆，能够为大模型决策是提供上下文。</li>
+<li>思考和决策(Planning)：根据用户输入结合上下文进行思考和决策。</li>
+<li>工具(Tools)：决策如何使用工具，工具可以是任意的API调用结果。</li>
+<li>行动(Action)：执行决策选择的工具进行行动。</li>
+</ul>
+<p>一个简单的Agent就是在不断地执行<code>执行思考、调用工具、观测结果</code>，最终返回结果。</p>
+<p>以<code>查询今天广州的天气</code>为例子，假设我们为大模型提供两种工具：</p>
+<ol>
+<li>查询当前时间：<code>get_current_time() -&gt; time</code>，无参数输入，返回当前时间。</li>
+<li>查询某地天气：<code>get_location_weather(city, time) -&gt; weather_describe</code>，输入城市与时间，返回该城市的天气预报。</li>
+</ol>
+<p>那么Agent可能的思考过程如下：</p>
+<ol>
+<li>理解输入，知道是<code>期望查询今天广州的天气</code>。</li>
+<li>查看已有的工具，发现<code>get_location_weather</code>工具可以查询天气。</li>
+<li>观测到<code>get_location_weather</code>工具需要两个参数输入——city和time。</li>
+<li>观测输入，理解<code>city</code>参数为<code>广州</code>，<code>time</code>参数为<code>今天</code>，无具体日期。</li>
+<li>思考得知需要查询当前具体时间。</li>
+<li>查看已有的工具，发现<code>get_current_time</code>工具可以查询当前时间，且无需参数输入。</li>
+<li>调用<code>get_current_time</code>工具获取当前时间。</li>
+<li>将<code>city=广州</code>和<code>time=time</code>作为参数调用<code>get_location_weather</code>工具。</li>
+<li>观测<code>get_location_weather</code>工具结果，整理天气预报。</li>
+<li>思考已经得到最终答案。</li>
+<li>将最终答案返回给用户。</li>
+</ol>
+<p>我们可以发现Agent的思考过程是一个循环调用的过程，这是一种称之为<strong>ReAct模式的思考链</strong>，其理论基础来源于一篇论文：<a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreffer">ReAct: Synergizing Reasoning and Acting in Language Models</a>。</p>
+<p>ReAct是Reason和Action的结合。ReAct思考链遵循如下模式：</p>
+<ol>
+<li>思考和推理问题。</li>
+<li>制定行动计划。</li>
+<li>执行行动。</li>
+<li>观测行动结果。</li>
+<li>循环直到任务完成。</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202408251824376.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202408251824376.png, https://cdn.jsdelivr.net/gh/hts0000/images/202408251824376.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202408251824376.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202408251824376.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202408251824376.png" /></p>
+<h2 id="multi-agent">Multi-Agent</h2>
+<p>通过两个或更多不同角色的Agent，让这些Agent协调完成复杂的工作，这种方式称之为Multi-Agent。</p>
+<p>通过角色的定义，还可以让Agent之间拥有对话、竞争以及上下级的概念。</p>
+<p>一个注明的例子是由斯坦福大学和Google共同推出的项目——虚拟小镇。小镇由25个Agent组成，各自拥有不同的角色和性格，在虚拟小组中模拟人类世界的爱恨情仇。
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/hts0000/images/202408251850069.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/hts0000/images/202408251850069.png, https://cdn.jsdelivr.net/gh/hts0000/images/202408251850069.png 1.5x, https://cdn.jsdelivr.net/gh/hts0000/images/202408251850069.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/hts0000/images/202408251850069.png"
+        title="https://cdn.jsdelivr.net/gh/hts0000/images/202408251850069.png" /></p>
+<h2 id="agent前沿应用">Agent前沿应用</h2>
+<h3 id="auto-gpt">Auto-GPT</h3>
+<p>可视化的AI Agent平台，使用流程图的方式来构建Agent。</p>
+<p>项目地址：https://github.com/Significant-Gravitas/AutoGPT</p>
+<h3 id="babyagi">BabyAGI</h3>
+<p>BabyAGI是一个脚本，是使用另一种称之为<strong>Plan-and-Executor思考链</strong>的方式实现的Agent。通过不断将任务拆解为更小的任务，最终为目标提供一系列可行的步骤。</p>
+<p>项目地址：https://github.com/yoheinakajima/babyagi</p>
+<h3 id="chatdev">ChatDev</h3>
+<p>清华大学发布的应用，由多个Agent共同经营一家虚拟软件公司，每个Agent负责包括销售、产品、研发、测试、实施等不同角色。</p>
+<p>项目地址：https://github.com/OpenBMB/ChatDev</p>
+<h3 id="虚拟小镇">虚拟小镇</h3>
+<p>斯坦福和Google共同推出的Multi-Agent项目，用于模拟和研究人类的交互行为。</p>
+<p>论文地址：https://arxiv.org/pdf/2304.03442v1.pdf</p>
+<p>项目地址：https://github.com/joonspk-research/generative_agents</p>
+<h2 id="大语言模型的开发框架">大语言模型的开发框架</h2>
+<h3 id="langchain">LangChain</h3>
+<p>由OpenAI推出的大语言模型开发框架，涵盖了基础设施(LangChain-Core)、开发框架(LangChain/LangGraph)、部署平台(LangServe)、观测平台(LangSmith)、社区插件(LangChain-Community)等一系列工具和平台，帮助开发者更好的进行AI应用的开发。</p>
+<p>官方文档：https://python.langchain.com/v0.2/docs/introduction/</p>
+<h3 id="autogen">AutoGen</h3>
+<p>由微软推出的开源框架，允许开发人员通过多个Agent构建AI应用。</p>
+<p>项目地址：https://github.com/microsoft/autogen</p>
+<h2 id="什么限制了agent的发展">什么限制了Agent的发展？</h2>
+<h3 id="有限的上下文">有限的上下文</h3>
+<p>在不断地思考和工具调用中，Prompt的长度会急剧膨胀，知道超过可输入的上下文上限。</p>
+<h3 id="llm模型的理解能力">LLM模型的理解能力</h3>
+<p>Agent会不断地思考、推理和决策，这非常依赖大模型本身的理解能力。如果大模型无法做出正确的决策，那么后续的工具调用都是空中楼阁。</p>
+<p>就目前来看，至少需要70b及以上参数的模型，才能够输出比较质量的结果。</p>
+<h3 id="llm模型的可靠输出">LLM模型的可靠输出</h3>
+<p>大模型的输出是随机的，这是大模型的魅力，也是限制。如何获取相对可靠的输出，是调用工具的关键。</p>
+<h3 id="多模态的感知能力">多模态的感知能力</h3>
+<p>如何将多模态的感知输入到Agent是更高阶段需要考虑的。我们当然不希望大模型只能理解文本，还希望他能够有更多模的感知能力。比如物理世界中：<code>视觉</code>、<code>听觉</code>、<code>触觉</code>、<code>嗅觉</code>和精神世界中的：<code>情绪</code>等等。</p>
+<h3 id="想象力">想象力</h3>
+<p>虽然说现在Agent的应用难点主要是技术无法匹配上人类的想象力，但是在将如何应用Agent上，人类的想象力还是相当匮乏。</p>
+<h2 id="参考">参考</h2>
+<ol>
+<li><a href="https://www.bilibili.com/video/BV1RC4y1A7ZU/?spm_id_from=333.337.search-card.all.click&amp;vd_source=f597eabf6976e2aab2009735e72a6a40" target="_blank" rel="noopener noreffer">动画科普AI Agent：大模型之后为何要卷它？</a></li>
+</ol></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-09-01</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://localhost:1313/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/" data-title="大语言模型的下半场(一)——Agent介绍"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/" data-title="大语言模型的下半场(一)——Agent介绍"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://localhost:1313/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/" data-title="大语言模型的下半场(一)——Agent介绍" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://localhost:1313/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/" data-title="大语言模型的下半场(一)——Agent介绍" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://localhost:1313/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%8B%E5%8D%8A%E5%9C%BA%E4%B8%80agent%E4%BB%8B%E7%BB%8D/" data-title="大语言模型的下半场(一)——Agent介绍"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ai/">AI</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/" class="prev" rel="prev" title="Jenkins必知必会"><i class="fas fa-angle-left fa-fw"></i>Jenkins必知必会</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.123.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">hts0000</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">无主体备案号</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp"><a rel="license external nofollow noopener noreffer" href="https://beian.miit.gov.cn">粤ICP备2022016660号</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

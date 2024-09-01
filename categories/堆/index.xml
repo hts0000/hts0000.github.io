@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>堆 - 分类 - Hts0000 | 个人博客</title>
-        <link>http://example.org/categories/%E5%A0%86/</link>
+        <link>http://localhost:1313/categories/%E5%A0%86/</link>
         <description>堆 - 分类 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Wed, 12 Oct 2022 10:25:37 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/%E5%A0%86/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Wed, 12 Oct 2022 10:25:37 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%A0%86/" rel="self" type="application/rss+xml" /><item>
     <title>基础算法整理(五)</title>
-    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%94/</link>
+    <link>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%94/</link>
     <pubDate>Wed, 12 Oct 2022 10:25:37 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%94/</guid>
+    <guid>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E4%BA%94/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Trie树/字典树 Tri]]></description>
 </item></channel>
 </rss>
