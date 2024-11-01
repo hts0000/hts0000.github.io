@@ -160,6 +160,9 @@ rate(promhttp_metric_handler_requests_total{code="200", instance="localhost:9090
 
 线性预测一般来说是通过历史数据的分布情况，通过梯度下降算法来拟合出一条直线，该直线可对应一个方程，将未来的时间戳输入该方程，即可得到预测的使用空间。
 
+## 常用语句
+字符串正则匹配：`=~`
+
 # 目标端发现
 
 # Exporter

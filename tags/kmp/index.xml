@@ -1,22 +1,22 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Kmp - 标签 - Hts0000 | 个人博客</title>
-        <link>http://localhost:1313/tags/kmp/</link>
+        <link>http://example.org/tags/kmp/</link>
         <description>Kmp - 标签 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Thu, 22 Sep 2022 08:50:39 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/kmp/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Thu, 22 Sep 2022 08:50:39 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/kmp/" rel="self" type="application/rss+xml" /><item>
     <title>基础算法整理(四)</title>
-    <link>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%9B%9B/</link>
+    <link>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%9B%9B/</link>
     <pubDate>Thu, 22 Sep 2022 08:50:39 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://localhost:1313/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%9B%9B/</guid>
+    <guid>http://example.org/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%95%B4%E7%90%86%E5%9B%9B/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 链表与邻接表 单链表 链表通]]></description>
 </item><item>
     <title>如何实现kmp算法</title>
-    <link>http://localhost:1313/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/</link>
+    <link>http://example.org/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/</link>
     <pubDate>Fri, 11 Feb 2022 16:57:43 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://localhost:1313/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/</guid>
+    <guid>http://example.org/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0kmp%E7%AE%97%E6%B3%95/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 什么是KMP算法？ kmp]]></description>
 </item></channel>
 </rss>

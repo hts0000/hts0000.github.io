@@ -78,11 +78,11 @@
 
 官方推荐做法是，将构建步骤组织成一个Jenkinsfile文件，存放在代码仓库中。当代码拉取下来时，Jenkins Pipeline会执行Jenkinsfile文件的内容进行构建。
 
-Jenkinsfile文件使用一种叫做Groovy的编程语言的语法来编写构建步骤，官方定义一个最简单的构建分为三大部分：Build/Test/Deploy，因此一个最简单的Jenkinsfile文件如下所示。
+Jenkinsfile文件使用一种叫做[Groovy](http://groovy-lang.org/semantics.html)的编程语言的语法来编写构建步骤，官方定义一个最简单的构建分为三大部分：Build/Test/Deploy，因此一个最简单的Jenkinsfile文件如下所示。
 ```Groovy
 pipeline {
   // 指示Jenkins为流水线任意分配一个执行器和工作区
-  agent any 
+  agent any
   stages {
     stage('Build') { 
       steps {
@@ -114,6 +114,12 @@ pipeline {
     // 定义一个变量，全局生效
     name = 'Jay'
   }
+  // 选项参数
+  // 选项参数会自动注入到shell环境的env中，通过env | grep 变量名的方式可以过滤出来
+  parameters {
+    choice(name: "k8s_cluster", choices: [""], description: "k8s集群名称")
+    choice(name: "k8s_namespace", choices: [""], description: "k8s命名空间")
+  }
   stages {
     stage('Hello') {
       environment {
@@ -126,10 +132,14 @@ pipeline {
     }
     stage('Env') {
       steps {
+        // 过滤选项参数
+        echo "选项参数:"
+        sh "env | grep k8s_*"
+
         // 内置变量通过env来访问
         echo "JOB_NAME: ${env.JOB_NAME}"
 
-        // 内置的env变量
+        // 内置的env变量，查看所有支持的env变量：${YOUR_JENKINS_URL}/pipeline-syntax/globals#env
         echo "BUILD_ID: ${BUILD_ID}"  // 当前项目构建的id，比如第13次构建，就为13
         echo "BUILD_NUMBER: ${BUILD_NUMBER}" // 与BUILD_ID相同
         echo "BUILD_URL: ${BUILD_URL}"  // 构建完之后的结果url，example http://buildserver/jenkins/job/MyJobName/17/
@@ -141,6 +151,85 @@ pipeline {
         // 如果使用了改参数，但是项目并没有设置该参数，那么会直接报错中断运行
         echo "${key1}"
         echo "${key2}"
+      }
+    }
+  }
+}
+```
+
+parameters的用法
+```Groovy
+pipeline {
+  parameters {
+    choice(
+      name: "app_git_url",
+      choices: params.app_git_url ? params.app_git_url : [""],
+      description: "应用gitlab仓库地址"
+    )
+    gitParameter(
+      name: "branch_tag",
+      type: "PT_BRANCH_TAG",
+      defaultValue: "master",
+      description: "分支或标签"
+    )
+    string(
+      name: "dockerfile",
+      defaultValue: params.dockerfile ? params.dockerfile : "",
+      description: "dockerfile文件路径",
+      trim: true
+    )
+    choice(
+      name: "jdk_version",
+      choices: ["", "/usr/local/java-se-1.7.0"],
+      description: "使用的jdk路径，默认使用jdk1.8"
+    )
+    string(
+      name: "mvn_arg",
+      defaultValue: params.mvn_arg ? params.mvn_arg : "-s /var/lib/jenkins/.m2/settings-hd.xml clean deploy -U -Dmaven.test.skip=true -Dmaven.test.skip=true",
+      description: "mvn命令参数",
+      trim: true
+    )
+    choice(
+      name: "k8s_cluster",
+      choices: params.k8s_cluster ? params.k8s_cluster : [""],
+      description: "k8s集群名称"
+    )
+    choice(
+      name: "k8s_namespace",
+      choices: params.k8s_namespace ? params.k8s_namespace : [""],
+      description: "k8s命名空间"
+    )
+    choice(
+      name: "k8s_app_name",
+      choices: params.k8s_app_name ? params.k8s_app_name : [""],
+      description: "k8s应用名称"
+    )
+    choice(
+      name: "k8s_pod_number",
+      choices: params.k8s_pod_number ? params.k8s_pod_number : ["1"],
+      description: "k8s pod数量"
+    )
+    choice(
+      name: "target_dir",
+      choices: params.target_dir ? params.target_dir : [""],
+      description: "打包后jar包target目录，默认为工程根目录的target"
+    )
+  }
+}
+```
+
+when的用法
+```Groovy
+pipeline {
+  stages {
+    stage("Pre Check") {
+      when {
+        expression {
+          fileExists(params.dockerfile)
+        }
+      }
+      steps {
+        echo "预检查通过"
       }
     }
   }
@@ -198,3 +287,88 @@ curl -u hetiansheng:11b446b0d5a5b503f19f095cb290c3f718 http://jenkins1.miniso.co
 #### pipeline进阶
 
 
+### 根据tag来构建
+在参数化构建选项中，添加git参数选项，需要git插件的支持。
+![](https://cdn.jsdelivr.net/gh/hts0000/images/202403161146483.png)
+
+添加完之后可能会出现拉取不到tag的情况。解决这个问题的方法：
+1. 检查git仓库地址是否正确
+2. 检查pipeline中使用的credientalId是否正确
+3. 如果配置没问题，可以先手动配置默认值为最新tag，然后开始构建，后续就能自动拉取tag了
+
+不同插件在pipeline中有不同表现，以`GitSCM`插件为例，在pipeline中根据tag来拉取代码。
+```Groovy
+pipeline{
+  // 定义本次构建使用哪个标签的构建环境，本示例中为 “slave-pipeline”
+  agent any
+  // agent {
+  //   node {
+  //     label 'master'
+  //   }
+  // }
+
+  // colorful message
+  options {
+    ansiColor('xterm')
+  }
+
+  // 定义groovy脚本中使用的环境变量
+  environment{
+    // 将构建任务中的构建参数转换为环境变量
+    // 目标应用仓库地址
+    LOCAL_APP_GIT_URL = sh(returnStdout: true, script: 'echo $app_git_url').trim()
+    // 目标应用仓库分支
+    LOCAL_BRANCH = sh(returnStdout: true, script: 'if [ -z "${branch}" ]; then echo master; else echo ${branch}; fi').trim()
+    // GIT仓库秘钥ID
+    LOCAL_CREDENTIALS_ID = "ci-jenkins"
+    // maven参数
+    LOCAL_MVN_ARG = sh(returnStdout: true,script: 'if [ -z "${mvn_arg}" ] ;then echo "clean package -U -B -DskipTests" ;else echo ${mvn_arg} ;fi').trim()
+  }
+
+  // "stages"定义项目构建的多个模块，可以添加多个 “stage”，可以多个 “stage” 串行或者并行执行
+  stages {
+    // 定义第一个stage， 完成克隆源码的任务
+    stage('Git') {
+      steps {
+        // git branch: '${branch}', credentialsId: env.LOCAL_CREDENTIALS_ID, url: env.LOCAL_APP_GIT_URL
+        checkout([
+          $class: 'GitSCM',
+          branches: [[name: "refs/tags/${branch}"]],
+          doGenerateSubmoduleConfigurations: false,
+          userRemoteConfigs: [[credentialsId: env.LOCAL_CREDENTIALS_ID, url: env.LOCAL_APP_GIT_URL]],
+        ])
+      }
+    }
+
+    // 添加第二个stage，运行源码打包命令，并由maven统一推送到镜像仓库
+    stage('Package') {
+      steps {
+        script {
+          sh "JAVA_HOME=${jdk_version} mvn ${LOCAL_MVN_ARG}"
+        }
+      }
+    }
+  }
+}
+```
+
+### 常见函数
+#### sh
+`sh '${params.test}'`无法获取到参数，需要使用`sh "${params.test}"`。也支持另一种格式`sh(returnStdout: true, script: "echo ${params.test}")`
+
+### 常用插件
+#### [build user vars](https://plugins.jenkins.io/build-user-vars-plugin/)
+用法
+```Groovy
+pipeline {
+  stages {
+    stage('Display Build User') {
+      steps {
+        wrap([$class: 'BuildUser']) {
+          echo "$env.BUILD_USER_ID"
+        }
+      }
+    }
+  }
+}
+```

@@ -1,22 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Kubernetes - 分类 - Hts0000 | 个人博客</title>
-        <link>http://localhost:1313/categories/kubernetes/</link>
+        <link>http://example.org/categories/kubernetes/</link>
         <description>Kubernetes - 分类 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Mon, 12 Jun 2023 13:56:08 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/kubernetes/" rel="self" type="application/rss+xml" /><item>
-    <title>Kubernetes必知必会(二)</title>
-    <link>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%BA%8C/</link>
-    <pubDate>Mon, 12 Jun 2023 13:56:08 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%BA%8C/</guid>
-    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes应用]]></description>
-</item><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Mon, 12 Jun 2023 13:56:08 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/kubernetes/" rel="self" type="application/rss+xml" /><item>
     <title>Kubernetes必知必会(一)</title>
-    <link>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</link>
+    <link>http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</link>
     <pubDate>Mon, 12 Jun 2023 13:56:08 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</guid>
+    <guid>http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes架构]]></description>
 </item></channel>
 </rss>

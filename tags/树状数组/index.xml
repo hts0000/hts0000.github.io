@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>树状数组 - 标签 - Hts0000 | 个人博客</title>
-        <link>http://localhost:1313/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</link>
+        <link>http://example.org/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</link>
         <description>树状数组 - 标签 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Mon, 04 Apr 2022 09:59:53 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Mon, 04 Apr 2022 09:59:53 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="self" type="application/rss+xml" /><item>
     <title>树状数组</title>
-    <link>http://localhost:1313/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</link>
+    <link>http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</link>
     <pubDate>Mon, 04 Apr 2022 09:59:53 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://localhost:1313/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</guid>
+    <guid>http://example.org/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com 参考 树状数组是什么？ 树状]]></description>
 </item></channel>
 </rss>

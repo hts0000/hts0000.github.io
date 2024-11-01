@@ -98,6 +98,58 @@ kubectl get replicasets nginx -o yaml
 `命令式API`如果发生两次扩容，系统很难理解和避免这种错误，特别是期望状态不断变化时，程序必须非常小心的处理每一个可能发生错误的地方，加上大量的判断和回滚，这严重影响性能和故障恢复时间，而且也无法完全保证多次故障发生后，状态仍然与期望的一致。究其根源在于`命令式API`只有一次任务的过程，如果该过程发生错误，必须通过强一致的事务来保证回滚，然后再继续尝试。  
 ![](https://cdn.jsdelivr.net/gh/hts0000/images/202306131157408.png)
 
+# Kubernetes Schedule
+## 优先级
+priorityclass和priority
+
+## 污点
+`NoSchedule`和`NoExecute`区别：
+- NoSchedule：尽量不将Pod调度到该Node上，已在该Node上的Pod不受影响
+- NoExecute：除非Pod容忍该污点，否则不会调度到该Node上，已在该Node上没有容忍污点的Pod会被驱逐
+
+```yaml
+spec:
+  ...
+  template:
+  ...
+    spec:
+      tolerations:
+        - effect: NoSchedule
+          key: app-name
+          operator: Equal
+          value: aaa-job
+    ...
+```
+
+## 亲和性
+分为node亲和性、pod亲和性和pod反亲和性。
+
+node亲和性——nodeAffinity：类似nodeSelector，限制pod尽量或必须调度到匹配的node上。
+```yaml
+spec:
+  ...
+  template:
+    metadata:
+      labels:
+        app: nginx-hts0000
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - preference:
+                matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                      - cn-shenzhen.10.77.89.38
+              weight: 100
+      ...
+```
+
+pod亲和性——podAffinity：
+
+pod反亲和性——podAntiAffinity：
+
 # Kubernetes中的资源
 ## Deployment
 `Deployment`是对`Replicaset`的高级封装，`Replicaset`控制`Pod`的副本数量，`Deployment`负责控制使用哪个`Replicaset`。创建或修改`Deployment`就会新创建一个`Replicaset`，每个`Replicaset`都记录了管理的`Pod`的副本、容器等等信息。`Deployment`回滚就是回滚使用历史版本的`Replicaset`信息来创建`Pod`。
@@ -395,6 +447,198 @@ spec:
       - name: varlog
         hostPath:
           path: /var/log
+```
+
+## Ingress
+ingress需要额外安装，通常安装ingress-nginx
+
+**配置文件模板**  
+```yml
+# 快速输出一个模板
+kubectl create ingress test-ingress -n default --class=nginx --rule=test.domain.com/path1*=test1-svc:80 --rule=test.domain.com/path2*=test2-svc:80 --dry-run=client -o yaml
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  creationTimestamp: null
+  name: test-ingress
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: test.domain.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: test1-svc
+            port:
+              number: 80
+        path: /path1
+        pathType: Prefix
+      - backend:
+          service:
+            name: test2-svc
+            port:
+              number: 80
+        path: /path2
+        pathType: Prefix
+status:
+  loadBalancer: {}
+```
+
+通过注解的方式，可以动态修改nginx ingress的配置，比如，加上注解：`nginx.ingress.kubernetes.io/proxy-read-timeout: "300s"`，可以动态修改连接读超时的时间。
+
+### Ingress的访问控制
+nginx ingress可以通过注解的方式来控制nginx的配置，因此我们可以使用xxx注解，来实现配置allow和deny。
+
+### Nginx Ingress配置跨域
+需要加上如下注解：
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/enable-cors: "true"     # 启用CORS。
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"  # 允许所有域访问。
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"  # 允许的HTTP方法。
+     # 允许的自定义请求头。
+    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range" 
+    nginx.ingress.kubernetes.io/cors-expose-headers: "Content-Length,Content-Range"  # 暴露的响应头。
+    nginx.ingress.kubernetes.io/cors-max-age: "86400"  # 预检请求缓存时间。
+...
+```
+
+**坑**  
+`nginx.ingress.kubernetes.io/cors-allow-headers: *`不意味着允许所有`header`，而是预设了一组默认的header，[参考文档](https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md#enable-cors)。
+
+不在预设之外的header，仍然需要单独手动加上，不然依然会有跨域问题。
+
+## Network Policy
+网络策略用于限制同集群内同namespace、同集群内跨namespace、跨集群的Pod之间的通信。
+
+可视化的网络策略编辑器：https://editor.networkpolicy.io/?id=8izZAPuYL6eFiitL
+```yml
+# networkpolicy1
+# restricts all Pods in Namespace space1 to only have outgoing traffic to Pods in Namespace space2.
+# incoming traffic not affected.
+# and also allow outgoing dns traffic on port 53 TCP and UDP.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np
+  namespace: space1
+spec:
+  podSelector: {}
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - namespaceSelector: {}
+          podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: space2
+
+# networkpolicy2
+# restricts all Pods in Namespace space2 to only have incoming traffic from Pods in Namespace space1.
+# outgoing traffic not affected.
+# and also allow outgoing dns traffic on port 53 TCP and UDP.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np
+  namespace: space2
+spec:
+  podSelector: {}
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: space1
+  egress:
+    - to:
+        - namespaceSelector: {}
+          podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP
+
+# 获取networkpolicy
+kubectl get networkpolicy --all-namespaces
+```
+
+## RBAC
+ClusterRole/Role定义了一组权限，以及这组权限在哪些地方可用（整个集群或单个namespace）。
+
+ClusterRoleBinding/RoleBinding将一组权限与Account联系起来，并定义它的应用位置（整个集群或单个namespace）。
+
+```yml
+# 创建sa
+kubectl create serviceaccount my-sa -n ns-1
+kubectl create serviceaccount my-sa -n ns-2
+
+# 创建clusterrolebinding
+kubectl create clusterrolebinding my-sa-view --clusterrole view --serviceaccount ns1:my-sa --serviceaccount ns2:my-sa
+
+# 查看clusterrolebinding
+kubectl get clusterrolebinding my-sa-view -o wide
+
+# 创建clusterrole
+kubectl create clusterrole my-clusterrole --verb=create,delete --resource deployments
+
+k -n ns1 create rolebinding pipeline-deployment-manager --clusterrole pipeline-deployment-manager --serviceaccount ns1:pipeline
+k -n ns2 create rolebinding pipeline-deployment-manager --clusterrole pipeline-deployment-manager --serviceaccount ns2:pipeline
+
+# 检查当前账号权限
+kubectl auth can-i delete deployments --as system:serviceaccount:ns1:pipeline -n ns1
+```
+
+## PriorityClass
+PriorityClass是Kubernetes中的一种资源，用于定义pod的优先级。PriorityClass可以被分配给pod，以确定它们在资源竞争中的优先级。
+
+```yml
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: level4
+preemptionPolicy: PreemptLowerPriority
+value: 400000000
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: important
+  name: important
+  namespace: lion
+spec:
+  priorityClassName: level4
+  containers:
+  - image: nginx:1.21.6-alpine
+    name: important
+    resources:
+      requests:
+        memory: 1Gi
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
 ```
 
 # Kubernetes应用配置管理

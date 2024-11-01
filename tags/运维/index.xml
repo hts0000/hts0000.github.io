@@ -1,43 +1,29 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>运维 - 标签 - Hts0000 | 个人博客</title>
-        <link>http://localhost:1313/tags/%E8%BF%90%E7%BB%B4/</link>
+        <link>http://example.org/tags/%E8%BF%90%E7%BB%B4/</link>
         <description>运维 - 标签 - Hts0000 | 个人博客</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>hts_0000@sina.com (hts0000)</managingEditor>
-            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Wed, 05 Jul 2023 09:58:33 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E8%BF%90%E7%BB%B4/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>hts_0000@sina.com (hts0000)</webMaster><lastBuildDate>Wed, 05 Jul 2023 09:58:33 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/%E8%BF%90%E7%BB%B4/" rel="self" type="application/rss+xml" /><item>
     <title>Jenkins必知必会</title>
-    <link>http://localhost:1313/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
+    <link>http://example.org/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
     <pubDate>Wed, 05 Jul 2023 09:58:33 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://localhost:1313/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
+    <guid>http://example.org/jenkins%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Jenkins介绍 Jen]]></description>
 </item><item>
-    <title>Kubernetes必知必会(二)</title>
-    <link>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%BA%8C/</link>
-    <pubDate>Mon, 12 Jun 2023 13:56:08 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%BA%8C/</guid>
-    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes应用]]></description>
-</item><item>
     <title>Kubernetes必知必会(一)</title>
-    <link>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</link>
+    <link>http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</link>
     <pubDate>Mon, 12 Jun 2023 13:56:08 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://localhost:1313/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</guid>
+    <guid>http://example.org/kubernetes%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E4%B8%80/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Kubernetes架构]]></description>
 </item><item>
     <title>Prometheus必知必会</title>
-    <link>http://localhost:1313/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
+    <link>http://example.org/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</link>
     <pubDate>Mon, 05 Jun 2023 09:58:33 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>http://localhost:1313/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
+    <guid>http://example.org/prometheus%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/</guid>
     <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Prometheus介绍]]></description>
-</item><item>
-    <title>Redis必知必会</title>
-    <link>http://localhost:1313/redis/</link>
-    <pubDate>Sun, 22 May 2022 15:09:50 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>http://localhost:1313/redis/</guid>
-    <description><![CDATA[转载请注明出处：https://hts0000.github.io/ 欢迎与我联系：hts_0000@sina.com Redis Redis如何通过Ke]]></description>
 </item></channel>
 </rss>
